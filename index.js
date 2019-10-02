@@ -1,127 +1,100 @@
-// # spell-checker:ignore macos APPDATA LOCALAPPDATA
-
+// # spell-checker:ignore UserProfile HomeDrive HomePath WinDir
+/* eslint-env es6, node */
 'use strict';
-const path = require('path');
+
 const os = require('os');
 
-const homedir = os.homedir();
-const tmpdir = os.tmpdir();
-const {env} = process;
+const isWinOS = /^win/i.test(process.platform);
 
-// XDG references
-// # ref: <https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html> @@ <https://archive.is/aAhtw>
-// # ref: <https://specifications.freedesktop.org/basedir-spec/latest/ar01s03.html> @@ <https://archive.is/7N0TN>
-// # ref: <https://wiki.archlinux.org/index.php/XDG_Base_Directory> @@ <https://archive.is/VdO9n>
-// # ref: <https://wiki.debian.org/XDGBaseDirectorySpecification#state> @@ <http://archive.is/pahId>
-// # ref: <https://ploum.net/207-modify-your-application-to-use-xdg-folders> @@ <https://archive.is/f43Gk>
+const base = () => {
+	const {env} = process;
 
-const macos = name => {
-	const library = path.join(homedir, 'Library');
+	const object = {};
 
-	const _config = path.join(env.XDG_CONFIG_HOME ? env.XDG_CONFIG_HOME : path.join(library, 'Preferences'), name);
-	const _data = path.join(env.XDG_DATA_HOME ? env.XDG_DATA_HOME : path.join(library, 'Application Support'), name);
+	object.home = os.homedir ?
+		() => {
+			return os.homedir();
+		} :
+		() => {
+			let path = env.HOME;
+			if (path.length > 1 && path.endsWith('/')) {
+				path = path.slice(0, -1);
+			}
 
-	const _configDirs = [_config];
-	if (env.XDG_CONFIG_DIRS) {
-		_configDirs.push(...env.XDG_CONFIG_DIRS.split(path.delimiter).map(s => path.join(s, name)));
-	}
+			return path;
+		};
 
-	const _dataDirs = [_data];
-	if (env.XDG_DATA_DIRS) {
-		_dataDirs.push(...env.XDG_DATA_DIRS.split(path.delimiter).map(s => path.join(s, name)));
-	}
+	object.temp = os.tmpdir ?
+		() => {
+			return os.tmpdir();
+		} :
+		() => {
+			let path = env.TMPDIR ||
+				env.TEMP ||
+				env.TMP ||
+				'/tmp';
+			if (path.length > 1 && path.endsWith('/')) {
+				path = path.slice(0, -1);
+			}
 
-	return {
-		cache: env.XDG_CACHE_HOME ? path.join(env.XDG_CACHE_HOME, name) : path.join(library, 'Caches', name),
-		config: _config,
-		data: _data,
-		log: env.XDG_STATE_HOME ? path.join(env.XDG_STATE_HOME, name) : path.join(library, 'Logs', name),
-		temp: path.join(tmpdir, name),
-		configDirs: _configDirs,
-		dataDirs: _dataDirs
-	};
+			return path;
+		};
+
+	return object;
 };
 
-const windows = name => {
-	// #ref: <https://www.thewindowsclub.com/local-localnow-roaming-folders-windows-10> @@ <http://archive.is/tDEPl>
-	const appData = env.APPDATA || path.join(homedir, 'AppData', 'Roaming');			// "AppData/Roaming" contains data which may follow user between machines
-	const localAppData = env.LOCALAPPDATA || path.join(homedir, 'AppData', 'Local');	// "AppData/Local" contains local-machine-only user data
+const windows = () => {
+	const {env} = process;
 
-	const _config = env.XDG_CONFIG_HOME ? path.join(env.XDG_CONFIG_HOME, name) : path.join(appData, name, 'Config');
-	const _data = env.XDG_DATA_HOME ? path.join(env.XDG_DATA_HOME, name) : path.join(appData, name, 'Data');
+	const object = {};
 
-	const _configDirs = [_config];
-	if (env.XDG_CONFIG_DIRS) {
-		_configDirs.push(...env.XDG_CONFIG_DIRS.split(path.delimiter).map(s => path.join(s, name)));
-	}
+	object.home = os.homedir ?
+		() => {
+			return os.homedir();
+		} :
+		() => {
+			let path = env.USERPROFILE || env.HOMEDRIVE + env.HOMEPATH || env.HOME;
+			if (path.length > 1 && ((path.endsWith('\\') && !path.endsWith(':\\')) || (path.endsWith('/') && !path.endsWith(':/')))) {
+				path = path.slice(0, -1);
+			}
 
-	const _dataDirs = [_data];
-	if (env.XDG_DATA_DIRS) {
-		_dataDirs.push(...env.XDG_DATA_DIRS.split(path.delimiter).map(s => path.join(s, name)));
-	}
+			return path;
+		};
 
-	return {
-		// Locations for data/config/cache/log are invented (Windows doesn't have a popular convention)
-		cache: env.XDG_CACHE_HOME ? path.join(env.XDG_CACHE_HOME, name) : path.join(localAppData, name, 'Cache'),
-		config: _config,
-		data: _data,
-		log: env.XDG_STATE_HOME ? path.join(env.XDG_STATE_HOME, name) : path.join(localAppData, name, 'Log'),
-		temp: path.join(tmpdir, name),
-		configDirs: _configDirs,
-		dataDirs: _dataDirs
-	};
+	object.temp = os.tmpdir ?
+		() => {
+			return os.tmpdir();
+		} :
+		() => {
+			let path = env.TEMP ||
+				env.TMP ||
+				(env.SystemRoot || env.windir) + '\\temp';
+			if (path.length > 1 && ((path.endsWith('\\') && !path.endsWith(':\\')) || (path.endsWith('/') && !path.endsWith(':/')))) {
+				path = path.slice(0, -1);
+			}
+
+			return path;
+		};
+
+	return object;
 };
 
-const linux = name => {
-	const username = path.basename(homedir);
+class _OSPaths {
+	constructor() {
+		const OSPaths = function () {
+			return new _OSPaths();
+		};
 
-	const _config = path.join(env.XDG_CONFIG_HOME ? env.XDG_CONFIG_HOME : path.join(homedir, '.config'), name);
-	const _data = path.join(env.XDG_DATA_HOME ? env.XDG_DATA_HOME : path.join(homedir, '.local', 'share'), name);
+		this._fn = OSPaths;
 
-	const _configDirs = [_config];
-	if (env.XDG_CONFIG_DIRS) {
-		_configDirs.push(...env.XDG_CONFIG_DIRS.split(path.delimiter).map(s => path.join(s, name)));
+		// Connect to platform-specific API functions by extension
+		const extension = isWinOS ? windows() : base();
+		Object.keys(extension).forEach(key => {
+			this._fn[key] = extension[key];
+		});
+
+		return this._fn;
 	}
+}
 
-	const _dataDirs = [_data];
-	if (env.XDG_DATA_DIRS) {
-		_dataDirs.push(...env.XDG_DATA_DIRS.split(path.delimiter).map(s => path.join(s, name)));
-	}
-
-	return {
-		cache: path.join(env.XDG_CACHE_HOME || path.join(homedir, '.cache'), name),
-		config: _config,
-		data: _data,
-		log: path.join(env.XDG_STATE_HOME || path.join(homedir, '.local', 'state'), name),
-		temp: path.join(tmpdir, username, name),
-		configDirs: _configDirs,
-		dataDirs: _dataDirs
-	};
-};
-
-const osPaths = (name, options) => {
-	if (typeof name !== 'string') {
-		throw new TypeError(`Expected string, got ${typeof name}`);
-	}
-
-	options = Object.assign({suffix: 'nodejs'}, options);
-
-	if (options.suffix) {
-		// Add suffix to prevent possible conflict with native apps
-		name += `-${options.suffix}`;
-	}
-
-	if (process.platform === 'darwin') {
-		return macos(name);
-	}
-
-	if (process.platform === 'win32') {
-		return windows(name);
-	}
-
-	return linux(name);
-};
-
-module.exports = osPaths;
-// #TODO: Remove this for the next major release
-module.exports.default = osPaths;
+module.exports = new _OSPaths();
