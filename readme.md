@@ -5,11 +5,21 @@
 
 <!-- spell-checker:ignore rivy Sindre Sorhus -->
 
-# os-paths [![Build Status](https://travis-ci.org/rivy/js.os-paths.svg?branch=master)](https://travis-ci.org/rivy/js.os-paths)
+# [os-paths](https://github.com/rivy/js.os-paths)
 
-> Get OS-specific (and [XDG](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)-compatible) paths for storing things like data, config, cache, etc
+> Generate portable basic OS paths (home, temp, ...)
 
-## Install
+[![Build status][travis-image]][travis-url]
+[![Build status][appveyor-image]][appveyor-url]
+[![Coverage status][coverage-image]][coverage-url]
+[![Javascript Style Guide][style-image]][style-url]
+[![License][license-image]][license-url]
+&nbsp; <br/>
+[![Repository][repository-image]][repository-url]
+[![NPM version][npm-image]][npm-url]
+[![Downloads][downloads-image]][downloads-url]
+
+## Installation
 
 ```shell
 npm install os-paths
@@ -20,60 +30,83 @@ npm install os-paths
 ```js
 const osPaths = require('os-paths');
 
-const paths = osPaths('MyApp');
+osPaths.home();
+//(*nix) => '/home/rivy'
+//(win)  => 'C:\Users\RIvy'
 
-paths.data;
-//(*nix)=> '/home/rivy/.local/share/MyApp-nodejs'
-
-paths.config
-//(*nix)=> '/home/rivy/.config/MyApp-nodejs'
+osPaths.temp();
+//(*nix) => '/tmp'
+//(win)  => 'C:\temp'
 ```
 
 ## API
 
-### paths = osPaths(name, [options])
+### Initialization
+
+#### `require('os-paths'): OSPaths()`
+
+```js
+const osPaths = require('os-paths');
+// or ...
+const osPaths = require('os-paths')( options );
+```
+
+The object returned by the module constructor is an OSPaths Function object, augmented with attached methods. When called directly (eg, `const p = xdg()`), it returns a newly constructed OSPaths object. Since the OSPaths object contains no instance state, all constructed objects will be functionally identical.
+
+### Methods
+
+All module methods return platform-compatible path strings.
 
 Note: It only generates the path strings. It doesn't create the directories for you. You could use [`make-dir`](https://github.com/sindresorhus/make-dir) to create the directories.
 
-#### name
+#### `osPaths.home(): string`
 
-Type: `string`
+Returns the home directory for user
 
-Name of your project. Used to generate the paths.
+#### `osPaths.temp(): string`
 
-#### options
+Returns the directory for temporary files
 
-Type: `Object`
+### XDG
 
-##### suffix
+All XDG-related methods have been relocated to the [`xdg-portable`](https://www.npmjs.com/package/xdg-portable) and [`xdg-app-paths`](https://www.npmjs.com/package/xdg-app-paths) modules.
 
-Type: `string`<br>
-Default: `'nodejs'`
+## Related
 
-**Don't use this option unless you really have to!**<br>
-Suffix appended to the project name to avoid name conflicts with native
-apps. Pass an empty string to disable it.
-
-### paths.data
-
-Directory for data files.
-
-### paths.config
-
-Directory for config files.
-
-### paths.cache
-
-Directory for non-essential data files.
-
-### paths.log
-
-Directory for log files.
-
-### paths.temp
-
-Directory for temporary files.
+- [`xdg-app-paths`](https://www.npmjs.com/package/xdg-app-paths) ... easy XDG for applications
+- [`xdg-portable`](https://www.npmjs.com/package/xdg-portable) ... XDG Base Directory paths (cross-platform)
 
 ## License
 
-MIT © Roy Ivy III, [Sindre Sorhus](https://sindresorhus.com)
+MIT © [Roy Ivy III](https://github.com/rivy), [Sindre Sorhus](https://sindresorhus.com)
+
+<!-- badge references -->
+
+[npm-image]: https://img.shields.io/npm/v/os-paths.svg?style=flat
+[npm-url]: https://npmjs.org/package/os-paths
+
+<!-- [appveyor-image]: https://ci.appveyor.com/api/projects/status/.../branch/master?svg=true -->
+[appveyor-image]: https://img.shields.io/appveyor/ci/rivy/js-os-paths/master.svg?style=flat&logo=AppVeyor&logoColor=silver
+[appveyor-url]: https://ci.appveyor.com/project/rivy/js-os-paths
+<!-- [travis-image]: https://travis-ci.org/rivy/js.os-paths.svg?branch=master -->
+<!-- [travis-image]: https://img.shields.io/travis/rivy/js.os-paths/master.svg?style=flat&logo=Travis-CI&logoColor=silver -->
+[travis-image]: https://img.shields.io/travis/rivy/js.os-paths/master.svg?style=flat
+[travis-url]: https://travis-ci.org/rivy/js.os-paths
+
+<!-- [coverage-image]: https://img.shields.io/coveralls/github/rivy/os-paths/master.svg -->
+<!-- [coverage-url]: https://coveralls.io/github/rivy/os-paths -->
+[coverage-image]: https://img.shields.io/codecov/c/github/rivy/js.os-paths/master.svg
+[coverage-url]: https://codecov.io/gh/rivy/js.os-paths
+[downloads-image]: http://img.shields.io/npm/dm/os-paths.svg?style=flat
+[downloads-url]: https://npmjs.org/package/os-paths
+[issues-image]: https://img.shields.io/github/issues/rivy/js.os-paths?logo=github
+[issues-url]: https://github.com/rivy/js.os-paths/issues
+[license-image]: https://img.shields.io/npm/l/os-paths.svg?style=flat
+[license-url]: license
+<!-- [repository-image]:https://img.shields.io/badge/%E2%9D%A4-darkcyan?style=flat&logo=github -->
+[repository-image]:https://img.shields.io/github/v/tag/rivy/js.os-paths?label=@&logo=github
+[repository-url]:https://github.com/rivy/js.os-paths
+<!-- [style-image]: https://img.shields.io/badge/code_style-standard-darkcyan.svg -->
+<!-- [style-url]: https://standardjs.com -->
+[style-image]: https://img.shields.io/badge/code_style-XO-darkcyan.svg
+[style-url]: https://github.com/xojs/xo
