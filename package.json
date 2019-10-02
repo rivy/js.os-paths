@@ -1,7 +1,7 @@
 {
 	"name": "os-paths",
 	"version": "3.0.2",
-	"description": "Generate portable (and XDG-compatible) paths for storing cache, config, data, etc",
+	"description": "Generate portable basic OS paths (home, temp, ...)",
 	"license": "MIT",
 	"repository": "rivy/js.os-paths",
 	"author": {
@@ -20,24 +20,20 @@
 		"index.d.ts"
 	],
 	"keywords": [
-		"appdir",
-		"cache",
 		"common",
-		"config",
-		"data",
-		"dir",
+		"cross-platform",
 		"directory",
 		"env",
 		"environment",
 		"linux",
-		"logs",
+		"mac",
+		"macos",
+		"osx",
 		"path",
 		"paths",
-		"temp",
+		"portable",
 		"unix",
-		"user",
-		"windows",
-		"xdg"
+		"windows"
 	],
 	"devDependencies": {
 		"ava": "^1.4.1",
