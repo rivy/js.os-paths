@@ -2,6 +2,37 @@
 
 ---
 
+## [v4.0.0](https://github.com/rivy-go/git-chglog/compare/v3.0.2...v4.0.0) <small>(2019-10-02)</small>
+
+#### Changes
+
+* change/**API!**: change module focus to only OS-associated paths, using a method-based API &ac; [`a18b948`](https://github.com/rivy-go/git-chglog/commit/a18b94877d5b8f8030805124be2e5af3b4423332)
+
+#### Documentation
+
+* docs ~ add example script &ac; [`43ea4ca`](https://github.com/rivy-go/git-chglog/commit/43ea4cabc5ba9ee04e14d6fce34c8b78defd9063)
+* docs ~ update README &ac; [`ea09e79`](https://github.com/rivy-go/git-chglog/commit/ea09e7987e47bfbeb15a17508c9b59f31c5e3492)
+* docs ~ change package description and keywords &ac; [`f993fb9`](https://github.com/rivy-go/git-chglog/commit/f993fb90f7d3bf3b49d2ffbb67319c3c08e416d7)
+* docs ~ add CHANGELOG &ac; [`d8b964c`](https://github.com/rivy-go/git-chglog/commit/d8b964c6c09477ae200a7d2e81e164d82f31e63d)
+
+#### Maintenance
+
+* maint ~ improve linting support for IDEs (using 'eslint') &ac; [`c64ce55`](https://github.com/rivy-go/git-chglog/commit/c64ce55abe3c0e9650b14567df815fecc0c9a380)
+* maint ~ update EditorConfig configuration for better TAB display &ac; [`15ac24f`](https://github.com/rivy-go/git-chglog/commit/15ac24fda5b3cb743bb91d2dbf2c83686c830653)
+* maint/**CI**: add AppVeyor CI configuration &ac; [`4f3b933`](https://github.com/rivy-go/git-chglog/commit/4f3b933bf13e8f43f0c75ef46ea5b098281eb5af)
+* maint/**CI**: add Travis CI configuration &ac; [`0c5dfb7`](https://github.com/rivy-go/git-chglog/commit/0c5dfb7544014e4ae458251b0930a309bb440e5f)
+* maint/**CI**: add code coverage support and reporting &ac; [`27f5df4`](https://github.com/rivy-go/git-chglog/commit/27f5df44ea4df0b715e40d07479c1448d8065969)
+* maint/**build**: add tests for correct spelling &ac; [`ab911b1`](https://github.com/rivy-go/git-chglog/commit/ab911b197a205e22b706bf380cf59ba7690c566d)
+* maint/**build**: refactor testing commands &ac; [`e962f1d`](https://github.com/rivy-go/git-chglog/commit/e962f1d96bbe460237e2048e04bb368733852dd5)
+* maint/**build**: add CHANGELOG (`git-chglog`) configuration &ac; [`e5bb024`](https://github.com/rivy-go/git-chglog/commit/e5bb024c35bd73918b5469d1b393f38dfd7b0b7c)
+* maint/**build**: add 'lint' run-script command &ac; [`6d279b8`](https://github.com/rivy-go/git-chglog/commit/6d279b8f9e067c1efe14648f96861f2d417b2016)
+* maint/**build**: refactor run-scripts to use `npm-run-all` &ac; [`2ca1ddf`](https://github.com/rivy-go/git-chglog/commit/2ca1ddf25073e66d7e5c708d6e4d7e34496511de)
+* maint/**build**: expand file set for spell checking &ac; [`334683b`](https://github.com/rivy-go/git-chglog/commit/334683bc7ae5e60a36d3e4f26c40c3850f5e14ad)
+* maint/**build**: gate spell-check to NodeJS >= v8 &ac; [`f737d15`](https://github.com/rivy-go/git-chglog/commit/f737d15b399e9362fd6f18fbb592427f6ccdc0b3)
+* maint/**build**: refactor run-scripts &ac; [`c453ad7`](https://github.com/rivy-go/git-chglog/commit/c453ad7b5567e7329028bfb0e18e4d9227e93a6f)
+
+---
+
 ## [v3.0.2](https://github.com/rivy-go/git-chglog/compare/v3.0.1...v3.0.2) <small>(2019-06-29)</small>
 
 #### Documentation
