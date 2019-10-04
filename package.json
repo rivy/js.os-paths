@@ -14,7 +14,7 @@
 	"scripts": {
 		"coverage": "nyc report --reporter=text-lcov | codecov --disable=gcov --pipe",
 		"lint": "npm-run-all lint:*",
-		"lint:spell": "cspell *.js --no-summary",
+		"lint:spell": "cspell *.js *.ts readme.md --no-summary",
 		"lint:style": "xo",
 		"pretest": "npm run lint",
 		"test": "nyc --silent ava && tsd"
