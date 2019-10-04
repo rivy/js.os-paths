@@ -13,6 +13,7 @@
 	},
 	"scripts": {
 		"coverage": "nyc report --reporter=text-lcov | codecov --disable=gcov --pipe",
+		"pretest:spell": "cspell *.js --no-summary",
 		"test": "xo && nyc --silent ava && tsd"
 	},
 	"files": [
@@ -38,6 +39,7 @@
 	"devDependencies": {
 		"ava": "^1.4.1",
 		"codecov": "^3.5.0",
+		"cspell": "^4.0.30",
 		"eslint": "^5.16.0",
 		"lodash": "^4.17.15",
 		"nyc": "^14.1.1",
