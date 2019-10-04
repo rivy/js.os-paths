@@ -12,12 +12,12 @@
 [![Build status][travis-image]][travis-url]
 [![Build status][appveyor-image]][appveyor-url]
 [![Coverage status][coverage-image]][coverage-url]
-[![Javascript Style Guide][style-image]][style-url]
 [![License][license-image]][license-url]
 &nbsp; <br/>
 [![Repository][repository-image]][repository-url]
 [![NPM version][npm-image]][npm-url]
 [![Downloads][downloads-image]][downloads-url]
+[![Javascript Style Guide][style-image]][style-url]
 
 ## Installation
 
@@ -82,15 +82,16 @@ MIT © [Roy Ivy III](https://github.com/rivy), [Sindre Sorhus](https://sindresor
 
 <!-- badge references -->
 
+<!-- [npm-image]: https://img.shields.io/npm/v/os-paths.svg?style=flat&label=npm&logo=NPM&logoColor=linen -->
 [npm-image]: https://img.shields.io/npm/v/os-paths.svg?style=flat
 [npm-url]: https://npmjs.org/package/os-paths
 
 <!-- [appveyor-image]: https://ci.appveyor.com/api/projects/status/.../branch/master?svg=true -->
-[appveyor-image]: https://img.shields.io/appveyor/ci/rivy/js-os-paths/master.svg?style=flat&logo=AppVeyor&logoColor=silver
+[appveyor-image]: https://img.shields.io/appveyor/ci/rivy/js-os-paths/master.svg?style=flat&logo=AppVeyor&logoColor=deepskyblue
 [appveyor-url]: https://ci.appveyor.com/project/rivy/js-os-paths
 <!-- [travis-image]: https://travis-ci.org/rivy/js.os-paths.svg?branch=master -->
 <!-- [travis-image]: https://img.shields.io/travis/rivy/js.os-paths/master.svg?style=flat&logo=Travis-CI&logoColor=silver -->
-[travis-image]: https://img.shields.io/travis/rivy/js.os-paths/master.svg?style=flat
+[travis-image]: https://img.shields.io/travis/rivy/js.os-paths/master.svg?style=flat&logo=travis
 [travis-url]: https://travis-ci.org/rivy/js.os-paths
 
 <!-- [coverage-image]: https://img.shields.io/coveralls/github/rivy/os-paths/master.svg -->
@@ -99,12 +100,11 @@ MIT © [Roy Ivy III](https://github.com/rivy), [Sindre Sorhus](https://sindresor
 [coverage-url]: https://codecov.io/gh/rivy/js.os-paths
 [downloads-image]: http://img.shields.io/npm/dm/os-paths.svg?style=flat
 [downloads-url]: https://npmjs.org/package/os-paths
-[issues-image]: https://img.shields.io/github/issues/rivy/js.os-paths?logo=github
-[issues-url]: https://github.com/rivy/js.os-paths/issues
 [license-image]: https://img.shields.io/npm/l/os-paths.svg?style=flat
 [license-url]: license
 <!-- [repository-image]:https://img.shields.io/badge/%E2%9D%A4-darkcyan?style=flat&logo=github -->
-[repository-image]:https://img.shields.io/github/v/tag/rivy/js.os-paths?label=@&logo=github
+<!-- note: %E2%81%A3 == utf-8 sequence of 'Unicode Character 'INVISIBLE SEPARATOR' (U+2063)' -->
+[repository-image]:https://img.shields.io/github/v/tag/rivy/js.os-paths?label=%E2%81%A3&logo=github&logoColor=white
 [repository-url]:https://github.com/rivy/js.os-paths
 <!-- [style-image]: https://img.shields.io/badge/code_style-standard-darkcyan.svg -->
 <!-- [style-url]: https://standardjs.com -->
