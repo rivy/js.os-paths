@@ -13,8 +13,10 @@
 	},
 	"scripts": {
 		"coverage": "nyc report --reporter=text-lcov | codecov --disable=gcov --pipe",
+		"pretest:style": "xo",
 		"pretest:spell": "cspell *.js --no-summary",
-		"test": "xo && nyc --silent ava && tsd"
+		"pretest": "npm run pretest:spell && npm run pretest:style",
+		"test": "nyc --silent ava && tsd"
 	},
 	"files": [
 		"index.js",
