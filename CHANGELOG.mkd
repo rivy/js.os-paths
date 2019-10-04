@@ -1,0 +1,91 @@
+# CHANGELOG <br/> [git-chglog](https://github.com/rivy-go/git-chglog)
+
+---
+
+## [v3.0.2](https://github.com/rivy-go/git-chglog/compare/v3.0.1...v3.0.2) <small>(2019-06-29)</small>
+
+#### Documentation
+
+* docs ~ polish and add XDG references &ac; [`1696b46`](https://github.com/rivy-go/git-chglog/commit/1696b462d336a047b5041685b4fade914eeebd6a)
+
+---
+
+## [v3.0.1](https://github.com/rivy-go/git-chglog/compare/v2.2.0...v3.0.1) <small>(2019-06-29)</small>
+
+#### Changes
+
+* add improved XDG support (CONFIG_DIRS and DATA_DIRS) &ac; [`c6a250b`](https://github.com/rivy-go/git-chglog/commit/c6a250bdcb899b83179b2414b9f5607fbf0e29bc)
+* add cross-platform XDG support (plus comment polish) &ac; [`4d87f8d`](https://github.com/rivy-go/git-chglog/commit/4d87f8d06d39a3c87d8dc49b5b00a720fbcf75e7)
+* Add note about the user needing to create the actual directories &ac; [`294db55`](https://github.com/rivy-go/git-chglog/commit/294db5514d82a39424b4325d8e59879241174365)
+
+#### Fixes
+
+* fix ~ windows 'data' should roam with user &ac; [`a0b2f75`](https://github.com/rivy-go/git-chglog/commit/a0b2f75b9a6ff09a74b2e49899863e844257c885)
+
+#### Maintenance
+
+* maint ~ comment polish &ac; [`dab0324`](https://github.com/rivy-go/git-chglog/commit/dab0324f2302eb87a7631044c4a997b935583dcd)
+* maint ~ add README linting and corrections &ac; [`aaf1e6c`](https://github.com/rivy-go/git-chglog/commit/aaf1e6ca0b7407a095adbf1877b6fd5c85061eac)
+* maint ~ add spell-checker exceptions &ac; [`bf9d759`](https://github.com/rivy-go/git-chglog/commit/bf9d7595a99f9eae2c8db1e05d504cc912b5baaf)
+
+#### Refactoring
+
+* refactor ~ reorganize properties &ac; [`f376e0c`](https://github.com/rivy-go/git-chglog/commit/f376e0c142b303a1313710914490ff521b4b9dd7)
+
+---
+
+## [v2.2.0](https://github.com/rivy-go/git-chglog/compare/v2.1.0...v2.2.0) <small>(2019-04-01)</small>
+
+#### Refactoring
+
+* Refactor TypeScript definition to CommonJS compatible export ([#12](https://github.com/rivy-go/git-chglog/issues/12)) &ac; [`dacf4e9`](https://github.com/rivy-go/git-chglog/commit/dacf4e91cf27b1dccf5f2341bb2bec766307de0f)
+
+---
+
+## [v2.1.0](https://github.com/rivy-go/git-chglog/compare/v2.0.0...v2.1.0) <small>(2019-03-04)</small>
+
+#### Changes
+
+* Add TypeScript definition ([#11](https://github.com/rivy-go/git-chglog/issues/11)) &ac; [`949cd22`](https://github.com/rivy-go/git-chglog/commit/949cd224975f15bfeb1fd2d3a2e7ad284d4cbeab)
+
+---
+
+## [v2.0.0](https://github.com/rivy-go/git-chglog/compare/v1.0.0...v2.0.0) <small>(2018-11-05)</small>
+
+*No changelog for this release.*
+
+---
+
+## [v1.0.0](https://github.com/rivy-go/git-chglog/compare/v0.3.1...v1.0.0) <small>(2017-01-10)</small>
+
+#### Fixes
+
+* Fix incorrect paths on Linux ([#6](https://github.com/rivy-go/git-chglog/issues/6)) &ac; [`3a2ba84`](https://github.com/rivy-go/git-chglog/commit/3a2ba84dc8be3103158225b4f0a3bd36ba9288b6)
+
+---
+
+## [v0.3.1](https://github.com/rivy-go/git-chglog/compare/v0.3.0...v0.3.1) <small>(2016-10-18)</small>
+
+*No changelog for this release.*
+
+---
+
+## [v0.3.0](https://github.com/rivy-go/git-chglog/compare/v0.2.0...v0.3.0) <small>(2016-07-02)</small>
+
+#### Fixes
+
+* fix usage example &ac; [`88a5908`](https://github.com/rivy-go/git-chglog/commit/88a5908a9409422fa21cab38a4965701f74281fe)
+
+---
+
+## [v0.2.0](https://github.com/rivy-go/git-chglog/compare/v0.1.0...v0.2.0) <small>(2016-06-24)</small>
+
+#### Changes
+
+* add suffix to prevent possible conflict with native apps &ac; [`c2fda19`](https://github.com/rivy-go/git-chglog/commit/c2fda19d629e56f308c8265506a1baf0c5c7e6dc)
+
+---
+
+## v0.1.0 <small>(2016-06-21)</small>
+
+*No changelog for this release.*
