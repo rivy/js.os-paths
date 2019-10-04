@@ -2,6 +2,18 @@
 
 ---
 
+## [v4.0.1](https://github.com/rivy/js.os-paths/compare/v4.0.0...v4.0.1) <small>(2019-10-04)</small>
+
+#### Documentation
+
+* docs ~ fix CHANGELOG title and URLs &ac; [`5458236`](https://github.com/rivy/js.os-paths/commit/54582364a6230ad8c667208dc99766e98985a78d)
+
+#### Maintenance
+
+* maint/**build**: fix CHANGELOG generator configuration &ac; [`acb315d`](https://github.com/rivy/js.os-paths/commit/acb315d45e55942b67b2c89d11aef5418d2050c1)
+
+---
+
 ## [v4.0.0](https://github.com/rivy/js.os-paths/compare/v3.0.2...v4.0.0) <small>(2019-10-02)</small>
 
 #### Changes
