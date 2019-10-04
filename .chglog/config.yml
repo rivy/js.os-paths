@@ -1,8 +1,8 @@
 # spell-checker:ignore bugfix maint
 # spell-checker:ignore chglog
 info:
-  title: git-chglog
-  repository_url: https://github.com/rivy-go/git-chglog
+  title: os-paths
+  repository_url: https://github.com/rivy/js.os-paths
 style: github
 template: CHANGELOG.tpl.md
 options:
