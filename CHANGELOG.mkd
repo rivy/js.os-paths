@@ -2,6 +2,18 @@
 
 ---
 
+## [v4.1.0](https://github.com/rivy/js.os-paths/compare/v4.0.1...v4.1.0) <small>(2019-10-04)</small>
+
+#### Documentation
+
+* docs ~ improve README badges &ac; [`a354862`](https://github.com/rivy/js.os-paths/commit/a3548620a0856d55565d388388fd349bdb47c148)
+
+#### Maintenance
+
+* maint/**build**: fix/update dev dependencies &ac; [`de871cb`](https://github.com/rivy/js.os-paths/commit/de871cb5456609c199a8d3fcd2f94a52f25ead76)
+
+---
+
 ## [v4.0.1](https://github.com/rivy/js.os-paths/compare/v4.0.0...v4.0.1) <small>(2019-10-04)</small>
 
 #### Documentation
