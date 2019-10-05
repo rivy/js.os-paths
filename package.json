@@ -1,7 +1,7 @@
 {
 	"name": "os-paths",
 	"version": "4.1.0",
-	"description": "Generate portable basic OS paths (home, temp, ...)",
+	"description": "Generate portable common OS paths (home, temp, ...)",
 	"license": "MIT",
 	"repository": "rivy/js.os-paths",
 	"author": {
@@ -9,7 +9,7 @@
 		"email": "rivy.dev@gmail.com"
 	},
 	"engines": {
-		"node": ">=6"
+		"node": ">= 6.0.0"
 	},
 	"scripts": {
 		"coverage": "nyc report --reporter=text-lcov | codecov --disable=gcov --pipe",
@@ -33,11 +33,12 @@
 		"common",
 		"cross-platform",
 		"directory",
-		"env",
 		"environment",
 		"linux",
 		"mac",
 		"macos",
+		"nix",
+		"node6",
 		"osx",
 		"path",
 		"paths",

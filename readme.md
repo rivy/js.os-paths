@@ -3,12 +3,14 @@
 <!-- -## editors ## (emacs/sublime) -*- coding: utf8-nix; tab-width: 4; mode: markdown; indent-tabs-mode: nil; basic-offset: 2; st-word_wrap: 'true' -*- ## (jEdit) :tabSize=4:indentSize=4:mode=markdown: ## (notepad++) vim:tabstop=4:syntax=markdown:expandtab:smarttab:softtabstop=2 ## modeline (see <https://archive.is/djTUD>@@<http://webcitation.org/66W3EhCAP> ) -->
 <!-- spell-checker:ignore expandtab markdownlint modeline smarttab softtabstop -->
 
+<!-- markdownlint-disable heading-increment -->
 <!-- spell-checker:ignore rivy Sindre Sorhus -->
 
 # [os-paths](https://github.com/rivy/js.os-paths)
 
-> Generate portable basic OS paths (home, temp, ...)
+> Generate portable common OS paths (home, temp, ...)
 
+[![Node minimum version][node-image]][node-url]
 [![Build status][travis-image]][travis-url]
 [![Build status][appveyor-image]][appveyor-url]
 [![Coverage status][coverage-image]][coverage-url]
@@ -24,6 +26,11 @@
 ```shell
 npm install os-paths
 ```
+
+> ###### Requirements
+>
+> NodeJS >= 6.0.0
+<!--{blockquote: .--info}-->
 
 ## Usage
 
@@ -51,13 +58,16 @@ const osPaths = require('os-paths');
 const osPaths = require('os-paths')( options );
 ```
 
-The object returned by the module constructor is an OSPaths Function object, augmented with attached methods. When called directly (eg, `const p = xdg()`), it returns a newly constructed OSPaths object. Since the OSPaths object contains no instance state, all constructed objects will be functionally identical.
+The object returned by the module constructor is an `OSPaths` function object, augmented with attached methods. When called directly (eg, `const p = xdg()`), it returns a newly constructed `OSPaths` object. Since the `OSPaths` object contains no instance state, all constructed objects will be functionally identical.
 
 ### Methods
 
-All module methods return platform-compatible path strings.
+All module methods return simple, platform-compatible, path strings.
 
-Note: It only generates the path strings. It doesn't create the directories for you. You could use [`make-dir`](https://github.com/sindresorhus/make-dir) to create the directories.
+The path strings are *not* guaranteed to already exist on the file system. So, the user is responsible for directory construction, if/when needed.
+However, since all of these are *standard* OS directories, they should all exist without the need for user intervention.
+
+If/when necessary, [`make-dir`](https://www.npmjs.com/package/make-dir) or [`mkdirp`](https://www.npmjs.com/package/mkdirp) can be used to create the directories.
 
 #### `osPaths.home(): string`
 
@@ -82,6 +92,13 @@ MIT © [Roy Ivy III](https://github.com/rivy), [Sindre Sorhus](https://sindresor
 
 <!-- badge references -->
 
+<!-- Unicode characters reference at <https://en.wikibooks.org/wiki/Unicode/List_of_useful_symbols> -->
+<!-- note: %e2%81%a3 == utf-8 sequence of "Unicode Character 'Invisible Separator' (U+2063)"; conversion from <https://www.branah.com/unicode-converter> -->
+<!-- note: %e2%80%8b == utf-8 sequence of "Unicode Character 'Zero Width Space' (U+200b)"; conversion from <https://www.branah.com/unicode-converter> -->
+
+[node-image]: https://img.shields.io/node/v/os-paths.svg?style=flat&color=darkcyan
+[node-url]: https://npmjs.org/package/os-paths
+
 <!-- [npm-image]: https://img.shields.io/npm/v/os-paths.svg?style=flat&label=npm&logo=NPM&logoColor=linen -->
 [npm-image]: https://img.shields.io/npm/v/os-paths.svg?style=flat
 [npm-url]: https://npmjs.org/package/os-paths
@@ -103,8 +120,8 @@ MIT © [Roy Ivy III](https://github.com/rivy), [Sindre Sorhus](https://sindresor
 [license-image]: https://img.shields.io/npm/l/os-paths.svg?style=flat
 [license-url]: license
 <!-- [repository-image]:https://img.shields.io/badge/%E2%9D%A4-darkcyan?style=flat&logo=github -->
-<!-- note: %E2%81%A3 == utf-8 sequence of 'Unicode Character 'INVISIBLE SEPARATOR' (U+2063)' -->
-[repository-image]:https://img.shields.io/github/v/tag/rivy/js.os-paths?label=%E2%81%A3&logo=github&logoColor=white
+<!-- [repository-image]:https://img.shields.io/github/v/tag/rivy/js.os-paths?label=%e2%80%8b&logo=github&logoColor=white&colorA=gray&logoWidth=15 -->
+[repository-image]:https://img.shields.io/github/v/tag/rivy/js.os-paths?label=repo&logo=github&logoColor=white
 [repository-url]:https://github.com/rivy/js.os-paths
 <!-- [style-image]: https://img.shields.io/badge/code_style-standard-darkcyan.svg -->
 <!-- [style-url]: https://standardjs.com -->

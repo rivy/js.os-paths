@@ -1,5 +1,5 @@
-// # spell-checker:ignore UserProfile HomeDrive HomePath WinDir
 /* eslint-env es6, node */
+// # spell-checker:ignore UserProfile HomeDrive HomePath WinDir
 'use strict';
 
 const os = require('os');
