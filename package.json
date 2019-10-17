@@ -13,9 +13,11 @@
 	},
 	"scripts": {
 		"coverage": "nyc report --reporter=text-lcov | codecov --disable=gcov --pipe",
+		"coverage:local": "nyc report --reporter=html",
 		"lint": "run-p lint:*",
 		"lint:spell": "run-s -s _:min-node-8 _:spellcheck || run-s -s _:max-node-6 _:spellcheck-warn",
 		"lint:style": "xo",
+		"prepublishOnly": "npm run test",
 		"pretest": "npm run lint",
 		"test": "run-p test:*",
 		"test:code": "nyc --silent ava",
