@@ -27,10 +27,10 @@
 npm install os-paths
 ```
 
-> ###### Requirements
+> #### Requirements
 >
 > NodeJS >= 6.0.0
-<!--{blockquote: .--info}-->
+<!--{blockquote: .--info style="font-size:75%;"}-->
 
 ## Usage
 
@@ -58,7 +58,7 @@ const osPaths = require('os-paths');
 const osPaths = require('os-paths')( options );
 ```
 
-The object returned by the module constructor is an `OSPaths` function object, augmented with attached methods. When called directly (eg, `const p = xdg()`), it returns a newly constructed `OSPaths` object. Since the `OSPaths` object contains no instance state, all constructed objects will be functionally identical.
+The object returned by the module constructor is an `OSPaths` function object, augmented with attached methods. When called directly (eg, `const p = osPaths()`), it returns a newly constructed `OSPaths` object. Since the `OSPaths` object contains no instance state, all constructed objects will be functionally identical.
 
 ### Methods
 
