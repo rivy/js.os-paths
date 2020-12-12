@@ -1,8 +1,7 @@
-# spell-checker:ignore bugfix maint
-# spell-checker:ignore chglog
+# spell-checker: ignore bugfix maint middot
 info:
-  title: os-paths
-  repository_url: https://github.com/rivy/js.os-paths
+  title: xdg-app-paths
+  repository_url: https://github.com/rivy/js.xdg-app-paths
 style: github
 template: CHANGELOG.tpl.md
 options:
@@ -16,7 +15,6 @@ options:
         - maint
         - perf
         - refactor
-        # - style
         - test
         - update
         # - version
@@ -30,9 +28,7 @@ options:
       perf: perf
       refactor: refactor
       test: test
-      # style: style
       update: update
-      # version: version
       # aggregating types
       add: change
       added: change
@@ -55,7 +51,6 @@ options:
       maint: Maintenance
       perf: Enhancements
       refactor: Refactoring
-      # style: Style Improvements
       test: Test Improvements
       update: Dependency Updates
       # version: Version Changes

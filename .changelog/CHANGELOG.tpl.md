@@ -10,6 +10,9 @@
 {{ range .Commits }}{{ template "format-commit" . -}}{{ end -}}
 {{ end -}}
 
+<!-- markdownlint-disable heading-increment no-duplicate-heading no-inline-html -->
+<!-- spellchecker:ignore () CICD Deno EditorConfig chglog gitattributes maint markdownlint rivy typeof -->
+
 # CHANGELOG <br/> [{{ $.Info.Title }}]({{ $.Info.RepositoryURL }})
 {{ if .Unreleased.CommitGroups }}{{/* <a name="unreleased"></a> */}}
 ## [Unreleased]
@@ -22,11 +25,10 @@
 {{/* <a name="{{ .Tag.Name }}"></a> */}}
 ## {{ if .Tag.Previous }}[{{ .Tag.Name }}]({{ $.Info.RepositoryURL }}/compare/{{ .Tag.Previous.Name }}...{{ .Tag.Name }}){{ else }}{{ .Tag.Name }}{{ end }} <small>({{ datetime "2006-01-02" .Tag.Date }})</small>
 {{ if .CommitGroups -}}
-{{ range .CommitGroups }}{{ if eq .Title "Features" }}{{ $output = true }}{{ template "format-commit-group" . }}{{- end -}}{{- end -}}
 {{ range .CommitGroups }}{{ if eq .Title "Enhancements" }}{{ $output = true }}{{ template "format-commit-group" . }}{{- end -}}{{- end -}}
 {{ range .CommitGroups }}{{ if eq .Title "Changes" }}{{ $output = true }}{{ template "format-commit-group" . }}{{- end -}}{{- end -}}
 {{ range .CommitGroups }}{{ if eq .Title "Fixes" }}{{ $output = true }}{{ template "format-commit-group" . }}{{- end -}}{{- end -}}
-{{ range .CommitGroups }}{{ if not (eq .Title "Features" "Enhancements" "Changes" "Fixes") }}{{ $output = true }}{{ template "format-commit-group" . }}{{- end -}}{{- end -}}
+{{ range .CommitGroups }}{{ if not (eq .Title "Changes" "Enhancements" "Fixes") }}{{ $output = true }}{{ template "format-commit-group" . }}{{- end -}}{{- end -}}
 {{- end -}}
 
 {{ if .RevertCommits }}{{ $output = true }}
@@ -34,24 +36,24 @@
 
 {{ range .RevertCommits -}}
 * {{ .Revert.Header }}
-{{ end -}}
+{{ end }}
 {{ end -}}
 
-{{ if .MergeCommits }}{{ $output = true }}
+{{ if .MergeCommits -}}
 #### Pull Requests
 
 {{ range .MergeCommits -}}
 * {{ .Header }}
-{{ end -}}
+{{ end }}
 {{ end -}}
 
-{{ if .NoteGroups -}}{{ $output = true }}
+{{ if .NoteGroups -}}
 {{ range .NoteGroups -}}
 #### {{ .Title }}
 
 {{ range .Notes }}
 {{ .Body }}
-{{ end -}}
+{{ end }}
 {{ end -}}
 {{ end -}}
 
