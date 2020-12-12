@@ -12,7 +12,9 @@
 		"node": ">= 6.0.0"
 	},
 	"files": [
-		"src/**/*"
+		"src/**/*",
+		"LICENSE",
+		"README.md"
 	],
 	"main": "src/lib/index.js",
 	"types": "src/lib/index.d.ts",
