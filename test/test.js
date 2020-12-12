@@ -1,8 +1,9 @@
 // # spell-checker:ignore UserProfile
-/* eslint-env es6, node */import os from 'os';
+/* eslint-env es6, node */
+import os from 'os';
 import test from 'ava';
 
-import osPaths from '.';
+import osPaths from '../src/lib';
 
 test('default', t => {
 	const paths = osPaths();

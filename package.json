@@ -12,9 +12,10 @@
 		"node": ">= 6.0.0"
 	},
 	"files": [
-		"index.js",
-		"index.d.ts"
+		"src/**/*"
 	],
+	"main": "src/lib/index.js",
+	"types": "src/lib/index.d.ts",
 	"keywords": [
 		"common",
 		"cross-platform",
@@ -64,5 +65,8 @@
 		"util": "^0.12.1",
 		"xo": "^0.24.0"
 	},
-	"optionalDependencies": {}
+	"optionalDependencies": {},
+	"tsd": {
+		"directory": "test"
+	}
 }

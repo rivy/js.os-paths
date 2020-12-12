@@ -1,5 +1,5 @@
 import {expectType} from 'tsd';
-import osPaths = require('.');
+import osPaths = require('../src/lib');
 
 const paths: typeof osPaths = osPaths();
 
