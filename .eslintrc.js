@@ -38,13 +38,5 @@ module.exports = {
 		'import/order': ['error', { 'newlines-between': 'always', alphabetize: { order: 'asc' } }],
 		'sort-imports': ['error', { ignoreDeclarationSort: true, ignoreCase: true }],
 	},
-	overrides: [
-		{
-			// "test.js" (for `ava`) is in module format (ESM)
-			files: ['unit.test.js'],
-			parserOptions: {
-				sourceType: 'module',
-			},
-		},
-	],
+	overrides: [],
 };
