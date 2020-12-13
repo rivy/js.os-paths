@@ -3,39 +3,24 @@
 'use strict';
 
 const os = require('os');
+const paths = require('path');
 
 const isWinOS = /^win/i.test(process.platform);
+
+function normalize_path(path) {
+	return paths.normalize(paths.join(path, '.'));
+}
 
 const base = () => {
 	const { env } = process;
 
 	const object = {};
 
-	object.home = os.homedir
-		? () => {
-				return os.homedir();
-		  }
-		: () => {
-				let path = env.HOME;
-				if (path.length > 1 && path.endsWith('/')) {
-					path = path.slice(0, -1);
-				}
-
-				return path;
-		  };
+	object.home = os.homedir ? () => os.homedir() : () => normalize_path(env.HOME);
 
 	object.temp = os.tmpdir
-		? () => {
-				return os.tmpdir();
-		  }
-		: () => {
-				let path = env.TMPDIR || env.TEMP || env.TMP || '/tmp';
-				if (path.length > 1 && path.endsWith('/')) {
-					path = path.slice(0, -1);
-				}
-
-				return path;
-		  };
+		? () => os.tmpdir()
+		: () => normalize_path(env.TMPDIR || env.TEMP || env.TMP);
 
 	return object;
 };
@@ -46,38 +31,12 @@ const windows = () => {
 	const object = {};
 
 	object.home = os.homedir
-		? () => {
-				return os.homedir();
-		  }
-		: () => {
-				let path = env.USERPROFILE || env.HOMEDRIVE + env.HOMEPATH || env.HOME;
-				if (
-					path.length > 1 &&
-					((path.endsWith('\\') && !path.endsWith(':\\')) ||
-						(path.endsWith('/') && !path.endsWith(':/')))
-				) {
-					path = path.slice(0, -1);
-				}
-
-				return path;
-		  };
+		? () => os.homedir()
+		: () => normalize_path(env.USERPROFILE || paths.join(env.HOMEDRIVE, env.HOMEPATH) || env.HOME);
 
 	object.temp = os.tmpdir
-		? () => {
-				return os.tmpdir();
-		  }
-		: () => {
-				let path = env.TEMP || env.TMP || (env.SystemRoot || env.windir) + '\\temp';
-				if (
-					path.length > 1 &&
-					((path.endsWith('\\') && !path.endsWith(':\\')) ||
-						(path.endsWith('/') && !path.endsWith(':/')))
-				) {
-					path = path.slice(0, -1);
-				}
-
-				return path;
-		  };
+		? () => os.tmpdir()
+		: () => normalize_path(env.TEMP || env.TMP || paths.join(env.SystemRoot || env.windir, 'temp'));
 
 	return object;
 };
