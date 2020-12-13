@@ -53,6 +53,7 @@
 		"_:spellcheck-warn": "echo-cli \"lint:spell WARN Spell-check skipped [for NodeJS < v8]\""
 	},
 	"dependencies": {},
+	"devDependencies:#": "* for testing, Node-v6 requires ava < v2 and nyc < v15",
 	"devDependencies": {
 		"ava": "^1.4.1",
 		"codecov": "^3.5.0",
