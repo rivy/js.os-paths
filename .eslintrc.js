@@ -5,7 +5,15 @@ module.exports = {
 		es6: true,
 		node: true,
 	},
-	ignorePatterns: ['.eslintrc.js', '.nyc_output', 'build', 'coverage', 'dist', 'node_modules'],
+	ignorePatterns: [
+		'.eslintrc.js',
+		'.history',
+		'.nyc_output',
+		'build',
+		'coverage',
+		'dist',
+		'node_modules',
+	],
 	plugins: ['import'],
 	extends: [
 		'eslint:recommended',
