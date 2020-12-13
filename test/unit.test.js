@@ -1,10 +1,12 @@
-// # spell-checker:ignore UserProfile
 /* eslint-env es6, node */
-import os from 'os';
+// # spell-checker:ignore UserProfile
+'use strict';
 
-import test from 'ava';
+const os = require('os');
 
-import osPaths from '../src/lib';
+const test = require('ava');
+
+const osPaths = require('../src/lib');
 
 test('default', (t) => {
 	const paths = osPaths();
