@@ -1,5 +1,5 @@
 /* eslint-env es6, node */
-// # spell-checker:ignore UserProfile HomeDrive HomePath WinDir
+// # spell-checker:ignore HomeDrive HomePath LocalAppData UserProfile WinDir
 'use strict';
 
 const os = require('os');
@@ -16,11 +16,9 @@ const base = () => {
 
 	const object = {};
 
-	object.home = os.homedir ? () => os.homedir() : () => normalize_path(env.HOME);
+	object.home = () => normalize_path(os.homedir ? os.homedir() : env.HOME);
 
-	object.temp = os.tmpdir
-		? () => os.tmpdir()
-		: () => normalize_path(env.TMPDIR || env.TEMP || env.TMP);
+	object.temp = () => normalize_path(os.tmpdir ? os.tmpdir() : env.TMPDIR || env.TEMP || env.TMP);
 
 	return object;
 };
@@ -30,13 +28,21 @@ const windows = () => {
 
 	const object = {};
 
-	object.home = os.homedir
-		? () => os.homedir()
-		: () => normalize_path(env.USERPROFILE || paths.join(env.HOMEDRIVE, env.HOMEPATH) || env.HOME);
+	object.home = () =>
+		normalize_path(
+			os.homedir
+				? os.homedir()
+				: env.USERPROFILE || paths.join(env.HOMEDRIVE, env.HOMEPATH) || env.HOME
+		);
 
-	object.temp = os.tmpdir
-		? () => os.tmpdir()
-		: () => normalize_path(env.TEMP || env.TMP || paths.join(env.SystemRoot || env.windir, 'temp'));
+	object.temp = () =>
+		normalize_path(
+			os.tmpdir
+				? os.tmpdir()
+				: env.TEMP ||
+						env.TMP ||
+						paths.join(env.LOCALAPPDATA || env.SystemRoot || env.windir, 'Temp')
+		);
 
 	return object;
 };
