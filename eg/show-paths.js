@@ -16,7 +16,7 @@ if (_) {
 	});
 }
 
-process.env.TMPDIR = process.env.TEMP = process.TMP = 'temp'; 	// eslint-disable-line no-multi-assign
+process.env.TMPDIR = process.env.TEMP = process.TMP = 'temp'; // eslint-disable-line no-multi-assign
 if (_) {
 	_.each(osPaths, (value, key) => {
 		console.log(key, '=', osPaths[key]());
