@@ -110,7 +110,11 @@
 		"tabWidth": 2,
 		"overrides": [
 			{
-				"files": [ "*.md", "*.mkd", "*.markdown" ],
+				"files": [
+					"*.md",
+					"*.mkd",
+					"*.markdown"
+				],
 				"options": {
 					"tabWidth": 2,
 					"useTabs": false
