@@ -30,6 +30,7 @@ npm install os-paths
 > #### Requirements
 >
 > NodeJS >= 6.0.0
+
 <!--{blockquote: .--info style="font-size:75%;"}-->
 
 ## Usage
@@ -55,7 +56,7 @@ osPaths.temp();
 ```js
 const osPaths = require('os-paths');
 // or ...
-const osPaths = require('os-paths')( options );
+const osPaths = require('os-paths')(options);
 ```
 
 The object returned by the module constructor is an `OSPaths` function object, augmented with attached methods. When called directly (eg, `const p = osPaths()`), it returns a newly constructed `OSPaths` object. Since the `OSPaths` object contains no instance state, all constructed objects will be functionally identical.
@@ -64,8 +65,8 @@ The object returned by the module constructor is an `OSPaths` function object, a
 
 All module methods return simple, platform-compatible, path strings.
 
-The path strings are *not* guaranteed to already exist on the file system. So, the user is responsible for directory construction, if/when needed.
-However, since all of these are *standard* OS directories, they should all exist without the need for user intervention.
+The path strings are _not_ guaranteed to already exist on the file system. So, the user is responsible for directory construction, if/when needed.
+However, since all of these are _standard_ OS directories, they should all exist without the need for user intervention.
 
 If/when necessary, [`make-dir`](https://www.npmjs.com/package/make-dir) or [`mkdirp`](https://www.npmjs.com/package/mkdirp) can be used to create the directories.
 
@@ -100,30 +101,39 @@ MIT © [Roy Ivy III](https://github.com/rivy), [Sindre Sorhus](https://sindresor
 [node-url]: https://npmjs.org/package/os-paths
 
 <!-- [npm-image]: https://img.shields.io/npm/v/os-paths.svg?style=flat&label=npm&logo=NPM&logoColor=linen -->
+
 [npm-image]: https://img.shields.io/npm/v/os-paths.svg?style=flat
 [npm-url]: https://npmjs.org/package/os-paths
 
 <!-- [appveyor-image]: https://ci.appveyor.com/api/projects/status/.../branch/master?svg=true -->
+
 [appveyor-image]: https://img.shields.io/appveyor/ci/rivy/js-os-paths/master.svg?style=flat&logo=AppVeyor&logoColor=deepskyblue
 [appveyor-url]: https://ci.appveyor.com/project/rivy/js-os-paths
+
 <!-- [travis-image]: https://travis-ci.org/rivy/js.os-paths.svg?branch=master -->
 <!-- [travis-image]: https://img.shields.io/travis/rivy/js.os-paths/master.svg?style=flat&logo=Travis-CI&logoColor=silver -->
+
 [travis-image]: https://img.shields.io/travis/rivy/js.os-paths/master.svg?style=flat&logo=travis
 [travis-url]: https://travis-ci.org/rivy/js.os-paths
 
 <!-- [coverage-image]: https://img.shields.io/coveralls/github/rivy/os-paths/master.svg -->
 <!-- [coverage-url]: https://coveralls.io/github/rivy/os-paths -->
+
 [coverage-image]: https://img.shields.io/codecov/c/github/rivy/js.os-paths/master.svg
 [coverage-url]: https://codecov.io/gh/rivy/js.os-paths
 [downloads-image]: http://img.shields.io/npm/dm/os-paths.svg?style=flat
 [downloads-url]: https://npmjs.org/package/os-paths
 [license-image]: https://img.shields.io/npm/l/os-paths.svg?style=flat
 [license-url]: license
+
 <!-- [repository-image]:https://img.shields.io/badge/%E2%9D%A4-darkcyan?style=flat&logo=github -->
 <!-- [repository-image]:https://img.shields.io/github/v/tag/rivy/js.os-paths?label=%e2%80%8b&logo=github&logoColor=white&colorA=gray&logoWidth=15 -->
-[repository-image]:https://img.shields.io/github/v/tag/rivy/js.os-paths?label=repo&logo=github&logoColor=white
-[repository-url]:https://github.com/rivy/js.os-paths
+
+[repository-image]: https://img.shields.io/github/v/tag/rivy/js.os-paths?label=repo&logo=github&logoColor=white
+[repository-url]: https://github.com/rivy/js.os-paths
+
 <!-- [style-image]: https://img.shields.io/badge/code_style-standard-darkcyan.svg -->
 <!-- [style-url]: https://standardjs.com -->
+
 [style-image]: https://img.shields.io/badge/code_style-XO-darkcyan.svg
 [style-url]: https://github.com/xojs/xo
