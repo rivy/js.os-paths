@@ -75,7 +75,7 @@
 		"_:vcs-clean-err": "git diff --quiet || echo-cli \"[vcs] ERR! Uncommitted changes\" 1>&2 && exit 1",
 		"_:vcs-strictly-clean": "git status --porcelain | node -e \"process.stdin.on('data',function(_){process.exit(1);});\"",
 		"_:vcs-strictly-clean-err": "run-s _:vcs-strictly-clean || echo-cli \"[vcs] ERR! Uncommitted changes and/or untracked files\" 1>&2 && exit 1",
-		"_:version:update-changelog": "node -e \"const fs=require('fs'); const {spawnSync}=require('child_process'); v=require('./package.json').version; result=spawnSync('git-changelog --next-tag v'+v,{shell:true,encoding:'utf-8'}); if (result.status != 0) {console.log(result.stderr);} else {fs.writeFileSync('CHANGELOG.mkd',result.stdout);};\"",
+		"_:version:update-changelog": "node -e \"v=require('./package.json').version; if (require('command-exists').sync('git-changelog')) {result=require('child_process').spawnSync('git changelog --next-tag v'+v,{shell:true,encoding:'utf-8'}); if (result.status != 0) {console.log(result.stderr);} else {require('fs').writeFileSync('CHANGELOG.mkd',result.stdout);};} else {console.log('info: CHANGELOG not updated (`git-changelog` missing)');};\"",
 		"prepublishOnly": "run-s update:* test _:vcs-strictly-clean-err",
 		"preversion": "run-s _:vcs-clean-err test",
 		"version": "run-s _:version:update-changelog lint:spell && git add CHANGELOG.mkd"
@@ -85,6 +85,7 @@
 	"devDependencies": {
 		"ava": "^1.4.1",
 		"codecov": "^3.5.0",
+		"command-exists": "^1.2.9",
 		"coveralls": "^3.0.5",
 		"cross-spawn": "^6.0.5",
 		"cspell": "^4.1.2",
