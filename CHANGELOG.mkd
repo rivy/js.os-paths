@@ -1,7 +1,55 @@
 <!-- markdownlint-disable heading-increment no-duplicate-heading no-inline-html -->
-<!-- spellchecker:ignore () CICD Deno EditorConfig chglog gitattributes maint markdownlint rivy typeof -->
+<!-- spellchecker:ignore () CICD Deno EditorConfig chglog deps discoverability gitattributes maint markdownlint rivy typeof -->
 
 # CHANGELOG <br/> [xdg-app-paths](https://github.com/rivy/js.xdg-app-paths)
+
+---
+
+## [v4.3.0](https://github.com/rivy/js.xdg-app-paths/compare/v4.2.0...v4.3.0) <small>(2020-12-13)</small>
+
+#### Documentation
+
+* docs ~ polish README &ac; [`ac1e371`](https://github.com/rivy/js.xdg-app-paths/commit/ac1e371e58b5fb6538134e3726d73e2bb7fc9478)
+* docs ~ add spell-checker exceptions &ac; [`dce522c`](https://github.com/rivy/js.xdg-app-paths/commit/dce522cd5df9307af582eb87a8d23879cae0a471)
+* docs ~ README fix and polish &ac; [`43bc088`](https://github.com/rivy/js.xdg-app-paths/commit/43bc088e544a9eed5ae7dea982b64dc55c60a0db)
+* docs ~ `git-changelog > CHANGELOG.mkd` &ac; [`19520e5`](https://github.com/rivy/js.xdg-app-paths/commit/19520e50c34fed1ff209e1a0de56f295f3a58702)
+
+#### Maintenance
+
+* maint/**CICD**: add GitHub Actions (GHA) CI &ac; [`4202298`](https://github.com/rivy/js.xdg-app-paths/commit/4202298cd17f31816415965b26a7dc5a9d23d4c3)
+* maint/**build**: update eslintrc (and convert to JS file) &ac; [`06e0167`](https://github.com/rivy/js.xdg-app-paths/commit/06e01677f365e38b55dfab5cec11720add36f462)
+* maint/**build**: add explanation for NPMrc `package-lock=false` &ac; [`ada889c`](https://github.com/rivy/js.xdg-app-paths/commit/ada889cdcb823535ae7c37567d5c5af7988deea2)
+* maint/**build**: add LICENSE + README to set of distributed files &ac; [`e020a4a`](https://github.com/rivy/js.xdg-app-paths/commit/e020a4a3a61d53be3f7fda3cc8a09ca3494eab88)
+* maint/**build**: remove ESlint config forcing ESM-type unit.test.js &ac; [`69b155b`](https://github.com/rivy/js.xdg-app-paths/commit/69b155b42d33183451940ed0101410b8790f9d10)
+* maint/**build**: fix `tsd` complaint (types specification missing from package "files" list) &ac; [`fd87126`](https://github.com/rivy/js.xdg-app-paths/commit/fd871263bf9435d6024b348f3f02561c9180ebfc)
+* maint/**build**: revise and polish npm scripts (include deps) &ac; [`2b23875`](https://github.com/rivy/js.xdg-app-paths/commit/2b238755789a9a85c0d1119617dd63e499f4090b)
+* maint/**build**: refactor/reorganize package.json &ac; [`2d6f509`](https://github.com/rivy/js.xdg-app-paths/commit/2d6f509fae07dc4f8554958dfc1402147904f605)
+* maint/**build**: refine package 'engine' value (best legibility/specificity) &ac; [`be185d0`](https://github.com/rivy/js.xdg-app-paths/commit/be185d0c8170afc7498d81c3ea8b8e9fdaabc46c)
+* maint/**dev**: npm script polish &ac; [`a7212d5`](https://github.com/rivy/js.xdg-app-paths/commit/a7212d57999935fb4a83a8d3c3835777b1ecf3cd)
+* maint/**dev**: add Prettier ignore file (to simplify automation) &ac; [`fb7b8c6`](https://github.com/rivy/js.xdg-app-paths/commit/fb7b8c68756f63a6eb2f0a1451e0eec08479c386)
+* maint/**dev**: add Prettier configuration &ac; [`c5819ed`](https://github.com/rivy/js.xdg-app-paths/commit/c5819ed99252549419796a9234f34fe488e2fbef)
+* maint/**dev**: add `Prettier` &ac; [`94ffae4`](https://github.com/rivy/js.xdg-app-paths/commit/94ffae4e3021c60a69b14cfc4445c7284421aadd)
+* maint/**dev**: add notation about `ava` and `nyc` version restrictions with NodeJS-v6 &ac; [`71ed02a`](https://github.com/rivy/js.xdg-app-paths/commit/71ed02adcaac3ea2c76c6f02d90e924650f46c3c)
+* maint/**dev**: add .history (for VSCode plugin) to ESlint config ignore list &ac; [`039acdb`](https://github.com/rivy/js.xdg-app-paths/commit/039acdbbd48a8ee59f5b70c06d531f8fc8d75970)
+* maint/**dev**: add `ESLint` (with plugins) &ac; [`3f82e96`](https://github.com/rivy/js.xdg-app-paths/commit/3f82e96d3778bc18a992213d4179207909b310b4)
+* maint/**dev**: remove `XO` &ac; [`b4db615`](https://github.com/rivy/js.xdg-app-paths/commit/b4db615ecb7006541028e92435024be14b7fe9cb)
+* maint/**dev**: add .history (for VSCode plugin) to Prettier ignore list &ac; [`e4eff74`](https://github.com/rivy/js.xdg-app-paths/commit/e4eff74cd805002a5b6a27bf57191a3c9d73e286)
+* maint/**dev**: add VSCode settings (ENABLE auto-format on save) &ac; [`74d2ef5`](https://github.com/rivy/js.xdg-app-paths/commit/74d2ef5da26bd3548c83cf7ee3e684ea32f02c6f)
+* maint/**dev**: polish package.json format &ac; [`52d4f0c`](https://github.com/rivy/js.xdg-app-paths/commit/52d4f0cdab6d819cfb1f3cd4bd50f82bb272573a)
+* maint/**dev**: add pre-test and CHANGELOG update to `npm version ...` &ac; [`2553998`](https://github.com/rivy/js.xdg-app-paths/commit/2553998e33ac4feaab6599d09939966acbec6a87)
+* maint/**dev**: `npm version ...` CHANGELOG update only if `git-changelog` available &ac; [`c6cddab`](https://github.com/rivy/js.xdg-app-paths/commit/c6cddab770e94a02bb08107a5aa93436c32f8f5e)
+* maint/**dev**: revise gitignore files to include build artifacts &ac; [`95db0d4`](https://github.com/rivy/js.xdg-app-paths/commit/95db0d4ed3f0ab8395f9cf14693302ebc854229c)
+* maint/**dev**: revise gitattributes &ac; [`dd6647a`](https://github.com/rivy/js.xdg-app-paths/commit/dd6647aeac291a37a92afc8abb5c00dd9294c46d)
+* maint/**dev**: update EditorConfig (include more file types and commentary) &ac; [`3ae7869`](https://github.com/rivy/js.xdg-app-paths/commit/3ae7869f9958a5fe496f14926e32bb050c187de6)
+* maint/**dev**: add .history (for VSCode plugin) to .gitignore &ac; [`0251a8b`](https://github.com/rivy/js.xdg-app-paths/commit/0251a8b4c9023ddd6c41f9456dadedb059183377)
+* maint/**dev**: reconfigure for `git-changelog` (from GH:rivy-go) &ac; [`4f96b41`](https://github.com/rivy/js.xdg-app-paths/commit/4f96b4125df64559bf001f28b09b14a5be4cb2cf)
+
+#### Refactoring
+
+* refactor ~ change LICENSE and README file names to UPPERCASE for improved discoverability &ac; [`68904bb`](https://github.com/rivy/js.xdg-app-paths/commit/68904bb8e971600ae72197933cb7371c5e1c2d81)
+* refactor ~ partition code into 'src' and 'test' directories &ac; [`1f93e19`](https://github.com/rivy/js.xdg-app-paths/commit/1f93e19d486fc53ccb184fec6751ff7aaeba43c0)
+* refactor/**polish**: fix ESLint complaint ('no-unused-disable') &ac; [`d5b9386`](https://github.com/rivy/js.xdg-app-paths/commit/d5b9386086ee4047b128958ee942d06a021283e9)
+* refactor/**polish**: `prettier` reformat &ac; [`5680208`](https://github.com/rivy/js.xdg-app-paths/commit/5680208a8d1de76337c11c4eb974c42118a0da51)
 
 ---
 

@@ -1,6 +1,6 @@
 {
 	"name": "os-paths",
-	"version": "4.2.0",
+	"version": "4.3.0",
 	"description": "Generate portable common OS paths (home, temp, ...)",
 	"license": "MIT",
 	"repository": "rivy/js.os-paths",
