@@ -2,24 +2,17 @@
 /* eslint-env es6, node */
 'use strict';
 
-// # const path = require('path');
-const util = require('util');
-
-const _ = require('lodash') || undefined;
-
 const osPaths = require('..');
 
-console.log('osPaths:', util.inspect(osPaths));
+console.log({ osPaths });
 
-if (_) {
-	_.each(osPaths, (value, key) => {
-		console.log(key, '=', osPaths[key]());
-	});
-}
+Object.keys(osPaths).forEach((key) => {
+	const value = osPaths[key]();
+	console.log({ key, value });
+});
 
 process.env.TMPDIR = process.env.TEMP = process.TMP = 'temp';
-if (_) {
-	_.each(osPaths, (value, key) => {
-		console.log(key, '=', osPaths[key]());
-	});
-}
+Object.keys(osPaths).forEach((key) => {
+	const value = osPaths[key]();
+	console.log({ key, value });
+});
