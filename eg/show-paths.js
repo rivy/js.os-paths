@@ -6,13 +6,15 @@ const osPaths = require('..');
 
 console.log({ osPaths });
 
-Object.keys(osPaths).forEach((key) => {
-	const value = osPaths[key]();
+Object.entries(osPaths).forEach((entry) => {
+	const [key, fn] = entry;
+	const value = fn();
 	console.log({ key, value });
 });
 
 process.env.TMPDIR = process.env.TEMP = process.TMP = 'temp';
-Object.keys(osPaths).forEach((key) => {
-	const value = osPaths[key]();
+Object.entries(osPaths).forEach((entry) => {
+	const [key, fn] = entry;
+	const value = fn();
 	console.log({ key, value });
 });
