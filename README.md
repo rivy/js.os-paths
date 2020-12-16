@@ -63,7 +63,7 @@ The object returned by the module constructor is an `OSPaths` function object, a
 
 ### Methods
 
-All module methods return simple, platform-compatible, path strings.
+All module methods return simple, platform-compatible, path strings which are normalized and have no trailing path separators.
 
 The path strings are _not_ guaranteed to already exist on the file system. So, the user is responsible for directory construction, if/when needed.
 However, since all of these are _standard_ OS directories, they should all exist without the need for user intervention.
