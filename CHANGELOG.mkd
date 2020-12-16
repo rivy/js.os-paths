@@ -5,6 +5,34 @@
 
 ---
 
+## [v4.4.0](https://github.com/rivy/js.xdg-app-paths/compare/v4.3.0...v4.4.0) <small>(2020-12-15)</small>
+
+#### Changes
+
+* change ~ normalize all paths and strip any trailing path separators &ac; [`943a0ac`](https://github.com/rivy/js.xdg-app-paths/commit/943a0ac2ba431f1b0d5260e3123e42d5840df556)
+
+#### Fixes
+
+* fix examples (restore Node-v6 compatibility) &ac; [`d934170`](https://github.com/rivy/js.xdg-app-paths/commit/d934170ee21c8a2fefcabda9a2d9cc340fa26923)
+
+#### Documentation
+
+* docs ~ update README (mention path normalization) &ac; [`b9d1b55`](https://github.com/rivy/js.xdg-app-paths/commit/b9d1b55a103e8e69d81666f4ba1aee1106028f91)
+* docs ~ refactor example &ac; [`214873f`](https://github.com/rivy/js.xdg-app-paths/commit/214873f970a0118c9fd30c315987118c62b4120e)
+* docs ~ polish README &ac; [`9d70297`](https://github.com/rivy/js.xdg-app-paths/commit/9d70297981250102d404d3ea7858e857a8116bba)
+* docs ~ simplify example (removing extra developer deps) &ac; [`2be36d3`](https://github.com/rivy/js.xdg-app-paths/commit/2be36d3c4bb41731f074b1db9365abd4085b0009)
+
+#### Maintenance
+
+* maint/**build**: fix package keywords &ac; [`3c06c4a`](https://github.com/rivy/js.xdg-app-paths/commit/3c06c4a60289fa1e426210a9bfbec07f0af31253)
+* maint/**build**: add CHANGELOG.mkd to distribution file list &ac; [`888775c`](https://github.com/rivy/js.xdg-app-paths/commit/888775cb3bced9207b9535e8e9c1dfc42d05e24b)
+
+#### Refactoring
+
+* refactor ~ use common normalizing function for returned paths &ac; [`c56de7a`](https://github.com/rivy/js.xdg-app-paths/commit/c56de7a45164a1b6543245f40ae4dfd13dfe0fe5)
+
+---
+
 ## [v4.3.0](https://github.com/rivy/js.xdg-app-paths/compare/v4.2.0...v4.3.0) <small>(2020-12-13)</small>
 
 #### Documentation
