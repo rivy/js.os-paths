@@ -2,7 +2,9 @@
 /* eslint-env es6, node */
 'use strict';
 
-const osPaths = require('../build/umd');
+const pkg = require('../' + 'package.json');
+
+const osPaths = require('../' + pkg.main);
 
 console.log({ osPaths });
 
