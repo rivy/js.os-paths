@@ -11,7 +11,7 @@ Object.keys(osPaths).forEach((key) => {
 	console.log({ key, value });
 });
 
-process.env.TMPDIR = process.env.TEMP = process.TMP = 'temp';
+process.env.TMPDIR = process.env.TEMP = process.env.TMP = 'temp';
 Object.keys(osPaths).forEach((key) => {
 	const value = osPaths[key]();
 	console.log({ key, value });
