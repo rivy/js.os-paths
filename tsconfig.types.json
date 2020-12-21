@@ -1,0 +1,10 @@
+{
+	"extends": "./tsconfig",
+	"compilerOptions": {
+		// generate (only) type declaration files to 'build/types'
+		"declaration": true,
+		"emitDeclarationOnly": true,
+		"outDir": "build/types"
+	},
+	"exclude": ["src/**/*.spec.*", "src/**/*.test.*", "node_modules/**"]
+}
