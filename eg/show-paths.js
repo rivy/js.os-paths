@@ -2,7 +2,7 @@
 /* eslint-env es6, node */
 'use strict';
 
-const osPaths = require('..');
+const osPaths = require('../build/umd');
 
 console.log({ osPaths });
 
