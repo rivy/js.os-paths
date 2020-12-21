@@ -6,7 +6,7 @@ const os = require('os');
 
 const test = require('ava');
 
-const osPaths = require('../src/lib');
+const osPaths = require('../build/umd');
 
 test('default', (t) => {
 	const paths = osPaths();

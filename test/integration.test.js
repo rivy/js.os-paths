@@ -8,7 +8,7 @@ const path = require('path');
 const test = require('ava');
 const spawn = require('cross-spawn');
 
-const module_ = require('../src/lib');
+const module_ = require('../build/umd');
 
 // Integration tests
 
