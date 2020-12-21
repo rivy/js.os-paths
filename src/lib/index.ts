@@ -51,6 +51,7 @@ const windows = () => {
 	return { home, temp };
 };
 
+// eslint-disable-next-line functional/no-class
 class _OSPaths {
 	readonly fn: OSPaths;
 	constructor() {
@@ -70,5 +71,6 @@ class _OSPaths {
 const default_ = new _OSPaths().fn;
 export default default_;
 if (module) {
+	// eslint-disable-next-line functional/immutable-data
 	module.exports = default_;
 }
