@@ -34,14 +34,14 @@ const windows = () => {
 
 	const home = () =>
 		normalize_path(
-			(os.homedir
+			(typeof os.homedir === 'function'
 				? os.homedir()
 				: env.USERPROFILE || paths.join(env.HOMEDRIVE ?? '', env.HOMEPATH ?? '') || env.HOME) ?? ''
 		);
 
 	const temp = () =>
 		normalize_path(
-			(os.tmpdir
+			(typeof os.tmpdir === 'function'
 				? os.tmpdir()
 				: env.TEMP ||
 				  env.TMP ||
