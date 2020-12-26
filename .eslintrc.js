@@ -19,9 +19,14 @@ module.exports = {
 	rules: {
 		// ref: https://eslint.org/docs/rules
 		'@typescript-eslint/explicit-module-boundary-types': 'off',
+		'@typescript-eslint/no-unused-vars': [
+			'error',
+			{ argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+		],
 		'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
 		'eslint-comments/no-unused-disable': 'error',
 		'import/order': ['error', { 'newlines-between': 'always', alphabetize: { order: 'asc' } }],
+		'no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }], // ref: https://eslint.org/docs/rules/no-unused-vars
 		'sort-imports': ['error', { ignoreDeclarationSort: true, ignoreCase: true }],
 	},
 	overrides: [
