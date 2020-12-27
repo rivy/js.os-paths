@@ -1,0 +1,10 @@
+{
+	"extends": "../tsconfig",
+	"compilerOptions": {
+		"outDir": "../build/esm",
+		// "declaration": true, // generate side-by-side type declarations
+		"module": "es2015",
+		"noEmit": false
+	},
+	"exclude": ["../src/**/*.spec.*", "../src/**/*.test.*", "../node_modules/**"]
+}

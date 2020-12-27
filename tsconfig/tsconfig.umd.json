@@ -1,0 +1,11 @@
+{
+	"extends": "../tsconfig",
+	"compilerOptions": {
+		"outDir": "../build/umd",
+		// "declaration": true, // generate side-by-side type declarations
+		"module": "UMD",
+		"noEmit": false,
+		"resolveJsonModule": false /* Include modules imported with .json extension.; UMD generation requires 'false' */
+	},
+	"exclude": ["../src/**/*.spec.*", "../src/**/*.test.*", "../node_modules/**"]
+}

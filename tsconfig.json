@@ -7,10 +7,10 @@
 		"moduleResolution": "node",
 		"module": "UMD",
 		"newLine": "lf",
-		"declaration": false,
+		"declaration": false /* Enables automatic generation of type declarations */,
 		"inlineSourceMap": true,
 		"esModuleInterop": true /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */,
-		"resolveJsonModule": false /* Include modules imported with .json extension.; UMD generation requires 'false' */,
+		"resolveJsonModule": false /* Include modules imported with .json extension.; note: UMD generation requires 'false' */,
 
 		"strict": true /* Enable all strict type-checking options. */,
 
@@ -38,9 +38,12 @@
 		// "experimentalDecorators": true /* Enables experimental support for ES7 decorators. */,
 		// "emitDecoratorMetadata": true /* Enables experimental support for emitting type metadata for decorators. */,
 
-		"lib": ["es6", "dom"],
+		"lib": ["esnext"],
 		"types": ["node"],
 		"typeRoots": ["node_modules/@types", "src/types"],
+
+		"allowJs": true,
+		"noEmit": true,
 
 		"removeComments": true
 	},
