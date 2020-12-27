@@ -4,16 +4,20 @@
 
 const osPaths = require('../build/cjs/index.js');
 
-console.log({ osPaths });
+function objectEntries(obj) {
+	const map = {};
+	Object.keys(obj).forEach((key) => {
+		const value = obj[key];
+		const val = typeof value === 'function' ? value() : value;
+		// eslint-disable-next-line functional/immutable-data
+		map[key] = val;
+	});
+	return map;
+}
 
-Object.keys(osPaths).forEach((key) => {
-	const value = osPaths[key]();
-	console.log({ key, value });
-});
+console.log({ osPaths });
+console.log(objectEntries(osPaths));
 
 // eslint-disable-next-line functional/immutable-data
 process.env.TMPDIR = process.env.TEMP = process.env.TMP = 'temp';
-Object.keys(osPaths).forEach((key) => {
-	const value = osPaths[key]();
-	console.log({ key, value });
-});
+console.log(objectEntries(osPaths));
