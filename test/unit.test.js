@@ -8,12 +8,12 @@ const test = require('ava');
 
 const osPaths = require('../build/cjs+tests');
 
+/* eslint-disable functional/immutable-data */
+
 test('default', (t) => {
 	const paths = osPaths;
 
-	// eslint-disable-next-line functional/immutable-data
 	process.env.HOME = process.env.USERPROFILE = 'home';
-	// eslint-disable-next-line functional/immutable-data
 	process.env.TEMP = process.env.TMP = process.env.TMPDIR = 'temp';
 
 	Object.keys(paths).forEach((key) => {
@@ -29,19 +29,15 @@ test('default', (t) => {
 
 test('alternate construction (via function)', (t) => {
 	const paths = osPaths();
-	// eslint-disable-next-line functional/immutable-data
 	process.env.HOME = process.env.USERPROFILE = 'home';
 	t.is(paths.home(), 'home');
 });
 
 test('no os.homedir/os.tmpdir', (t) => {
-	// eslint-disable-next-line functional/immutable-data
 	os.homedir = os.tmpdir = null;
 
 	const paths = osPaths();
-	// eslint-disable-next-line functional/immutable-data
 	process.env.HOME = process.env.USERPROFILE = 'home';
-	// eslint-disable-next-line functional/immutable-data
 	process.env.TEMP = process.env.TMP = process.env.TMPDIR = 'temp';
 
 	t.is(paths.home(), 'home');
@@ -49,15 +45,14 @@ test('no os.homedir/os.tmpdir', (t) => {
 });
 
 test('no os.homedir/os.tmpdir and trailing slash in environment source', (t) => {
-	// eslint-disable-next-line functional/immutable-data
 	os.homedir = os.tmpdir = null;
 
 	const paths = osPaths();
-	// eslint-disable-next-line functional/immutable-data
 	process.env.HOME = process.env.USERPROFILE = 'home/';
-	// eslint-disable-next-line functional/immutable-data
 	process.env.TEMP = process.env.TMP = process.env.TMPDIR = 'temp/';
 
 	t.is(paths.home(), 'home');
 	t.is(paths.temp(), 'temp');
 });
+
+/* eslint-enable functional/immutable-data */
