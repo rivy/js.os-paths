@@ -2,15 +2,15 @@
 	"compilerOptions": {
 		"incremental": false,
 		"target": "es5",
-		"outDir": "build/umd",
+		"outDir": "build/cjs",
 		// "rootDir": "src", // interferes with `tsd`; see <https://github.com/SamVerschueren/tsd/issues/80> ; disabling builds exactly the same files/structure except placing *.tsbuildinfo files into the respective subdirectories
 		"moduleResolution": "node",
-		"module": "UMD",
+		"module": "CommonJS",
 		"newLine": "lf",
 		"declaration": false /* Enables automatic generation of type declarations */,
 		"inlineSourceMap": true,
 		"esModuleInterop": true /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */,
-		"resolveJsonModule": false /* Include modules imported with .json extension.; note: UMD generation requires 'false' */,
+		"resolveJsonModule": true /* Include modules imported with .json extension.; note: UMD generation requires 'false' */,
 
 		"strict": true /* Enable all strict type-checking options. */,
 
