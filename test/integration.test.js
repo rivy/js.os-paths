@@ -19,8 +19,8 @@ const vNodeJS_minor = +vNodeJS[1];
 // ref: [NodeJS-v13.2 changes]<https://github.com/nodejs/node/pull/30547>
 const settledSupportForESMs =
 	vNodeJS_Major > 13 ||
-	(vNodeJS_Major == 13 && vNodeJS_minor >= 2) ||
-	(vNodeJS_Major == 12 && vNodeJS_minor >= 17);
+	(vNodeJS_Major === 13 && vNodeJS_minor >= 2) ||
+	(vNodeJS_Major === 12 && vNodeJS_minor >= 17);
 
 // Integration tests
 
