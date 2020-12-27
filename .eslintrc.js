@@ -17,6 +17,7 @@ module.exports = {
 		'prettier/@typescript-eslint',
 	],
 	rules: {
+		// ref: https://eslint.org/docs/rules
 		'@typescript-eslint/explicit-module-boundary-types': 'off',
 		'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
 		'eslint-comments/no-unused-disable': 'error',
