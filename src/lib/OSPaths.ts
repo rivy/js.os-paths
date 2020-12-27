@@ -1,4 +1,4 @@
-// # spell-checker:ignore HomeDrive HomePath LocalAppData UserProfile WinDir
+// # spell-checker:ignore AllUsersProfile HomeDrive HomePath LocalAppData UserProfile WinDir
 
 import * as os from 'os';
 import * as path from 'path';
@@ -12,17 +12,23 @@ export type OSPaths = {
 
 const isWinOS = /^win/i.test(process.platform);
 
-function normalize_path(path_: string): string {
-	return path_ ? path.normalize(path.join(path_, '.')) : '';
+function normalize_path(path_: string | undefined): string | undefined {
+	return path_ ? path.normalize(path.join(path_, '.')) : undefined;
 }
 
 const base = () => {
 	const { env } = process;
 
-	const home = () => normalize_path((os.homedir ? os.homedir() : env.HOME) ?? '');
+	const home = () =>
+		normalize_path((typeof os.homedir === 'function' ? os.homedir() : undefined) || env.HOME);
 
 	const temp = () =>
-		normalize_path((os.tmpdir ? os.tmpdir() : env.TMPDIR || env.TEMP || env.TMP) ?? '');
+		normalize_path(
+			(typeof os.tmpdir === 'function' ? os.tmpdir() : undefined) ||
+				env.TMPDIR ||
+				env.TEMP ||
+				env.TMP
+		) || '/tmp';
 
 	return { home, temp };
 };
@@ -32,18 +38,28 @@ const windows = () => {
 
 	const home = () =>
 		normalize_path(
-			(typeof os.homedir === 'function'
-				? os.homedir()
-				: env.USERPROFILE || path.join(env.HOMEDRIVE ?? '', env.HOMEPATH ?? '') || env.HOME) ?? ''
+			(typeof os.homedir === 'function' ? os.homedir() : undefined) ||
+				env.USERPROFILE ||
+				env.HOME ||
+				(env.HOMEDRIVE || env.HOMEPATH
+					? path.join(env.HOMEDRIVE || '', env.HOMEPATH || '')
+					: undefined)
 		);
 
 	const temp = () =>
 		normalize_path(
-			(typeof os.tmpdir === 'function'
-				? os.tmpdir()
-				: env.TEMP ||
-				  env.TMP ||
-				  path.join(env.LOCALAPPDATA || env.SystemRoot || env.windir || '', 'Temp')) ?? ''
+			(typeof os.tmpdir === 'function' ? os.tmpdir() : '') ||
+				env.TEMP ||
+				env.TMP ||
+				(env.LOCALAPPDATA ? path.join(env.LOCALAPPDATA, 'Temp') : '') ||
+				(function (s) {
+					return s ? path.join(s, 'AppData', 'Local', 'Temp') : '';
+				})(home()) ||
+				(env.ALLUSERSPROFILE ? path.join(env.ALLUSERSPROFILE, 'Temp') : '') ||
+				path.join(
+					env.SystemRoot || env.windir || (env.SystemDrive ? env.SystemDrive + '\\' : 'C:\\'),
+					'Temp'
+				)
 		);
 
 	return { home, temp };
