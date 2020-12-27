@@ -3,7 +3,7 @@
 'use strict';
 
 import * as os from 'os';
-import * as paths from 'path';
+import * as path from 'path';
 
 export type OSPaths = {
 	new (): OSPaths;
@@ -14,8 +14,8 @@ export type OSPaths = {
 
 const isWinOS = /^win/i.test(process.platform);
 
-function normalize_path(path: string): string {
-	return paths.normalize(paths.join(path, '.'));
+function normalize_path(path_: string): string {
+	return path.normalize(path.join(path_, '.'));
 }
 
 const base = () => {
@@ -36,7 +36,7 @@ const windows = () => {
 		normalize_path(
 			(typeof os.homedir === 'function'
 				? os.homedir()
-				: env.USERPROFILE || paths.join(env.HOMEDRIVE ?? '', env.HOMEPATH ?? '') || env.HOME) ?? ''
+				: env.USERPROFILE || path.join(env.HOMEDRIVE ?? '', env.HOMEPATH ?? '') || env.HOME) ?? ''
 		);
 
 	const temp = () =>
@@ -45,7 +45,7 @@ const windows = () => {
 				? os.tmpdir()
 				: env.TEMP ||
 				  env.TMP ||
-				  paths.join(env.LOCALAPPDATA || env.SystemRoot || env.windir || '', 'Temp')) ?? ''
+				  path.join(env.LOCALAPPDATA || env.SystemRoot || env.windir || '', 'Temp')) ?? ''
 		);
 
 	return { home, temp };
