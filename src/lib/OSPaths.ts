@@ -1,6 +1,4 @@
-/* eslint-env es6, node */
 // # spell-checker:ignore HomeDrive HomePath LocalAppData UserProfile WinDir
-'use strict';
 
 import * as os from 'os';
 import * as path from 'path';

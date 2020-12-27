@@ -1,6 +1,4 @@
 // # spell-checker:ignore APPNAME
-/* eslint-env es6, node */
-'use strict';
 
 import osPaths from '../src';
 
