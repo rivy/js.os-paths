@@ -53,10 +53,9 @@ const windows = () => {
 
 // eslint-disable-next-line functional/no-class
 class _OSPaths {
-	readonly fn: OSPaths;
 	constructor() {
 		const OSPaths = function () {
-			return new _OSPaths().fn;
+			return new _OSPaths();
 		};
 
 		// Connect to platform-specific API functions by extension
@@ -64,9 +63,9 @@ class _OSPaths {
 		OSPaths.home = extension.home;
 		OSPaths.temp = extension.temp;
 
-		this.fn = OSPaths as OSPaths; // eslint-disable-line functional/no-this-expression
+		return OSPaths;
 	}
 }
 
-const default_ = new _OSPaths().fn;
+const default_ = new _OSPaths() as OSPaths;
 export default default_;
