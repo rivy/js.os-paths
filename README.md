@@ -4,8 +4,10 @@
 <!-- spell-checker:ignore expandtab markdownlint modeline smarttab softtabstop -->
 
 <!-- markdownlint-disable heading-increment -->
-<!-- spell-checker:ignore (names) rivy Sindre sindresorhus Sorhus -->
-<!-- spell-checker:ignore (abbrev/jargon) CICD -->
+<!-- spell-checker:ignore (abbrev/jargon) CICD CJS ESM ESMs -->
+<!-- spell-checker:ignore (names) Deno -->
+<!-- spell-checker:ignore (targets) realclean -->
+<!-- spell-checker:ignore (people) rivy sindresorhus Sindre Sorhus -->
 
 # [os-paths](https://github.com/rivy/js.os-paths)
 
@@ -27,13 +29,17 @@
 
 ```shell
 npm install os-paths
+# or... `npm install github:rivy/js.os-paths`
+# or... `npm install "https://cdn.jsdelivr.net/gh/rivy/js.os-paths/dist/os-paths.tgz"`
 ```
 
 > #### Requirements
 >
-> NodeJS >= 6.0
+> NodeJS >= 6.0[^*]
 
 <!--{blockquote: .--info style="font-size:75%;"}-->
+
+[^*]: With the conversion to a TypeScript-based project, due to tooling constraints, testing is more difficult and more limited on Node platforms earlier than Node-v10+. However, the generated CommonJS/UMD project code is still fully compatible with Node-v6+.
 
 ## Usage
 
@@ -59,24 +65,27 @@ osPaths.temp();
 const osPaths = require('os-paths');
 ```
 
-The object returned by the module constructor is an `OSPaths` function object, augmented with attached methods. When called directly (eg, `const p = osPaths()`), it returns a newly constructed `OSPaths` object. Since the `OSPaths` object contains no instance state, all constructed objects will be functionally identical.
+The object returned by the module constructor is a function object, `OSPaths`, augmented with attached methods. When this object is called directly (eg, `const p = osPaths()`), it returns another newly constructed `OSPaths` object. Since the `OSPaths` object contains no instance state, all constructed objects will be functionally identical.
 
 ### Methods
 
 All module methods return simple, platform-compatible, path strings which are normalized and have no trailing path separators.
 
-The path strings are _not_ guaranteed to already exist on the file system. So, the user is responsible for directory construction, if/when needed.
-However, since all of these are _standard_ OS directories, they should all exist without the need for user intervention.
+The path strings are _not_ guaranteed to already exist on the file system. So, the user is responsible for directory construction, if/when needed. However, since all of these are _standard_ OS directories, they should all exist without the need for user intervention.
 
 If/when necessary, [`make-dir`](https://www.npmjs.com/package/make-dir) or [`mkdirp`](https://www.npmjs.com/package/mkdirp) can be used to create the directories.
 
-#### `osPaths.home(): string`
+#### `osPaths.home(): string | undefined`
 
-Returns the home directory for user
+- Returns the home directory for user (or `undefined`)
+
+`undefined` is returned if the home directory is not resolvable.
 
 #### `osPaths.temp(): string`
 
-Returns the directory for temporary files
+- Returns the directory for temporary files
+
+_Always_ returns a non-empty path (as sanely as possible).
 
 ## Discussion
 
@@ -85,6 +94,17 @@ Returns the directory for temporary files
 All XDG-related methods have been relocated to the [`xdg-portable`](https://www.npmjs.com/package/xdg-portable) and [`xdg-app-paths`](https://www.npmjs.com/package/xdg-app-paths) modules.
 
 ## Building and Contributing
+
+[![Repository][repository-image]][repository-url]
+[![Build status][gha-image]][gha-url]
+[![Build status][travis-image]][travis-url]
+[![Build status][appveyor-image]][appveyor-url]
+[![Coverage status][coverage-image]][coverage-url]
+&nbsp; <br/>
+[![Quality status (CodeClimate)][codeclimate-image]][codeclimate-url]
+[![Quality status (CodeFactor)][codacy-image]][codacy-url]
+[![Quality status (CodeFactor)][codefactor-image]][codefactor-url]
+[![Quality status (Scrutinizer)][scrutinizer-image]][scrutinizer-url]
 
 ### Build requirements
 
@@ -111,19 +131,28 @@ usage: `npm run TARGET [TARGET..]`
 
 TARGETs:
 
+build               build/compile package
+clean               remove build artifacts
 coverage            calculate and display (or send) code coverage [alias: 'cov']
 fix                 fix package issues (automated/non-interactive)
-fix:lint            fix `ESLint` issues
-fix:style           fix `Prettier` formatting issues
+fix:lint            fix ESLint issues
+fix:style           fix Prettier formatting issues
 help                display help
 lint                check for package code 'lint'
-lint:lint           check for code 'lint' (using `ESLint`)
-lint:spell          check for spelling errors (using `cSpell`)
-lint:style          check for format imperfections (using `Prettier`)
-lint:types          check for type declaration errors (using `tsd`)
+lint:lint           check for code 'lint' (using `eslint`)
+lint:markdown       check for markdown errors (using `remark`)
+lint:spell          check for spelling errors (using `cspell`)
+lint:style          check for format imperfections (using `prettier`)
+realclean           remove all generated files
+rebuild             clean and (re-)build project
+retest              clean and (re-)test project
+reset:hard          remove *all* generated files and reinstall dependencies
 test                test package
 test:code           test package code
+test:types          test for type declaration errors (using `tsd`)
+update              update/prepare for distribution
 update:changelog    update CHANGELOG (using `git changelog ...`)
+update:dist         update distribution content
 ```
 
 ### Contributions
@@ -148,7 +177,7 @@ By contributing to the project, you are agreeing to provide your contributions u
 <!-- Repository -->
 <!-- Note: for '[repository-image] ...', `%E2%81%A3` == utf-8 sequence of "Unicode Character 'INVISIBLE SEPARATOR' (U+2063)"; ref: <https://codepoints.net/U+2063> -->
 
-[repository-image]: https://img.shields.io/github/v/tag/rivy/js.os-paths?label=%E2%81%A3&logo=github&logoColor=white
+[repository-image]: https://img.shields.io/github/package-json/v/rivy/js.os-paths/master?label=%E2%81%A3&logo=github&logoColor=white
 [repository-url]: https://github.com/rivy/js.os-paths
 [license-image]: https://img.shields.io/npm/l/os-paths.svg?color=royalblue&style=flat
 [license-url]: license
@@ -169,6 +198,14 @@ By contributing to the project, you are agreeing to provide your contributions u
 
 [coverage-image]: https://img.shields.io/codecov/c/github/rivy/js.os-paths/master.svg
 [coverage-url]: https://codecov.io/gh/rivy/js.os-paths
+[codeclimate-url]: https://codeclimate.com/github/rivy/js.os-paths
+[codeclimate-image]: https://img.shields.io/codeclimate/maintainability/rivy/js.os-paths?label=codeclimate
+[codacy-image]: https://img.shields.io/codacy/grade/4fa161040bcd483890691190293ff950?label=codacy
+[codacy-url]: https://app.codacy.com/gh/rivy/js.os-paths/dashboard
+[codefactor-image]: https://img.shields.io/codefactor/grade/github/rivy/js.os-paths?label=codefactor
+[codefactor-url]: https://www.codefactor.io/repository/github/rivy/js.os-paths
+[scrutinizer-image]: https://img.shields.io/scrutinizer/quality/g/rivy/js.os-paths?label=scritunizer
+[scrutinizer-url]: https://scrutinizer-ci.com/g/rivy/js.os-paths
 
 <!-- Distributors/Registries -->
 
