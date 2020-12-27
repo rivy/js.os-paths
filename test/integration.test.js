@@ -13,13 +13,12 @@ const module_ = require('../build/cjs+tests');
 // Integration tests
 
 test('api', (t) => {
-	const paths = module_;
 	const api = ['home', 'temp'];
 
-	t.is(typeof paths, 'function');
-	t.is(Object.keys(paths).length, api.length);
+	t.is(typeof module_, 'function');
+	t.deepEqual(Object.keys(module_).sort(), api.sort());
 	api.forEach((key) => {
-		t.is(typeof paths[key], 'function');
+		t.is(typeof module_[key], 'function');
 	});
 });
 
