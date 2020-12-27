@@ -1,7 +1,7 @@
 # spell-checker: ignore bugfix maint middot
 info:
-  title: xdg-app-paths
-  repository_url: https://github.com/rivy/js.xdg-app-paths
+  title: os-paths
+  repository_url: https://github.com/rivy/js.os-paths
 style: github
 template: CHANGELOG.tpl.md
 options:
