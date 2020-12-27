@@ -2,9 +2,11 @@
 /* eslint-env es6, node */
 'use strict';
 
-const pkg = require('../' + 'package.json');
+// const pkg = require('../' + 'package.json');
 
-const osPaths = require('../' + pkg.main);
+// const osPaths = require('../' + pkg.main);
+
+const osPaths = require('../build/cjs/index.js');
 
 console.log({ osPaths });
 

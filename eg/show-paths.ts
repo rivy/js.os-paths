@@ -2,7 +2,7 @@
 /* eslint-env es6, node */
 'use strict';
 
-import osPaths from '../src/lib';
+import osPaths from '../src';
 
 console.log({ osPaths });
 

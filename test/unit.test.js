@@ -6,7 +6,7 @@ const os = require('os');
 
 const test = require('ava');
 
-const osPaths = require('../build/umd');
+const osPaths = require('../build/cjs+tests');
 
 test('default', (t) => {
 	const paths = osPaths;
