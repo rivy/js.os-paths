@@ -13,7 +13,7 @@ export type OSPaths = {
 const isWinOS = /^win/i.test(process.platform);
 
 function normalize_path(path_: string): string {
-	return path.normalize(path.join(path_, '.'));
+	return path_ ? path.normalize(path.join(path_, '.')) : '';
 }
 
 const base = () => {
