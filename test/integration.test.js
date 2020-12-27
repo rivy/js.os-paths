@@ -34,7 +34,7 @@ test('api', (t) => {
 	});
 });
 
-// ToDO: add TypeScript and Deno example script checks
+// ToDO: add Deno example script checks
 
 test('examples are executable without error (JavaScript)', (t) => {
 	const egDirPath = 'eg';
@@ -61,5 +61,31 @@ test('examples are executable without error (JavaScript)', (t) => {
 
 				t.deepEqual({ error, status }, { error: null, status: 0 });
 			}
+		});
+});
+
+test('examples are executable without error (TypeScript)', (t) => {
+	const egDirPath = 'eg';
+	const extensions = ['.ts'];
+
+	const files = fs.readdirSync(egDirPath);
+
+	files
+		.filter((file) => {
+			return extensions.includes(path.extname(file));
+		})
+		.forEach((file) => {
+			const command = 'node';
+			const script = path.join(egDirPath, file);
+			const args = ['node_modules/ts-node/dist/bin.js', script];
+			const options = { shell: true, encoding: 'utf8' };
+
+			t.log({ script });
+
+			const { error, status, stdout } = spawn.sync(command, args, options);
+
+			t.log({ error, status, stdout });
+
+			t.deepEqual({ error, status }, { error: null, status: 0 });
 		});
 });
