@@ -5,6 +5,69 @@
 
 ---
 
+## [v5.0.0](https://github.com/rivy/js.os-paths/compare/v4.4.0...v5.0.0) <small>(2020-12-27)</small>
+
+#### Changes
+
+* change/**API!**: `home()` returns `undefined` when path is indeterminate &ac; [`39c5d6a`](https://github.com/rivy/js.os-paths/commit/39c5d6ac39d516760a5a809fd6694c46c6c11474)
+* change/**API!**: robustly fall back to env vars if empty returns by 'standard' functions &ac; [`6c9e8b8`](https://github.com/rivy/js.os-paths/commit/6c9e8b84121c2fec76d196bcc7e8379805b0aff4)
+* change/**API!**: return empty strings for indeterminate directories (instead of current directory) &ac; [`cfa78e9`](https://github.com/rivy/js.os-paths/commit/cfa78e98cbb762efc769e707e49815a0a431c479)
+
+#### Fixes
+
+* fix Codacy/ESLint complaint (no-undefined) &ac; [`c246d38`](https://github.com/rivy/js.os-paths/commit/c246d38071e8f4a64e94035eeebac28cfbecc2db)
+* fix 'codacy' complaints (use ===) &ac; [`1a9a99d`](https://github.com/rivy/js.os-paths/commit/1a9a99d1516a2956011461594b58107a0ff34176)
+* fix `npx eslint test` complaints &ac; [`6a40429`](https://github.com/rivy/js.os-paths/commit/6a404291c3ade52b45a6b22a30b721a2082ff5a0)
+* fix `npx eslint src` complaints &ac; [`a056c41`](https://github.com/rivy/js.os-paths/commit/a056c41732c341c8a83663374c33a24c94cd88e5)
+
+#### Documentation
+
+* docs ~ update CHANGELOG &ac; [`45a298f`](https://github.com/rivy/js.os-paths/commit/45a298f7a649b43775bd5c3773fbc1fd87110ae6)
+* docs ~ add spell-checker exceptions &ac; [`f70e550`](https://github.com/rivy/js.os-paths/commit/f70e550997e69a4bc8c186226d7012afd52128c6)
+* docs ~ fix CHANGELOG references &ac; [`5f84663`](https://github.com/rivy/js.os-paths/commit/5f84663223940d95941867c8f7b6a22009a34b5a)
+* docs ~ add/remove spell-checker exceptions &ac; [`e9aa62e`](https://github.com/rivy/js.os-paths/commit/e9aa62e3d83e461c5d052f93fb48f4d755edbf7a)
+* docs ~ polish README &ac; [`6aea752`](https://github.com/rivy/js.os-paths/commit/6aea752c44b18bba2ee36d5569d84caa25ccded9)
+* docs ~ fix CHANGELOG repository reference &ac; [`3b34301`](https://github.com/rivy/js.os-paths/commit/3b34301c8f4a5b28e6366c06a4e389766b507f35)
+* docs ~ refactor common code in examples &ac; [`9858599`](https://github.com/rivy/js.os-paths/commit/985859944e4472443b32e2b98bafdf0192ac299a)
+* docs ~ refactor JS example &ac; [`3f0fad5`](https://github.com/rivy/js.os-paths/commit/3f0fad5edc0655be1daab1163d576a3d34830583)
+* docs ~ fix `npx eslint eg` complaints &ac; [`71daafb`](https://github.com/rivy/js.os-paths/commit/71daafb4f3dcedb40629cddb3873e1fac9de6215)
+* docs ~ add TypeScript-based example &ac; [`17282b6`](https://github.com/rivy/js.os-paths/commit/17282b62a09f7f4702ca2b8d52d8e7b10d98b502)
+* docs ~ change example to use TypeScript-built library &ac; [`1922935`](https://github.com/rivy/js.os-paths/commit/1922935c1842aac7e1a03f92e0a54e04657463fd)
+* docs ~ fix bug/typo in example code &ac; [`90f42bf`](https://github.com/rivy/js.os-paths/commit/90f42bfb0b05d54d9ce6f13ffcebc3b5bd96fa8b)
+
+#### Maintenance
+
+* maint/**build**: convert build to target 'dist' (includes dev script updates) &ac; [`0c7c6c7`](https://github.com/rivy/js.os-paths/commit/0c7c6c72f9ed63312c6bb731b11decbf116640b2)
+* maint/**build**: (gitignore) recognize 'dist' &ac; [`0d9dbed`](https://github.com/rivy/js.os-paths/commit/0d9dbed3e396efce94255d50a3ca3f5fc1a58ba8)
+* maint/**build**: change to CJS as default TypeScript output &ac; [`c1597f1`](https://github.com/rivy/js.os-paths/commit/c1597f18320e877aa30ca7279ba76083386ff396)
+* maint/**build**: add 'node-v6' tag &ac; [`86638e4`](https://github.com/rivy/js.os-paths/commit/86638e46ba43ca83788459a985b3a77a00ff8ffe)
+* maint/**dev**: refactor/polish ESLint configuration &ac; [`77d6e0d`](https://github.com/rivy/js.os-paths/commit/77d6e0d831ff397f8810e38bd5894c436cd63564)
+* maint/**dev**: change default TAB size to 2 &ac; [`8a1625c`](https://github.com/rivy/js.os-paths/commit/8a1625cee01b28820aed10e6a57adbb159554fda)
+* maint/**dev**: teach ESLint to overlook "ignored" args/vars with leading underscores ('_') &ac; [`5e4480c`](https://github.com/rivy/js.os-paths/commit/5e4480c57d4043b6c9f12fac5acd840398a48677)
+* maint/**dev**: add Remark-based markdown linting &ac; [`288c552`](https://github.com/rivy/js.os-paths/commit/288c552ef6557483387f6e8831f01bb5c10d42ef)
+* maint/**dev**: add commentary regarding ESLint rules &ac; [`5599a28`](https://github.com/rivy/js.os-paths/commit/5599a28257a6abeafec045679b48c7709daf14f9)
+* maint/**dev**: update VSCode settings (hide distracting dev-only info) &ac; [`4a30125`](https://github.com/rivy/js.os-paths/commit/4a30125b6410ecb5634036ce7bdb5d7f1f2883da)
+* maint/**dev**: fix prepublishOnly dev script dependency order (update after build/test) &ac; [`e30bfbf`](https://github.com/rivy/js.os-paths/commit/e30bfbf25070bf1bf040ac7b80499c1d182135d9)
+* maint/**dev**: fix 'preversion' as duplicate of 'prepublishOnly' to avoid missing/stale artifacts &ac; [`7f0d7ae`](https://github.com/rivy/js.os-paths/commit/7f0d7ae8d7fc30776e00375b066380485383e7be)
+* maint/**dev**: consolidate and update TS config files &ac; [`d762e97`](https://github.com/rivy/js.os-paths/commit/d762e9772fd50544b2e3ae19e381e43002dcf3e6)
+* maint/**dev**: fix publish dev scripts &ac; [`c846cb6`](https://github.com/rivy/js.os-paths/commit/c846cb61cc279d01dea1d74e67e50e0c11d1087e)
+* maint/**dev**: add/improve package dev scripts (with required dev deps) &ac; [`2983f4c`](https://github.com/rivy/js.os-paths/commit/2983f4cbf7e9cd31677b11d11e6d55bd44a6fafc)
+* maint/**dev**: convert to TypeScript &ac; [`3cf0552`](https://github.com/rivy/js.os-paths/commit/3cf0552c508bd5e696249070e4202d6948b5be7f)
+* maint/**dev**: enable ESLint TypeScript configuration &ac; [`55e5d0c`](https://github.com/rivy/js.os-paths/commit/55e5d0c4d068921c90b22d6406ad18a2802b8200)
+* maint/**dev**: add TypeScript dev deps &ac; [`9f38817`](https://github.com/rivy/js.os-paths/commit/9f38817739657c729b5e332d9cfc9c7712008084)
+* maint/**dist**: update distribution &ac; [`a6dac95`](https://github.com/rivy/js.os-paths/commit/a6dac95bb5f21a67f2f190a7487ad421f05a5148)
+* maint/**dist**: update prior to version update &ac; [`19135f3`](https://github.com/rivy/js.os-paths/commit/19135f339c0a10d213e94ead269aca8a5b94f800)
+
+#### Refactoring
+
+* refactor ~ remove disabled/redundant code, 'use strict', and ESLint directives &ac; [`43e9361`](https://github.com/rivy/js.os-paths/commit/43e9361625248e928d085fec3e756df72233c33e)
+* refactor ~ use usual 'path' as the name for `import ... 'path'` &ac; [`664db74`](https://github.com/rivy/js.os-paths/commit/664db74cebd71c563ea20692adfd715820186ba4)
+* refactor ~ explicitly test for os.homedir/tmpdir as functions &ac; [`42c3f41`](https://github.com/rivy/js.os-paths/commit/42c3f416b006d48caffffc558587a757ab63896d)
+* refactor ~ simplify OSPaths construction/constructor &ac; [`8e55fa3`](https://github.com/rivy/js.os-paths/commit/8e55fa30f0cde6d4df4ec3d6e00a52759624d70c)
+* refactor ~ re-organize source code (within 'src') &ac; [`205e726`](https://github.com/rivy/js.os-paths/commit/205e7265efd7e564273bb520998c37366247ff57)
+
+---
+
 ## [v4.4.0](https://github.com/rivy/js.os-paths/compare/v4.3.0...v4.4.0) <small>(2020-12-15)</small>
 
 #### Changes
