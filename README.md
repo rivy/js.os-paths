@@ -30,7 +30,7 @@
 ```shell
 npm install os-paths
 # or... `npm install github:rivy/js.os-paths`
-# or... `npm install "https://cdn.jsdelivr.net/gh/rivy/js.os-paths/dist/os-paths.tgz"`
+# or... `npm install "https://cdn.jsdelivr.net/gh/rivy/js.os-paths@master/dist/os-paths.tgz"`
 ```
 
 > #### Requirements
