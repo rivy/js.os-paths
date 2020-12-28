@@ -94,7 +94,7 @@
 		"# update:changelog # update CHANGELOG (using `git changelog ...`)": "",
 		"update:changelog": "run-s --silent _:update:changelog && (git diff --quiet --exit-code CHANGELOG.mkd || shx echo \"[update] info CHANGELOG updated\")",
 		"# update:dist # update distribution content": "",
-		"update:dist": "run-s _:regen:build && shx mkdir -p dist && shx cp -r build/cjs build/types dist && npm pack && shx mv os-paths-*.tgz dist/os-paths.tgz",
+		"update:dist": "run-s _:regen:build _:update:dist",
 		"_:coverage": "run-s _:regen:build+test:code && is-ci && run-s cov:send || run-s cov:view",
 		"_:exists:git-changelog": "node -e \"if (!require('command-exists').sync('git-changelog')){process.exit(1);};\" || (shx echo \"WARN `git-changelog` missing (try `go get -u github.com/rivy-go/git-changelog/cmd/git-changelog`)\" & exit 1)",
 		"_:max-node-8": "is-node-not-modern 10",
@@ -107,11 +107,12 @@
 		"_:vcs-strictly-clean": "git status --porcelain | node -e \"process.stdin.on('data',function(_){process.exit(1);});\"",
 		"_:vcs-strictly-clean-err": "run-s --silent _:vcs-strictly-clean || (shx echo \"[vcs] ERR! Uncommitted changes and/or untracked files\" 1>&2 & exit 1)",
 		"_:update:changelog": "run-s --silent _:exists:git-changelog && git changelog > CHANGELOG.mkd || shx echo \"[update] WARN CHANGELOG not updated\" 1>&2",
+		"_:update:dist": "shx mkdir -p dist && shx cp -r build/cjs build/types dist && npm pack && shx mv os-paths-*.tgz dist/os-paths.tgz",
 		"_:update:dist.types": "shx mkdir -p dist && shx cp -r build/types dist",
 		"_:version:update:changelog": "run-s --silent _:exists:git-changelog && node -e \"v=require('./package.json').version; result=require('child_process').spawnSync('git changelog --next-tag v'+v,{shell:true,encoding:'utf-8'}); if (result.status != 0) {console.error('ERR! '+result.stderr); process.exit(1);} else {require('fs').writeFileSync('CHANGELOG.mkd',result.stdout);};\" || shx echo \"[version] WARN CHANGELOG not updated\" 1>&2",
 		"prepublishOnly": "run-s test update _:vcs-strictly-clean-err",
-		"preversion": "run-s test",
-		"version": "run-s _:version:update:changelog lint:spell && git add CHANGELOG.mkd"
+		"preversion": "run-s test update _:vcs-strictly-clean-err",
+		"version": "run-s _:version:update:changelog lint:spell _:update:dist && git add CHANGELOG.mkd dist"
 	},
 	"dependencies": {},
 	"devDependencies:#": "* for testing, Node-v6 requires ava < v2 and nyc < v15",
