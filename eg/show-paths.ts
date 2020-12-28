@@ -1,5 +1,3 @@
-// # spell-checker:ignore APPNAME
-
 import osPaths from '../src';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
