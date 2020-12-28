@@ -11,6 +11,34 @@ const osPaths = require('../build/cjs+tests');
 
 const isWinOS = /^win/i.test(process.platform);
 
+const env = {
+	defaults: process.env,
+	signals: {
+		ALLUSERSPROFILE: 'allusersprofile',
+		HOME: 'home',
+		HOMEDRIVE: 'homedrive',
+		HOMEPATH: 'homepath',
+		LOCALAPPDATA: 'localappdata',
+		SystemRoot: 'systemroot',
+		SystemDrive: 'systemdrive',
+		TEMP: 'temp',
+		TMPDIR: 'tmpdir',
+		TMP: 'tmp',
+		USERPROFILE: 'userprofile',
+		windir: 'windir',
+	},
+};
+
+function setupProcessEnv(values) {
+	// eslint-disable-next-line functional/immutable-data
+	Object.keys(values).forEach((key) => (process.env[key] = env.defaults[key]));
+}
+
+// * reset environment prior to each test
+test.beforeEach((_) => {
+	setupProcessEnv(env.defaults);
+});
+
 /* eslint-disable functional/immutable-data */
 
 test('default', (t) => {
