@@ -6,7 +6,7 @@ import * as path from 'path';
 export type OSPaths = {
 	new (): OSPaths;
 	(): OSPaths;
-	readonly home: () => string;
+	readonly home: () => string | undefined;
 	readonly temp: () => string;
 };
 
