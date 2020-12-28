@@ -5,6 +5,23 @@
 
 ---
 
+## [v5.0.1](https://github.com/rivy/js.os-paths/compare/v5.0.0...v5.0.1) <small>(2020-12-28)</small>
+
+#### Fixes
+
+* fix code coverage for current problems with instrumenting ESM modules under `nyc` &ac; [`d78b19d`](https://github.com/rivy/js.os-paths/commit/d78b19d07f405d96248aa41f3d3fb52d94a9153e)
+
+#### Documentation
+
+* docs ~ fix CDN installation URL in README &ac; [`fc510cf`](https://github.com/rivy/js.os-paths/commit/fc510cf4fd85739565b2c914132224eed9960d7a)
+* docs ~ update CHANGELOG &ac; [`c92ed1b`](https://github.com/rivy/js.os-paths/commit/c92ed1b5a1c48aa3ba5660c13134a55cd6021c01)
+
+#### Maintenance
+
+* maint/**dist**: update &ac; [`fd36a34`](https://github.com/rivy/js.os-paths/commit/fd36a341ed5a85c9f128a494fa0c011d9bfb16bd)
+
+---
+
 ## [v5.0.0](https://github.com/rivy/js.os-paths/compare/v4.4.0...v5.0.0) <small>(2020-12-28)</small>
 
 #### Changes
