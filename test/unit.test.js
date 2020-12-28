@@ -39,7 +39,7 @@ test.beforeEach((_) => {
 	setupProcessEnv(env.defaults);
 });
 
-/* eslint-disable functional/immutable-data */
+/* eslint-disable no-undefined , functional/immutable-data */
 
 test('default', (t) => {
 	const paths = osPaths;
@@ -162,4 +162,4 @@ test('no os.tmpdir and runtime variations', (t) => {
 	t.is(paths.temp(), isWinOS ? 'temp' : 'tmpdir'); // TMPDIR is not used for Windows platforms
 });
 
-/* eslint-enable functional/immutable-data */
+/* eslint-enable no-undefined , functional/immutable-data */
