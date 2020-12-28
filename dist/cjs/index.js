@@ -16,7 +16,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var OSPaths_1 = __importDefault(require("./lib/OSPaths"));
 __exportStar(require("./lib/OSPaths"), exports);
 exports.default = OSPaths_1.default;
-if (module) {
+var haveModuleExports_ = typeof module === 'object' && module.exports;
+if (haveModuleExports_) {
     module.exports = OSPaths_1.default;
 }
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9zcmMvaW5kZXgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7O0FBQUEsMERBQW9EO0FBRXBELGdEQUE4QjtBQUM5QixrQkFBZSxpQkFBUSxDQUFDO0FBRXhCLElBQUksTUFBTSxFQUFFO0lBRVgsTUFBTSxDQUFDLE9BQU8sR0FBRyxpQkFBUSxDQUFDO0NBQzFCIn0=
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9zcmMvaW5kZXgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7O0FBQ0EsMERBQW9EO0FBRXBELGdEQUE4QjtBQUU5QixrQkFBZSxpQkFBUSxDQUFDO0FBRXhCLElBQU0sa0JBQWtCLEdBQUcsT0FBTyxNQUFNLEtBQUssUUFBUSxJQUFJLE1BQU0sQ0FBQyxPQUFPLENBQUM7QUFHeEUsSUFBSSxrQkFBa0IsRUFBRTtJQUd2QixNQUFNLENBQUMsT0FBTyxHQUFHLGlCQUFRLENBQUM7Q0FDMUIifQ==
