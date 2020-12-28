@@ -1,5 +1,5 @@
 /* eslint-env es6, node */
-// # spell-checker:ignore HomeDrive HomePath LocalAppData UserProfile windir
+// # spell-checker:ignore AllUsersProfile HomeDrive HomePath LocalAppData SystemDrive SystemRoot UserProfile windir
 'use strict';
 
 const os = require('os');
@@ -66,10 +66,10 @@ test('no os.homedir or environment', (t) => {
 	delete process.env.HOMEDRIVE;
 	delete process.env.HOMEPATH;
 	delete process.env.USERPROFILE;
+	t.is(paths.home(), undefined);
 
-	t.is(paths.home(), '');
 	process.env.HOME = process.env.HOMEDRIVE = process.env.HOMEPATH = process.env.USERPROFILE = '';
-	t.is(paths.home(), '');
+	t.is(paths.home(), undefined);
 });
 
 test('os.homedir/os.tmpdir return `null`', (t) => {
@@ -90,13 +90,13 @@ test('no os.homedir and runtime variations', (t) => {
 	process.env.HOME = process.env.HOMEDRIVE = process.env.HOMEPATH = process.env.USERPROFILE = '';
 
 	process.env.HOMEDRIVE = 'homedrive';
-	t.is(paths.home(), isWinOS ? 'homedrive' : '');
+	t.is(paths.home(), isWinOS ? 'homedrive' : undefined);
 
 	process.env.HOMEDRIVE = '';
 	process.env.HOMEPATH = 'homepath';
-	t.is(paths.home(), isWinOS ? 'homepath' : '');
+	t.is(paths.home(), isWinOS ? 'homepath' : undefined);
 	process.env.HOMEDRIVE = 'homedrive';
-	t.is(paths.home(), isWinOS ? path.join('homedrive', 'homepath') : '');
+	t.is(paths.home(), isWinOS ? path.join('homedrive', 'homepath') : undefined);
 
 	process.env.HOME = 'home';
 	t.is(paths.home(), 'home');
@@ -110,15 +110,21 @@ test('no os.tmpdir and runtime variations', (t) => {
 
 	process.env.TEMP = process.env.TMPDIR = process.env.TMP = '';
 
-	t.is(paths.temp(), isWinOS ? path.join(process.env.LOCALAPPDATA, 'Temp') : '');
+	t.is(paths.temp(), isWinOS ? path.join(process.env.LOCALAPPDATA, 'Temp') : '/tmp');
 	process.env.LOCALAPPDATA = '';
-	t.is(paths.temp(), isWinOS ? path.join(process.env.SystemRoot, 'Temp') : '');
+	t.is(paths.temp(), isWinOS ? path.join(paths.home() || '', 'AppData', 'Local', 'Temp') : '/tmp');
+	process.env.HOME = process.env.HOMEDRIVE = process.env.HOMEPATH = process.env.USERPROFILE = '';
+	t.is(paths.temp(), isWinOS ? path.join(process.env.ALLUSERSPROFILE, 'Temp') : '/tmp');
+	process.env.ALLUSERSPROFILE = '';
+	t.is(paths.temp(), isWinOS ? path.join(process.env.SystemRoot, 'Temp') : '/tmp');
 	process.env.SystemRoot = '';
-	t.is(paths.temp(), isWinOS ? path.join(process.env.windir, 'Temp') : '');
+	t.is(paths.temp(), isWinOS ? path.join(process.env.windir, 'Temp') : '/tmp');
 	process.env.windir = '';
-	t.is(paths.temp(), isWinOS ? path.join('', 'Temp') : '');
+	t.is(paths.temp(), isWinOS ? path.join(process.env.SystemDrive + '\\', 'Temp') : '/tmp');
 	delete process.env.windir;
-	t.is(paths.temp(), isWinOS ? path.join('', 'Temp') : '');
+	t.is(paths.temp(), isWinOS ? path.join(process.env.SystemDrive + '\\', 'Temp') : '/tmp');
+	process.env.SystemDrive = '';
+	t.is(paths.temp(), isWinOS ? 'C:\\Temp' : '/tmp');
 
 	process.env.TMP = 'tmp';
 	t.is(paths.temp(), 'tmp');
