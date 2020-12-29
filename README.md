@@ -5,7 +5,7 @@
 
 <!-- markdownlint-disable heading-increment -->
 <!-- spell-checker:ignore (abbrev/jargon) CICD CJS ESM ESMs -->
-<!-- spell-checker:ignore (names) Deno -->
+<!-- spell-checker:ignore (names) Codacy Deno -->
 <!-- spell-checker:ignore (targets) realclean -->
 <!-- spell-checker:ignore (people) rivy sindresorhus Sindre Sorhus -->
 
@@ -13,9 +13,9 @@
 
 > Generate portable common OS paths (home, temp, ...)
 
-[![Build status][gha-image]][gha-url]
-[![Build status][travis-image]][travis-url]
-[![Build status][appveyor-image]][appveyor-url]
+[![Build status (GHA)][gha-image]][gha-url]
+[![Build status (Travis-CI)][travis-image]][travis-url]
+[![Build status (AppVeyor)][appveyor-image]][appveyor-url]
 [![Coverage status][coverage-image]][coverage-url]
 [![License][license-image]][license-url]
 [![Style Guide][style-image]][style-url]
@@ -96,13 +96,13 @@ All XDG-related methods have been relocated to the [`xdg-portable`](https://www.
 ## Building and Contributing
 
 [![Repository][repository-image]][repository-url]
-[![Build status][gha-image]][gha-url]
-[![Build status][travis-image]][travis-url]
-[![Build status][appveyor-image]][appveyor-url]
+[![Build status (GHA)][gha-image]][gha-url]
+[![Build status (Travis-CI)][travis-image]][travis-url]
+[![Build status (AppVeyor)][appveyor-image]][appveyor-url]
 [![Coverage status][coverage-image]][coverage-url]
 &nbsp; <br/>
+[![Quality status (Codacy)][codacy-image]][codacy-url]
 [![Quality status (CodeClimate)][codeclimate-image]][codeclimate-url]
-[![Quality status (CodeFactor)][codacy-image]][codacy-url]
 [![Quality status (CodeFactor)][codefactor-image]][codefactor-url]
 [![Quality status (Scrutinizer)][scrutinizer-image]][scrutinizer-url]
 
@@ -118,8 +118,7 @@ All XDG-related methods have been relocated to the [`xdg-portable`](https://www.
 ### Build/test
 
 ```shell
-npm install
-npm test
+npm install-test
 ```
 
 ### Project development scripts
@@ -127,7 +126,7 @@ npm test
 ```shell
 > npm run help
 ...
-usage: `npm run TARGET [TARGET..]`
+usage: `npm run TARGET` or `npx run-s TARGET [TARGET..]`
 
 TARGETs:
 
@@ -147,6 +146,7 @@ realclean           remove all generated files
 rebuild             clean and (re-)build project
 retest              clean and (re-)test project
 reset:hard          remove *all* generated files and reinstall dependencies
+show:deps           show package dependencies
 test                test package
 test:code           test package code
 test:types          test for type declaration errors (using `tsd`)
