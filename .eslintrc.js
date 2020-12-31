@@ -28,6 +28,7 @@ module.exports = {
 		'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
 		'eslint-comments/no-unused-disable': 'warn',
 		'import/order': ['error', { 'newlines-between': 'always', alphabetize: { order: 'asc' } }],
+		'no-console': ['warn'], // ref: https://eslint.org/docs/rules/no-console
 		'no-undefined': ['error'], // ref: https://eslint.org/docs/rules/no-undefined
 		'no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }], // ref: https://eslint.org/docs/rules/no-unused-vars
 		'sort-imports': ['error', { ignoreDeclarationSort: true, ignoreCase: true }],
