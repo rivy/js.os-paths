@@ -1,6 +1,6 @@
 import osPaths from '../src';
 
-/* eslint-disable functional/immutable-data , security/detect-object-injection, security-node/detect-crlf */
+/* eslint-disable no-console , functional/immutable-data , security/detect-object-injection, security-node/detect-crlf */
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function objectEntries(obj: any) {
@@ -20,4 +20,4 @@ console.log(objectEntries(osPaths));
 process.env.TMPDIR = process.env.TEMP = process.env.TMP = 'temp';
 console.log(objectEntries(osPaths));
 
-/* eslint-enable functional/immutable-data , security/detect-object-injection, security-node/detect-crlf */
+/* eslint-enable no-console , functional/immutable-data , security/detect-object-injection, security-node/detect-crlf */

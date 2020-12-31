@@ -3,7 +3,7 @@
 
 const osPaths = require('../build/cjs/index.js');
 
-/* eslint-disable functional/immutable-data , security/detect-object-injection, security-node/detect-crlf */
+/* eslint-disable no-console , functional/immutable-data , security/detect-object-injection, security-node/detect-crlf */
 
 function objectEntries(obj) {
 	const map = {};
@@ -21,4 +21,4 @@ console.log(objectEntries(osPaths));
 process.env.TMPDIR = process.env.TEMP = process.env.TMP = 'temp';
 console.log(objectEntries(osPaths));
 
-/* eslint-enable functional/immutable-data , security/detect-object-injection , security-node/detect-crlf */
+/* eslint-enable no-console, functional/immutable-data , security/detect-object-injection , security-node/detect-crlf */
