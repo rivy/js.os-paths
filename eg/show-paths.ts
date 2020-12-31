@@ -1,5 +1,7 @@
 import osPaths from '../src';
 
+/* eslint-disable functional/immutable-data , security/detect-object-injection, security-node/detect-crlf */
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function objectEntries(obj: any) {
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -7,7 +9,6 @@ function objectEntries(obj: any) {
 	Object.keys(obj).forEach((key) => {
 		const value = obj[key];
 		const val = typeof value === 'function' ? value() : value;
-		// eslint-disable-next-line functional/immutable-data
 		map[key] = val;
 	});
 	return map;
@@ -16,6 +17,7 @@ function objectEntries(obj: any) {
 console.log({ osPaths });
 console.log(objectEntries(osPaths));
 
-// eslint-disable-next-line functional/immutable-data
 process.env.TMPDIR = process.env.TEMP = process.env.TMP = 'temp';
 console.log(objectEntries(osPaths));
+
+/* eslint-enable functional/immutable-data , security/detect-object-injection, security-node/detect-crlf */
