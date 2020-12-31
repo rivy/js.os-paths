@@ -10,6 +10,8 @@ export type OSPaths = {
 	readonly temp: () => string;
 };
 
+const { env } = process;
+
 const isWinOS = /^win/i.test(process.platform);
 
 function isEmpty(s: string | null | undefined): boolean {
@@ -21,8 +23,6 @@ function normalizePath(path_: string | undefined): string | undefined {
 }
 
 const base = () => {
-	const { env } = process;
-
 	const home = () =>
 		normalizePath((typeof os.homedir === 'function' ? os.homedir() : void 0) || env.HOME);
 
@@ -41,8 +41,6 @@ const base = () => {
 };
 
 const windows = () => {
-	const { env } = process;
-
 	const home = () => {
 		const priorityList = [
 			typeof os.homedir === 'function' ? os.homedir() : void 0,
