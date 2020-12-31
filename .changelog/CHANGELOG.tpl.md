@@ -11,7 +11,7 @@
 {{ end -}}
 
 <!-- markdownlint-disable heading-increment no-duplicate-heading no-inline-html -->
-<!-- spellchecker:ignore () CICD Codacy Deno EditorConfig chglog deps discoverability gitattributes maint markdownlint preversion rivy tmpdir typeof -->
+<!-- spellchecker:ignore () CICD Codacy Deno EditorConfig chglog cyclomatic deps discoverability gitattributes maint markdownlint preversion rivy tmpdir typeof -->
 
 # CHANGELOG <br/> [{{ $.Info.Title }}]({{ $.Info.RepositoryURL }})
 {{ if .Unreleased.CommitGroups }}{{/* <a name="unreleased"></a> */}}
