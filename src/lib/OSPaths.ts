@@ -1,4 +1,5 @@
-// # spell-checker:ignore AllUsersProfile HomeDrive HomePath LocalAppData UserProfile WinDir falsey
+/* eslint complexity: ['error', { max: 10 }] */ // set maximum cyclomatic complexity to 10; ref: <https://eslint.org/docs/rules/complexity>
+// # spell-checker:ignore AllUsersProfile HomeDrive HomePath LocalAppData UserProfile WinDir cyclomatic falsey
 
 import * as os from 'os';
 import * as path from 'path';
