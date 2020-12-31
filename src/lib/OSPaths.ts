@@ -1,4 +1,4 @@
-// # spell-checker:ignore AllUsersProfile HomeDrive HomePath LocalAppData UserProfile WinDir
+// # spell-checker:ignore AllUsersProfile HomeDrive HomePath LocalAppData UserProfile WinDir falsey
 
 import * as os from 'os';
 import * as path from 'path';
@@ -12,6 +12,10 @@ export type OSPaths = {
 
 const isWinOS = /^win/i.test(process.platform);
 
+function isEmpty(s: string | null | undefined): boolean {
+	return !s; // reminder: JS "falsey" == [undefined, null, NaN, 0, '', false]
+}
+
 function normalizePath(path_: string | undefined): string | undefined {
 	return path_ ? path.normalize(path.join(path_, '.')) : void 0;
 }
@@ -22,10 +26,16 @@ const base = () => {
 	const home = () =>
 		normalizePath((typeof os.homedir === 'function' ? os.homedir() : void 0) || env.HOME);
 
-	const temp = () =>
-		normalizePath(
-			(typeof os.tmpdir === 'function' ? os.tmpdir() : void 0) || env.TMPDIR || env.TEMP || env.TMP
-		) || '/tmp';
+	const temp = () => {
+		const fallback = '/tmp';
+		const priorityList = [
+			typeof os.tmpdir === 'function' ? os.tmpdir() : void 0,
+			env.TMPDIR,
+			env.TEMP,
+			env.TMP,
+		];
+		return normalizePath(priorityList.find((v) => !isEmpty(v))) || fallback;
+	};
 
 	return { home, temp };
 };
@@ -33,31 +43,33 @@ const base = () => {
 const windows = () => {
 	const { env } = process;
 
-	const home = () =>
-		normalizePath(
-			(typeof os.homedir === 'function' ? os.homedir() : void 0) ||
-				env.USERPROFILE ||
-				env.HOME ||
-				(env.HOMEDRIVE || env.HOMEPATH
-					? path.join(env.HOMEDRIVE || '', env.HOMEPATH || '')
-					: void 0)
-		);
+	const home = () => {
+		const priorityList = [
+			typeof os.homedir === 'function' ? os.homedir() : void 0,
+			env.USERPROFILE,
+			env.HOME,
+			env.HOMEDRIVE || env.HOMEPATH ? path.join(env.HOMEDRIVE || '', env.HOMEPATH || '') : void 0,
+		];
+		return normalizePath(priorityList.find((v) => !isEmpty(v)));
+	};
 
-	const temp = () =>
-		normalizePath(
-			(typeof os.tmpdir === 'function' ? os.tmpdir() : '') ||
-				env.TEMP ||
-				env.TMP ||
-				(env.LOCALAPPDATA ? path.join(env.LOCALAPPDATA, 'Temp') : '') ||
-				(function (s) {
-					return s ? path.join(s, 'AppData', 'Local', 'Temp') : '';
-				})(home()) ||
-				(env.ALLUSERSPROFILE ? path.join(env.ALLUSERSPROFILE, 'Temp') : '') ||
-				path.join(
-					env.SystemRoot || env.windir || (env.SystemDrive ? env.SystemDrive + '\\' : 'C:\\'),
-					'Temp'
-				)
-		);
+	const temp = () => {
+		const fallback = 'C:\\Temp';
+		const priorityList = [
+			typeof os.tmpdir === 'function' ? os.tmpdir() : void 0,
+			env.TEMP,
+			env.TMP,
+			env.LOCALAPPDATA ? path.join(env.LOCALAPPDATA, 'Temp') : void 0,
+			(function (s) {
+				return s ? path.join(s, 'AppData', 'Local', 'Temp') : void 0;
+			})(home()),
+			env.ALLUSERSPROFILE ? path.join(env.ALLUSERSPROFILE, 'Temp') : void 0,
+			env.SystemRoot ? path.join(env.SystemRoot, 'Temp') : void 0,
+			env.windir ? path.join(env.windir, 'Temp') : void 0,
+			env.SystemDrive ? path.join(env.SystemDrive + '\\', 'Temp') : void 0,
+		];
+		return normalizePath(priorityList.find((v) => !isEmpty(v))) || fallback;
+	};
 
 	return { home, temp };
 };
