@@ -12,7 +12,7 @@ export type OSPaths = {
 
 const isWinOS = /^win/i.test(process.platform);
 
-function normalize_path(path_: string | undefined): string | undefined {
+function normalizePath(path_: string | undefined): string | undefined {
 	return path_ ? path.normalize(path.join(path_, '.')) : void 0;
 }
 
@@ -20,10 +20,10 @@ const base = () => {
 	const { env } = process;
 
 	const home = () =>
-		normalize_path((typeof os.homedir === 'function' ? os.homedir() : void 0) || env.HOME);
+		normalizePath((typeof os.homedir === 'function' ? os.homedir() : void 0) || env.HOME);
 
 	const temp = () =>
-		normalize_path(
+		normalizePath(
 			(typeof os.tmpdir === 'function' ? os.tmpdir() : void 0) || env.TMPDIR || env.TEMP || env.TMP
 		) || '/tmp';
 
@@ -34,7 +34,7 @@ const windows = () => {
 	const { env } = process;
 
 	const home = () =>
-		normalize_path(
+		normalizePath(
 			(typeof os.homedir === 'function' ? os.homedir() : void 0) ||
 				env.USERPROFILE ||
 				env.HOME ||
@@ -44,7 +44,7 @@ const windows = () => {
 		);
 
 	const temp = () =>
-		normalize_path(
+		normalizePath(
 			(typeof os.tmpdir === 'function' ? os.tmpdir() : '') ||
 				env.TEMP ||
 				env.TMP ||

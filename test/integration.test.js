@@ -1,5 +1,5 @@
 /* eslint-env es6, node */
-// spell-checker:ignore (modules) Deno ESM ESMs execa
+// # spell-checker:ignore (modules) Deno ESM ESMs vNodeJSMajor vNodeJSminor cyclomatic execa
 'use strict';
 
 const fs = require('fs');
@@ -11,16 +11,16 @@ const spawn = require('cross-spawn');
 const module_ = require('../build/cjs+tests');
 
 const vNodeJS = process.versions.node.split('.');
-const vNodeJS_Major = +vNodeJS[0];
-const vNodeJS_minor = +vNodeJS[1];
+const vNodeJSMajor = +vNodeJS[0];
+const vNodeJSminor = +vNodeJS[1];
 
 // removal of `--experimental-modules` flag gate for ESM
 // ref: [NodeJS-v12.17 changes]<https://github.com/nodejs/node/pull/33197>
 // ref: [NodeJS-v13.2 changes]<https://github.com/nodejs/node/pull/30547>
 const settledSupportForESMs =
-	vNodeJS_Major > 13 ||
-	(vNodeJS_Major === 13 && vNodeJS_minor >= 2) ||
-	(vNodeJS_Major === 12 && vNodeJS_minor >= 17);
+	vNodeJSMajor > 13 ||
+	(vNodeJSMajor === 13 && vNodeJSminor >= 2) ||
+	(vNodeJSMajor === 12 && vNodeJSminor >= 17);
 
 // Integration tests
 
