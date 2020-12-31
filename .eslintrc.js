@@ -13,6 +13,8 @@ module.exports = {
 		'plugin:eslint-comments/recommended',
 		'plugin:functional/lite',
 		'plugin:import/typescript',
+		'plugin:security/recommended',
+		'plugin:security-node/recommended',
 		'prettier',
 		'prettier/@typescript-eslint',
 	],

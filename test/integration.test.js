@@ -30,6 +30,7 @@ test('api', (t) => {
 	t.is(typeof module_, 'function');
 	t.deepEqual(Object.keys(module_).sort(), api.sort());
 	api.forEach((key) => {
+		// eslint-disable-next-line security/detect-object-injection
 		t.is(typeof module_[key], 'function');
 	});
 });
@@ -40,6 +41,7 @@ test('examples are executable without error (JavaScript)', (t) => {
 	const egDirPath = 'eg';
 	const extensions = ['.js', '.cjs', '.mjs'];
 
+	// eslint-disable-next-line security/detect-non-literal-fs-filename
 	const files = fs.readdirSync(egDirPath);
 
 	files
@@ -68,6 +70,7 @@ test('examples are executable without error (TypeScript)', (t) => {
 	const egDirPath = 'eg';
 	const extensions = ['.ts'];
 
+	// eslint-disable-next-line security/detect-non-literal-fs-filename
 	const files = fs.readdirSync(egDirPath);
 
 	files

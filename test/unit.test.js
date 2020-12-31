@@ -30,7 +30,7 @@ const env = {
 };
 
 function setupProcessEnv(values) {
-	// eslint-disable-next-line functional/immutable-data
+	// eslint-disable-next-line functional/immutable-data , security/detect-object-injection
 	Object.keys(values).forEach((key) => (process.env[key] = env.defaults[key]));
 }
 
