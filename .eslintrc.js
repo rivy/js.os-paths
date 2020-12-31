@@ -1,4 +1,4 @@
-// spell-checker:ignore (names) rivy
+// spell-checker:ignore (names) rivy ; (options) iife
 module.exports = {
 	root: true,
 	env: { es6: true },
@@ -32,6 +32,7 @@ module.exports = {
 		'no-undefined': ['error'], // ref: https://eslint.org/docs/rules/no-undefined
 		'no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }], // ref: https://eslint.org/docs/rules/no-unused-vars
 		'sort-imports': ['error', { ignoreDeclarationSort: true, ignoreCase: true }],
+		'wrap-iife': ['error', 'inside'], // correlate with Prettier formatting choice; ref: https://eslint.org/docs/rules/wrap-iife
 	},
 	overrides: [
 		{
