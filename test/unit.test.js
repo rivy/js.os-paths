@@ -136,23 +136,27 @@ test('no os.homedir and runtime variations', (t) => {
 test('no os.tmpdir and runtime variations', (t) => {
 	const paths = osPaths;
 
+	const posixFallback = '/tmp';
+	const windowsFallback = 'C:\\Temp';
+
 	process.env.TEMP = process.env.TMPDIR = process.env.TMP = '';
 
-	t.is(paths.temp(), isWinOS ? path.join(process.env.LOCALAPPDATA, 'Temp') : '/tmp');
+	t.is(paths.temp(), isWinOS ? path.join(process.env.LOCALAPPDATA, 'Temp') : posixFallback);
 	process.env.LOCALAPPDATA = '';
-	t.is(paths.temp(), isWinOS ? path.join(paths.home() || '', 'AppData', 'Local', 'Temp') : '/tmp');
+	t.is(
+		paths.temp(),
+		isWinOS ? path.join(paths.home() || '', 'AppData', 'Local', 'Temp') : posixFallback
+	);
 	process.env.HOME = process.env.HOMEDRIVE = process.env.HOMEPATH = process.env.USERPROFILE = '';
-	t.is(paths.temp(), isWinOS ? path.join(process.env.ALLUSERSPROFILE, 'Temp') : '/tmp');
-	process.env.ALLUSERSPROFILE = '';
-	t.is(paths.temp(), isWinOS ? path.join(process.env.SystemRoot, 'Temp') : '/tmp');
+	t.is(paths.temp(), isWinOS ? path.join(process.env.ALLUSERSPROFILE, 'Temp') : posixFallback);
+	delete process.env.ALLUSERSPROFILE;
+	t.is(paths.temp(), isWinOS ? path.join(process.env.SystemRoot, 'Temp') : posixFallback);
 	process.env.SystemRoot = '';
-	t.is(paths.temp(), isWinOS ? path.join(process.env.windir, 'Temp') : '/tmp');
-	process.env.windir = '';
-	t.is(paths.temp(), isWinOS ? path.join(process.env.SystemDrive + '\\', 'Temp') : '/tmp');
+	t.is(paths.temp(), isWinOS ? path.join(process.env.windir, 'Temp') : posixFallback);
 	delete process.env.windir;
-	t.is(paths.temp(), isWinOS ? path.join(process.env.SystemDrive + '\\', 'Temp') : '/tmp');
+	t.is(paths.temp(), isWinOS ? path.join(process.env.SystemDrive + '\\', 'Temp') : posixFallback);
 	process.env.SystemDrive = '';
-	t.is(paths.temp(), isWinOS ? 'C:\\Temp' : '/tmp');
+	t.is(paths.temp(), isWinOS ? windowsFallback : posixFallback);
 
 	process.env.TMP = 'tmp';
 	t.is(paths.temp(), 'tmp');
