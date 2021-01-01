@@ -64,7 +64,7 @@
 		"# fix:style # fix Prettier formatting issues": "",
 		"fix:style": "prettier . --write",
 		"# help # display help": "",
-		"help": "< package.json node -e \"s = {p:'',e:'npm'}; if (new String(process.env.npm_execpath).match(/yarn.js$/)) { s = {p:'\\n',e:'yarn'}; }; console.log('%susage: \\`%s run TARGET [TARGET..]\\`\\n\\nTARGETs:\\n', s.p, s.e); re = /^.*?\\x22(?:\\W+\\s*)([^#\\x22]+)\\s+#+\\s+([^#\\x22]+?)(\\s+#+)?\\x22.*$/; require('readline').createInterface({ input: process.stdin, output: process.stdout, terminal: false }).on('line', function(line){ if (match = re.exec(line)) { console.log('%s %s', match[1].padEnd(19), match[2]); } });\"",
+		"help": "< package.json node -e \"s = {p:'',e:'npm'}; if (new String(process.env.npm_execpath).match(/yarn.js$/)) { s = {p:'\\n',e:'yarn'}; }; console.log('%susage: \\`%s run TARGET\\` or \\`npx run-s TARGET [TARGET..]\\`\\n\\nTARGETs:\\n', s.p, s.e); re = /^.*?\\x22(?:\\W+\\s*)([^#\\x22]+)\\s+#+\\s+([^#\\x22]+?)(\\s+#+)?\\x22.*$/; require('readline').createInterface({ input: process.stdin, output: process.stdout, terminal: false }).on('line', function(line){ if (match = re.exec(line)) { console.log('%s %s', match[1].padEnd(19), match[2]); } });\"",
 		"# lint # check for package code 'lint'": "",
 		"lint": "run-s --silent _:max-node-8 && shx echo \"[lint] WARN Lint checks skipped [for NodeJS < v10]\" 1>&2 || run-p lint:*",
 		"# lint:lint # check for code 'lint' (using `eslint`)": "",
