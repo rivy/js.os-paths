@@ -36,7 +36,7 @@ function setupProcessEnv(values) {
 }
 
 // * reset environment prior to each test
-test.beforeEach((_) => {
+test.beforeEach(() => {
 	setupProcessEnv(env.defaults);
 });
 
