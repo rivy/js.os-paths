@@ -11,7 +11,7 @@
 {{ end -}}
 
 <!-- markdownlint-disable heading-increment no-duplicate-heading no-inline-html -->
-<!-- spellchecker:ignore () CICD Codacy Deno EditorConfig chglog cyclomatic deps discoverability gitattributes maint markdownlint preversion rivy tmpdir typeof -->
+<!-- spellchecker:ignore (names) Codacy Deno Dimitri EditorConfig Kjellberg MSVC Oden Selwyn Sindre SindreSorhus Sorhus rivy ; () APPDATA CICD chglog cyclomatic deps discoverability duplicative gitattributes maint markdownlint preversion rivy tmpdir typeof yargs -->
 
 # CHANGELOG <br/> [{{ $.Info.Title }}]({{ $.Info.RepositoryURL }})
 {{ if .Unreleased.CommitGroups }}{{/* <a name="unreleased"></a> */}}
