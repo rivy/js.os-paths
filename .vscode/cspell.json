@@ -1,0 +1,124 @@
+// `cspell` settings
+{
+    "version": "0.1", // Version of the setting file.  Always 0.1
+    "language": "en", // language - current active spelling language
+    // ignoreWords
+    "ignoreWords": [
+        // abbrev/names
+        "Codacy",
+        "Cygwin",
+        "Deno",
+        "FreeBSD",
+        "Gmail",
+        "MacOS",
+        "MinGW",
+        "MS-DOS",
+        "MSDOS",
+        "MSVC",
+        "NetBSD",
+        "Novell",
+        "OpenBSD",
+        "POSIX",
+        "Solaris",
+        "Xenix",
+        "tmpdir",
+        "chglog",
+        "yargs",
+        // git
+        "gitattributes",
+        // jargon
+        "AST", // abstract syntax tree
+        "CICD", // continuous integration/deployment
+        "CPU",
+        "CPUs",
+        "DevOps",
+        "FIFO",
+        "FIFOs",
+        "FQDN", // fully qualified domain name
+        "GID", // group ID
+        "GIDs",
+        "POSIXLY",
+        "RNG", // random number generator
+        "RNGs",
+        "UID", // user ID
+        "UIDs",
+        "UUID", // universally unique identifier
+        "arity",
+        "bitmask",
+        "canonicalization",
+        "canonicalize",
+        "colorizable",
+        "colorize",
+        "consts",
+        "cyclomatic",
+        "dedup",
+        "demangle",
+        "deps",
+        "dev",
+        "deque",
+        "dequeue",
+        "discoverability",
+        "duplicative",
+        "enqueue",
+        "executable",
+        "executables",
+        "gibibytes",
+        "hardfloat",
+        "hardlink",
+        "hardlinks",
+        "hashsums",
+        "kibibytes",
+        "mebibytes",
+        "mergeable",
+        "multibyte",
+        "nonportable",
+        "peekable",
+        "precompiled",
+        "precompute",
+        "preload",
+        "prepend",
+        "prepended",
+        "primality",
+        "pseudoprime",
+        "pseudoprimes",
+        "procs",
+        "readonly",
+        "seedable",
+        "semver",
+        "shortcode",
+        "shortcodes",
+        "symlink",
+        "symlinks",
+        "syscall",
+        "tokenize",
+        "unbuffered",
+        "unportable",
+        "whitespace",
+        // npm
+        "preversion",
+        // people
+        "Dimitri Benin", "Dimitri", "Benin", "BendingBender",
+        "Oden", "ops991923",
+        "Roy Ivy III", "Roy", "Ivy", "III", "rivy",
+        "Selwyn", "siilwyn",
+				"Simon Kjellberg", "Simon", "Kjellberg", "simon.kjellberg",
+        "Sindre Sorhus", "Sindre", "Sorhus", "SindreSorhus",
+        // shell (posix)
+        "csh",
+        "passwd",
+        "pipefail",
+        "tcsh",
+        // shell (windows)
+        "APPDATA",
+        "LOCALAPPDATA",
+        "USERDOMAIN",
+        "USERNAME",
+        "USERPROFILE",
+        // shell (utilities)
+        "commitlint",
+        // tags
+        "Maint"
+    ],
+    // words - list of words to be always considered correct
+    "words": []
+}
