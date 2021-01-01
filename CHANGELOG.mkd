@@ -5,6 +5,47 @@
 
 ---
 
+## [v5.1.0](https://github.com/rivy/js.os-paths/compare/v5.0.1...v5.1.0) <small>(2021-01-01)</small>
+
+#### Fixes
+
+* fix Codacy/ESLint complaint (require:camelCase) &ac; [`6f72de3`](https://github.com/rivy/js.os-paths/commit/6f72de39f29671defdccbae7027a14221fd4bbe1)
+
+#### Documentation
+
+* docs ~ CHANGELOG update &ac; [`7e1c55e`](https://github.com/rivy/js.os-paths/commit/7e1c55e305f07b28a856c693b91b8316d3f2f935)
+* docs ~ add spell-checker exceptions to CHANGELOG &ac; [`3864554`](https://github.com/rivy/js.os-paths/commit/386455433ce137a6d707a0fad77552ba6afe89cb)
+* docs ~ README fixes and polish &ac; [`a5c729c`](https://github.com/rivy/js.os-paths/commit/a5c729c6df8f55b0afbab058d10048af83c4c09c)
+* docs ~ update CDN installation URL in README (use 'latest' instead of 'master') &ac; [`af3be58`](https://github.com/rivy/js.os-paths/commit/af3be58219a25de1168653970890cc39755f91d1)
+* docs ~ update example ESLint directives for Codacy QA compatibility &ac; [`eb394db`](https://github.com/rivy/js.os-paths/commit/eb394db5f8058ee1029c12d9063616e96f8c74c7)
+* docs ~ refactor/consolidate ESLint directives for examples &ac; [`c826d6b`](https://github.com/rivy/js.os-paths/commit/c826d6bc83f998dfb28b354336cb3869d69d60ff)
+
+#### Maintenance
+
+* maint/**CI**: show list of all deps after `npm install` &ac; [`a877a5c`](https://github.com/rivy/js.os-paths/commit/a877a5c562cddfca0bf2be223523f537226124bf)
+* maint/**dev**: (QA) add Codacy configuration &ac; [`e252e69`](https://github.com/rivy/js.os-paths/commit/e252e69be4aad48e886c2a23c97d1074ec9a2e01)
+* maint/**dev**: add 'show:deps' script for deps display during CI &ac; [`1853b98`](https://github.com/rivy/js.os-paths/commit/1853b9870effc4ac5c4460bbd88fb8679a41939b)
+* maint/**dev**: fix 'help' script &ac; [`8438dff`](https://github.com/rivy/js.os-paths/commit/8438dffdd45e3e85f8f2eae8de0915ebb9c12ac8)
+* maint/**dev**: add VSCode wanted/un-wanted recommendations for extensions &ac; [`a2d9b74`](https://github.com/rivy/js.os-paths/commit/a2d9b74f27a92b9334b92988bbb6cb42a4580ca7)
+* maint/**dev**: (deps) bypass broken 'eslint-plugin-functional' v3.2.0 &ac; [`4974a9d`](https://github.com/rivy/js.os-paths/commit/4974a9d32073dbf7b2588f61a087823a44a09769)
+* maint/**dev**: fix npm dev 'update', 'prepublishOnly', and 'preversion' scripts &ac; [`59a2b52`](https://github.com/rivy/js.os-paths/commit/59a2b52aec5187089bc656f896145302bb56b11d)
+* maint/**dev**: change ESLint config to align with Prettier style (for Codacy QA) &ac; [`22f3971`](https://github.com/rivy/js.os-paths/commit/22f39718febff7bf6e31ed9b201166af8b5e52ab)
+* maint/**dev**: (fix) align ESLint config with Codacy QA rules &ac; [`a5ec1b5`](https://github.com/rivy/js.os-paths/commit/a5ec1b5ecec2c4803d292d96965af76b227d39ad)
+* maint/**dev**: (ESLint) add upper-bound for cyclomatic complexity of functions &ac; [`98020dc`](https://github.com/rivy/js.os-paths/commit/98020dc5f8e51d37b071cd613ab92ad8ac4a4253)
+* maint/**dev**: add ESLint 'security' and 'security-node' plugins &ac; [`28849a0`](https://github.com/rivy/js.os-paths/commit/28849a04656182361461cc45899041ad6c3a01b6)
+* maint/**dev**: 'warn' (instead of 'error') on unused ESLint comments &ac; [`2229e6e`](https://github.com/rivy/js.os-paths/commit/2229e6e29af8da749bc2b38ce46f062dedc6abb1)
+* maint/**dev**: (QA) add Scrutinizer config &ac; [`da032a4`](https://github.com/rivy/js.os-paths/commit/da032a4afd7a998729eef3f7a34908066af2e663)
+* maint/**dev**: (QA) add CodeClimate config &ac; [`908a0dd`](https://github.com/rivy/js.os-paths/commit/908a0ddac69006e5cbd874cb91e87d3cad89b2b1)
+* maint/**dist**: update &ac; [`58f2706`](https://github.com/rivy/js.os-paths/commit/58f270639d901d4b95bc58bc7f420fc910011671)
+
+#### Refactoring
+
+* refactor ~ improve name semantics &ac; [`dece1a4`](https://github.com/rivy/js.os-paths/commit/dece1a41ee0b1abc038438604ab2f6acb8917f01)
+* refactor ~ extract common module reference &ac; [`5ce6945`](https://github.com/rivy/js.os-paths/commit/5ce694583ad6aabd2f375baee07c3f65830ee2f5)
+* refactor ~ use functional replacements for complicated ternary expressions &ac; [`e591e96`](https://github.com/rivy/js.os-paths/commit/e591e96af5827156f058fc31e9cd8bf579a411fd)
+
+---
+
 ## [v5.0.1](https://github.com/rivy/js.os-paths/compare/v5.0.0...v5.0.1) <small>(2020-12-28)</small>
 
 #### Fixes
