@@ -23,7 +23,7 @@ function normalizePath(path_: string | undefined): string | undefined {
 	return path_ ? path.normalize(path.join(path_, '.')) : void 0;
 }
 
-const base = () => {
+const posix = () => {
 	const home = () =>
 		normalizePath((typeof os.homedir === 'function' ? os.homedir() : void 0) || env.HOME);
 
@@ -80,8 +80,8 @@ class _OSPaths {
 			return new _OSPaths();
 		};
 
-		// Connect to platform-specific API functions by extension
-		const extension = isWinOS ? windows() : base();
+		// connect platform-specific API functions
+		const extension = isWinOS ? windows() : posix();
 		OSPaths.home = extension.home;
 		OSPaths.temp = extension.temp;
 
