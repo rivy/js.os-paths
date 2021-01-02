@@ -1,7 +1,8 @@
 # Prettier "ignore" list
 
 # * otherwise managed files
-.vscode
+.vscode/settings.json
+.vscode/extensions.json
 package.json
 
 # * build/coverage/dev artifacts
