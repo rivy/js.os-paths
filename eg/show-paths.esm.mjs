@@ -1,7 +1,7 @@
 /* eslint-env es6, node */
 'use strict';
 
-import osPaths from '../build/cjs/esm-wrapper/index.js';
+import osPaths from '../dist/cjs/esm-wrapper/index.js';
 
 /* eslint-disable no-console , functional/immutable-data , security/detect-object-injection, security-node/detect-crlf */
 
