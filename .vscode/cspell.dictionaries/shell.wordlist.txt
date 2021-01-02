@@ -1,0 +1,24 @@
+* POSIX
+TMPDIR
+csh
+passwd
+pipefail
+sh
+tcsh
+zsh
+* Windows
+APPDATA
+LOCALAPPDATA
+USERDOMAIN
+USERNAME
+USERPROFILE
+* `git`
+gitattributes
+gitignore
+* `npm`
+preversion
+* utilities
+chglog
+commitlint
+grep
+sed
