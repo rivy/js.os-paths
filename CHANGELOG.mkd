@@ -1,5 +1,5 @@
 <!-- markdownlint-disable heading-increment no-duplicate-heading no-inline-html -->
-<!-- spellchecker:ignore (names) Codacy Deno Dimitri EditorConfig Kjellberg MSVC Oden Selwyn Sindre SindreSorhus Sorhus rivy ; () APPDATA CICD chglog cyclomatic deps discoverability duplicative gitattributes maint markdownlint preversion rivy tmpdir typeof yargs -->
+<!-- spellchecker:ignore () -->
 
 # CHANGELOG <br/> [os-paths](https://github.com/rivy/js.os-paths)
 
