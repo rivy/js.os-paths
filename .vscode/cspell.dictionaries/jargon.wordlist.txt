@@ -6,6 +6,7 @@ colorize
 cyclomatic
 dedup
 demangle
+denoland
 deque
 dequeue
 discoverability
@@ -13,6 +14,7 @@ duplicative
 enqueue
 executable
 executables
+falsey
 hardfloat
 hardlink
 hardlinks
@@ -40,6 +42,7 @@ symlink
 symlinks
 syscall
 tokenize
+truthy
 unbuffered
 unportable
 whitespace

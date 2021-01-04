@@ -20,4 +20,5 @@ UUID
 * names
 Codacy
 Deno
+EditorConfig
 Yargs

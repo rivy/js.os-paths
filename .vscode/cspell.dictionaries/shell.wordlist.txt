@@ -8,6 +8,8 @@ tcsh
 zsh
 * Windows
 APPDATA
+HOMEDRIVE
+HOMEPATH
 LOCALAPPDATA
 USERDOMAIN
 USERNAME
@@ -21,4 +23,6 @@ preversion
 chglog
 commitlint
 grep
+markdownlint
+rollup
 sed
