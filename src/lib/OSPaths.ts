@@ -9,6 +9,7 @@ export type OSPaths = {
 	(): OSPaths;
 	readonly home: () => string | undefined;
 	readonly temp: () => string;
+	readonly main: () => string;
 };
 
 const { env } = process;
@@ -84,6 +85,8 @@ class _OSPaths {
 		const extension = isWinOS ? windows() : posix();
 		OSPaths.home = extension.home;
 		OSPaths.temp = extension.temp;
+
+		OSPaths.main = () => adapter.meta.mainFilename;
 
 		return OSPaths;
 	}

@@ -15,6 +15,7 @@ export const adapter: Platform.Adapter = {
 	env: { get: Deno.env.get },
 	// Deno (as of v1.6) has no built-in implementation for homedir() or tmpdir()
 	os: {}, // * module is tolerant of missing homedir()/tmpdir() functions
+	meta: { mainFilename: Deno.mainModule },
 	path,
 	process: { platform: Deno.build.os },
 };
