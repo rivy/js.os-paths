@@ -35,11 +35,11 @@ npm install os-paths
 
 > #### Requirements
 >
-> NodeJS >= 6.0[^*]
+> NodeJS >= 4.0[^*]
 
 <!--{blockquote: .--info style="font-size:75%;"}-->
 
-[^*]: With the conversion to a TypeScript-based project, due to tooling constraints, testing is more difficult and more limited on Node platforms earlier than Node-v10+. However, the generated CommonJS/UMD project code is still fully compatible with Node-v6+.
+[^*]: With the conversion to a TypeScript-based project, due to tooling constraints, testing is more difficult and more limited on Node platforms earlier than Node-v10+. However, the generated CommonJS/UMD project code is still fully compatible with Node-v4+.
 
 ## Usage
 
