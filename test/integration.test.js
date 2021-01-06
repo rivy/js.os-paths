@@ -38,69 +38,72 @@ test('api', (t) => {
 
 // ToDO: add Deno example script checks
 
-test('examples are executable without error (JavaScript)', (t) => {
-	const egDirPath = 'eg';
-	const extensions = ['.js', '.cjs', '.mjs'];
+// test examples with version changes or distribution
+if (process.env.npm_config_test_for_dist) {
+	test('examples are executable without error (JavaScript)', (t) => {
+		const egDirPath = 'eg';
+		const extensions = ['.js', '.cjs', '.mjs'];
 
-	// eslint-disable-next-line security/detect-non-literal-fs-filename
-	const files = fs.readdirSync(egDirPath);
+		// eslint-disable-next-line security/detect-non-literal-fs-filename
+		const files = fs.readdirSync(egDirPath);
 
-	files
-		.filter((file) => {
-			return extensions.includes(path.extname(file));
-		})
-		.forEach((file) => {
-			if (settledSupportForESMs || path.extname(file) === '.js') {
-				const command = 'node';
-				const script = path.join(egDirPath, file);
-				const args = [script];
-				const options = { shell: true, encoding: 'utf-8' };
+		files
+			.filter((file) => {
+				return extensions.includes(path.extname(file));
+			})
+			.forEach((file) => {
+				if (settledSupportForESMs || path.extname(file) === '.js') {
+					const command = 'node';
+					const script = path.join(egDirPath, file);
+					const args = [script];
+					const options = { shell: true, encoding: 'utf-8' };
 
-				t.log({ script });
+					t.log({ script });
 
-				const { error, status, stdout } = spawn.sync(command, args, options);
+					const { error, status, stdout } = spawn.sync(command, args, options);
 
-				t.log({ error, status, stdout });
+					t.log({ error, status, stdout });
 
-				t.deepEqual({ error, status }, { error: null, status: 0 });
-			}
-		});
-});
+					t.deepEqual({ error, status }, { error: null, status: 0 });
+				}
+			});
+	});
 
-test('examples are executable without error (TypeScript)', (t) => {
-	const egDirPath = 'eg';
-	const extensions = ['.js', '.cjs', '.mjs', '.ts'];
+	test('examples are executable without error (TypeScript)', (t) => {
+		const egDirPath = 'eg';
+		const extensions = ['.js', '.cjs', '.mjs', '.ts'];
 
-	// eslint-disable-next-line security/detect-non-literal-fs-filename
-	const files = fs.readdirSync(egDirPath);
+		// eslint-disable-next-line security/detect-non-literal-fs-filename
+		const files = fs.readdirSync(egDirPath);
 
-	files
-		.filter((file) => {
-			const extension = path.extname(file);
-			const name = path.basename(file, extension);
-			const nameExtension = path.extname(name);
-			const isDenoTS = extension === '.ts' && nameExtension === '.deno';
-			return extensions.includes(extension) && !isDenoTS;
-		})
-		.forEach((file) => {
-			if (settledSupportForESMs || path.extname(file) === '.js' || path.extname(file) === '.ts') {
-				const command = 'node';
-				const script = path.join(egDirPath, file);
-				const args = ['node_modules/ts-node/dist/bin.js', script];
-				const options = { shell: true, encoding: 'utf8' };
-
-				const basename = path.basename(file);
+		files
+			.filter((file) => {
 				const extension = path.extname(file);
 				const name = path.basename(file, extension);
 				const nameExtension = path.extname(name);
+				const isDenoTS = extension === '.ts' && nameExtension === '.deno';
+				return extensions.includes(extension) && !isDenoTS;
+			})
+			.forEach((file) => {
+				if (settledSupportForESMs || path.extname(file) === '.js' || path.extname(file) === '.ts') {
+					const command = 'node';
+					const script = path.join(egDirPath, file);
+					const args = ['node_modules/ts-node/dist/bin.js', script];
+					const options = { shell: true, encoding: 'utf8' };
 
-				t.log({ script, basename, name, extension, nameExtension });
+					const basename = path.basename(file);
+					const extension = path.extname(file);
+					const name = path.basename(file, extension);
+					const nameExtension = path.extname(name);
 
-				const { error, status, stdout } = spawn.sync(command, args, options);
+					t.log({ script, basename, name, extension, nameExtension });
 
-				t.log({ error, status, stdout });
+					const { error, status, stdout } = spawn.sync(command, args, options);
 
-				t.deepEqual({ error, status }, { error: null, status: 0 });
-			}
-		});
-});
+					t.log({ error, status, stdout });
+
+					t.deepEqual({ error, status }, { error: null, status: 0 });
+				}
+			});
+	});
+}
