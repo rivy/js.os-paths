@@ -14,6 +14,9 @@ module.exports = {
 	rules: {
 		// '@local/DEBUG': [1, 'always'],
 		'body-max-line-length': [0],
+		// ## maint [2020-01-07; rivy] ~ 'footer-leading-blank' disabled until <https://github.com/conventional-changelog/commitlint/issues/896> is fixed
+		// ## ... refs: <https://github.com/conventional-changelog/commitlint/issues/896#issuecomment-671865868> , <https://github.com/rook/rook/pull/6499#issuecomment-717267089>
+		'footer-leading-blank': [0],
 		'scope-case': [2, 'always', ['lower-case', 'upper-case']],
 		'subject-case': [0],
 		'type-case': [2, 'always', ['lower-case', 'sentence-case']],
