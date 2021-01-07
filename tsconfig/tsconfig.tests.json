@@ -7,5 +7,5 @@
 		"noEmit": false,
 		"removeComments": false
 	},
-	"exclude": ["../node_modules/**"]
+	"exclude": ["../src/**/*.deno.ts", "../node_modules/**"]
 }

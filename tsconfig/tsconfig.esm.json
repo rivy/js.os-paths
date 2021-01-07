@@ -6,5 +6,10 @@
 		"module": "es2015",
 		"noEmit": false
 	},
-	"exclude": ["../src/**/*.spec.*", "../src/**/*.test.*", "../node_modules/**"]
+	"exclude": [
+		"../src/**/*.deno.ts",
+		"../src/**/*.spec.*",
+		"../src/**/*.test.*",
+		"../node_modules/**"
+	]
 }

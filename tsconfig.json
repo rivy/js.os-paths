@@ -48,6 +48,6 @@
 		"removeComments": true
 	},
 	"include": ["src/**/*.ts"],
-	"exclude": ["node_modules/**"],
+	"exclude": ["src/**/*.deno.ts", "node_modules/**"],
 	"compileOnSave": false
 }

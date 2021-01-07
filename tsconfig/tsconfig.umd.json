@@ -7,5 +7,10 @@
 		"noEmit": false,
 		"resolveJsonModule": false /* Include modules imported with .json extension.; UMD generation requires 'false' */
 	},
-	"exclude": ["../src/**/*.spec.*", "../src/**/*.test.*", "../node_modules/**"]
+	"exclude": [
+		"../src/**/*.deno.ts",
+		"../src/**/*.spec.*",
+		"../src/**/*.test.*",
+		"../node_modules/**"
+	]
 }
