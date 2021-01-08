@@ -54,8 +54,10 @@ export function OSPathsAdaption_(adapter_: Platform.Adapter): OSPaths {
 			return normalizePath(priorityList.find((v) => !isEmpty(v)));
 		};
 
-		function joinPathToBase(base: string | undefined, segments: readonly string[]) {
-			return base ? path.join(base, ...segments) : void 0;
+		function joinPathToBase(base: string | undefined, segments: ReadonlyArray<string>) {
+			// return base ? path.join(base, ...segments) : void 0;
+			// fixme: [2021-01-08; rivy] ~ avoiding the spread operator to avoid TS+rollup production of mixed-EOL-type module file (which causes other build problems)
+			return base ? segments.reduce((acc, val) => path.join(acc, val), base) : void 0;
 		}
 
 		const temp = () => {
