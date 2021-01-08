@@ -1,7 +1,7 @@
 // spell-checker:ignore Deno
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import { OSPathsAdaption_ } from '../build/esm/lib/OSPaths.mjs';
+import { OSPathsAdaption_ } from '../dist/esm/lib/OSPaths.mjs';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
