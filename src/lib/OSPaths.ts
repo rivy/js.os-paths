@@ -63,17 +63,18 @@ export function OSPathsAdaption_(adapter_: Platform.Adapter): OSPaths {
 		const temp = () => {
 			const fallback = 'C:\\Temp';
 			const priorityList = [
-				typeof os.tmpdir === 'function' ? os.tmpdir() : void 0,
-				env.get('TEMP'),
-				env.get('TMP'),
-				joinPathToBase(env.get('LOCALAPPDATA'), ['Temp']),
-				joinPathToBase(home(), ['AppData', 'Local', 'Temp']),
-				joinPathToBase(env.get('ALLUSERSPROFILE'), ['Temp']),
-				joinPathToBase(env.get('SystemRoot'), ['Temp']),
-				joinPathToBase(env.get('windir'), ['Temp']),
-				joinPathToBase(env.get('SystemDrive'), ['\\', 'Temp']),
+				os.tmpdir,
+				() => env.get('TEMP'),
+				() => env.get('TMP'),
+				() => joinPathToBase(env.get('LOCALAPPDATA'), ['Temp']),
+				() => joinPathToBase(home(), ['AppData', 'Local', 'Temp']),
+				() => joinPathToBase(env.get('ALLUSERSPROFILE'), ['Temp']),
+				() => joinPathToBase(env.get('SystemRoot'), ['Temp']),
+				() => joinPathToBase(env.get('windir'), ['Temp']),
+				() => joinPathToBase(env.get('SystemDrive'), ['\\', 'Temp']),
 			];
-			return normalizePath(priorityList.find((v) => !isEmpty(v))) || fallback;
+			const v = priorityList.find((v) => v && !isEmpty(v()));
+			return (v && normalizePath(v())) || fallback;
 		};
 
 		return { home, temp };
