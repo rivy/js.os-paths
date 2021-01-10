@@ -124,6 +124,17 @@ console.log(osPaths.temp());
 With `v5.0`+, `OSPaths` has been converted to a TypeScript-based module.
 As a consequence, TypeScript type definitions are automatically generated, bundled, and exported by the module.
 
+### Deno
+
+`OSPaths` also fully supports use by Deno.
+
+```js deno
+import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.os-paths@latest/src/mod.deno.ts';
+
+console.log(osPaths.home());
+console.log(osPaths.temp());
+```
+
 ## Building and Contributing
 
 [![Repository][repository-image]][repository-url]
@@ -139,7 +150,7 @@ As a consequence, TypeScript type definitions are automatically generated, bundl
 
 ### Build requirements
 
-- NodeJS >= 6.0
+- NodeJS >= 10.14
 - a JavaScript package/project manager ([`npm`](https://www.npmjs.com/get-npm) or [`yarn`](https://yarnpkg.com))
 
 > #### optional
