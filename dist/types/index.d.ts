@@ -1,3 +1,2 @@
-import { default as default_ } from './lib/OSPaths';
-export * from './lib/OSPaths';
+declare const default_: import("./lib/OSPaths").OSPaths;
 export default default_;

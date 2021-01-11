@@ -3,9 +3,6 @@ export declare namespace Platform {
         readonly env: {
             readonly get: (_: string) => string | undefined;
         };
-        readonly meta: {
-            readonly mainFilename: string;
-        };
         readonly os: {
             readonly homedir?: () => string;
             readonly tmpdir?: () => string;
