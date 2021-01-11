@@ -33,14 +33,6 @@ npm install os-paths
 # or... `npm install "https://cdn.jsdelivr.net/gh/rivy/js.os-paths@latest/dist/os-paths.tgz"`
 ```
 
-> #### Requirements
->
-> NodeJS >= 4.0[^*]
-
-<!--{blockquote: .--info style="font-size:75%;"}-->
-
-[^*]: With the conversion to a TypeScript-based project, due to tooling constraints, testing is more difficult and more limited on Node platforms earlier than Node-v10+. However, the generated CommonJS/UMD project code is still fully compatible with Node-v4+.
-
 ## Usage
 
 ```js
@@ -93,6 +85,45 @@ _Always_ returns a non-empty path (as sanely as possible).
 
 All XDG-related methods have been relocated to the [`xdg-portable`](https://www.npmjs.com/package/xdg-portable) and [`xdg-app-paths`](https://www.npmjs.com/package/xdg-app-paths) modules.
 
+## Supported Platforms
+
+### NodeJS
+
+> #### Requirements
+>
+> NodeJS >= 4.0[^*]
+
+<!--{blockquote: .--info style="font-size:75%;"}-->
+
+[^*]: With the conversion to a TypeScript-based project, due to tooling constraints, building and testing are more difficult and more limited on Node platforms earlier than NodeJS-v10. However, the generated CommonJS/UMD project code is fully tested (for NodeJS-v10+) and continues to be compatible with NodeJS-v4+.
+
+#### CommonJS modules (CJS; `*.js` and `*.cjs`)
+
+CJS is the basic supported output (back to versions as early as NodeJS-v4).
+
+```js
+const osPaths = require('os-paths');
+
+console.log(osPaths.home());
+console.log(osPaths.temp());
+```
+
+#### ECMAScript modules (ESM; `*.mjs`)
+
+`OSPaths` fully supports ESM imports.
+
+```js
+import osPaths from 'os-paths';
+
+console.log(osPaths.home());
+console.log(osPaths.temp());
+```
+
+#### TypeScript (`*.ts`)
+
+With `v5.0`+, `OSPaths` has been converted to a TypeScript-based module.
+As a consequence, TypeScript type definitions are automatically generated, bundled, and exported by the module.
+
 ## Building and Contributing
 
 [![Repository][repository-image]][repository-url]
@@ -138,6 +169,7 @@ fix:lint            fix ESLint issues
 fix:style           fix Prettier formatting issues
 help                display help
 lint                check for package code 'lint'
+lint:commits        check for commit flaws (using `commitlint` and `cspell`)
 lint:lint           check for code 'lint' (using `eslint`)
 lint:markdown       check for markdown errors (using `remark`)
 lint:spell          check for spelling errors (using `cspell`)
@@ -170,7 +202,7 @@ By contributing to the project, you are agreeing to provide your contributions u
 
 ## License
 
-[MIT](./LICENSE) © [Roy Ivy III](https://github.com/rivy), [Sindre Sorhus](https://sindresorhus.com)
+[MIT](./LICENSE) © [Roy Ivy III](https://github.com/rivy)
 
 <!-- badge references -->
 
@@ -219,8 +251,7 @@ By contributing to the project, you are agreeing to provide your contributions u
 <!-- [appveyor-image]: https://ci.appveyor.com/api/projects/status/.../branch/master?svg=true -->
 <!-- [coverage-image]: https://img.shields.io/coveralls/github/rivy/os-paths/master.svg -->
 <!-- [coverage-url]: https://coveralls.io/github/rivy/os-paths -->
-<!-- [node-image]: https://img.shields.io/node/v/os-paths.svg?style=flat&color=darkcyan -->
-<!-- [node-url]: https://npmjs.org/package/os-paths -->
+<!-- [nodejsv-image]: https://img.shields.io/node/v/os-paths.svg?style=flat&color=darkcyan -->
 <!-- [npm-image]: https://img.shields.io/npm/v/os-paths.svg?style=flat -->
 <!-- [npm-image]: https://img.shields.io/npm/v/os-paths.svg?style=flat&label=npm&logo=NPM&logoColor=linen -->
 <!-- [npm-url]: https://npmjs.org/package/os-paths -->
