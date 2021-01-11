@@ -14,7 +14,7 @@ const isWinOS = /^win/i.test(process.platform);
 
 const env = {
 	defaults: process.env,
-	signals: {
+	signalValues: {
 		ALLUSERSPROFILE: 'allusersprofile',
 		HOME: 'home',
 		HOMEDRIVE: 'homedrive',
