@@ -191,6 +191,9 @@
 	},
 	"optionalDependencies": {},
 	"ava": {
+		"files": [
+			"!**/*.test-d.ts"
+		],
 		"typescript": {
 			"rewritePaths": {
 				"src/": "build/cjs+tests/"
