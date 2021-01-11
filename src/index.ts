@@ -1,8 +1,8 @@
 // spell-checker:ignore maint rivy
-import { OSPathsAdaption_ } from './lib/OSPaths';
+import { OSPathsAdaptionBuilder_ } from './lib/OSPaths';
 import { adapter } from './platform-adapters/node';
 
-const default_ = OSPathsAdaption_(adapter);
+const default_ = OSPathsAdaptionBuilder_(adapter);
 export default default_;
 
 const haveModuleExports_ = typeof module === 'object' && module.exports;

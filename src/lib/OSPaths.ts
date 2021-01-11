@@ -14,7 +14,7 @@ function isEmpty(s: string | null | undefined): boolean {
 	return !s; // reminder: JS "falsey" == [undefined, null, NaN, 0, '', false]
 }
 
-export function OSPathsAdaption_(adapter_: Platform.Adapter): OSPaths {
+export function OSPathsAdaptionBuilder_(adapter_: Platform.Adapter): OSPaths {
 	const { env, meta, os, path, process } = adapter_;
 
 	const isWinOS = /^win/i.test(process.platform);
@@ -23,7 +23,7 @@ export function OSPathsAdaption_(adapter_: Platform.Adapter): OSPaths {
 		return path_ ? path.normalize(path.join(path_, '.')) : void 0;
 	}
 
-	const base = () => {
+	const posix = () => {
 		const home = () =>
 			normalizePath((typeof os.homedir === 'function' ? os.homedir() : void 0) || env.get('HOME'));
 
@@ -55,14 +55,12 @@ export function OSPathsAdaption_(adapter_: Platform.Adapter): OSPaths {
 		};
 
 		function joinPathToBase(base: string | undefined, segments: ReadonlyArray<string>) {
-			// return base ? path.join(base, ...segments) : void 0;
-			// fixme: [2021-01-08; rivy] ~ avoiding the spread operator to avoid TS+rollup production of mixed-EOL-type module file (which causes other build problems)
-			return base ? segments.reduce((acc, val) => path.join(acc, val), base) : void 0;
+			return base ? path.join(base, ...segments) : void 0;
 		}
 
 		const temp = () => {
 			const fallback = 'C:\\Temp';
-			const priorityList = [
+			const priorityListLazy = [
 				os.tmpdir,
 				() => env.get('TEMP'),
 				() => env.get('TMP'),
@@ -73,7 +71,7 @@ export function OSPathsAdaption_(adapter_: Platform.Adapter): OSPaths {
 				() => joinPathToBase(env.get('windir'), ['Temp']),
 				() => joinPathToBase(env.get('SystemDrive'), ['\\', 'Temp']),
 			];
-			const v = priorityList.find((v) => v && !isEmpty(v()));
+			const v = priorityListLazy.find((v) => v && !isEmpty(v()));
 			return (v && normalizePath(v())) || fallback;
 		};
 
@@ -84,13 +82,13 @@ export function OSPathsAdaption_(adapter_: Platform.Adapter): OSPaths {
 	class OSPaths_ {
 		constructor() {
 			const OSPaths = function () {
-				return new OSPaths_();
+				return new OSPaths_() as OSPaths;
 			};
 
 			// Connect to platform-specific API functions by extension
-			const extension = isWinOS ? windows() : base();
-			OSPaths.home = extension.home;
-			OSPaths.temp = extension.temp;
+			const platformOS = isWinOS ? windows() : posix();
+			OSPaths.home = platformOS.home;
+			OSPaths.temp = platformOS.temp;
 			OSPaths.main = () => {
 				return meta.mainFilename;
 			};
