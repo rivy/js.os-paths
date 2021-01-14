@@ -10,9 +10,6 @@ export const adapter: Platform.Adapter = {
 			return process.env[s];
 		},
 	},
-	meta: {
-		mainFilename: process.mainModule?.filename || '',
-	},
 	os,
 	path,
 	process,

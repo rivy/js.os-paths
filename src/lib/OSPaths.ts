@@ -7,7 +7,6 @@ export type OSPaths = {
 	(): OSPaths;
 	readonly home: () => string | undefined;
 	readonly temp: () => string;
-	readonly main: () => string;
 };
 
 function isEmpty(s: string | null | undefined): boolean {
@@ -15,7 +14,7 @@ function isEmpty(s: string | null | undefined): boolean {
 }
 
 export function OSPathsAdaptionBuilder_(adapter_: Platform.Adapter): OSPaths {
-	const { env, meta, os, path, process } = adapter_;
+	const { env, os, path, process } = adapter_;
 
 	const isWinOS = /^win/i.test(process.platform);
 
@@ -89,9 +88,6 @@ export function OSPathsAdaptionBuilder_(adapter_: Platform.Adapter): OSPaths {
 			const platformOS = isWinOS ? windows() : posix();
 			OSPaths.home = platformOS.home;
 			OSPaths.temp = platformOS.temp;
-			OSPaths.main = () => {
-				return meta.mainFilename;
-			};
 
 			return OSPaths;
 		}

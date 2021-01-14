@@ -26,7 +26,7 @@ const settledSupportForESMs =
 // Integration tests
 
 test('api', (t) => {
-	const api = ['home', 'temp', 'main'];
+	const api = ['home', 'temp'];
 
 	t.is(typeof module_, 'function');
 	t.deepEqual(Object.keys(module_).sort(), api.sort());
