@@ -27,6 +27,7 @@
 		"./package.json": "./package.json",
 		".": [
 			{
+				"deno": "./src/mod.deno.ts",
 				"import": "./dist/cjs/esm-wrapper/index.js",
 				"require": "./dist/cjs/index.js",
 				"types": "./dist/types/index.d.ts"
