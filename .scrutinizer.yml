@@ -25,6 +25,7 @@ filter:
     - 'node_modules/'
   excluded_paths:
     - 'dist/'
+    - 'src/types/'
     - 'test/'
     - '*.spec.js'
     - '*.spec.ts'
