@@ -5,6 +5,68 @@
 
 ---
 
+## [v6.0.0](https://github.com/rivy/js.os-paths/compare/v5.1.0...v6.0.0) <small>(2021-01-14)</small>
+
+#### Changes
+
+* change ~ remove experimental 'meta.mainFilename' prior to publish &ac; [`461f9ac`](https://github.com/rivy/js.os-paths/commit/461f9acb553ec7d2e97f52f4d06d0a5b09b5b53c)
+* add Platform.Adapter implementation (factory method closure variant) &ac; [`cf6d6c4`](https://github.com/rivy/js.os-paths/commit/cf6d6c4981ccfab92f3d2f4d70ceaa98f7d69f8d)
+* change ~ experimental inclusion of meta.mainFilename (+ test mods) &ac; [`b7c05a9`](https://github.com/rivy/js.os-paths/commit/b7c05a9f1110f46ff36b32bd4c6382f7b60dec4a)
+* add Platform.Adapter interface &ac; [`6ee064e`](https://github.com/rivy/js.os-paths/commit/6ee064e56a27db77351bccaaca70f0fdefda9f7c)
+* add Deno types &ac; [`0150666`](https://github.com/rivy/js.os-paths/commit/0150666b27e92743df08de2dab07622a7a9106c6)
+* change ~ show NodeJS-v4+ compatibility &ac; [`3bff2d4`](https://github.com/rivy/js.os-paths/commit/3bff2d4a3b97202a436b135dbae73c4e943fd53f)
+* change/**API!**: add ESM module packaging (adds 'exports' to package) &ac; [`3481efd`](https://github.com/rivy/js.os-paths/commit/3481efd071f6b90ac20f58f45309f7a850b62309)
+
+#### Fixes
+
+* fix ~ avoid spread operator b/c of Rollup+TS code generation bug &ac; [`26b9fee`](https://github.com/rivy/js.os-paths/commit/26b9fee815471d2000513eacca961bcc7bc53646)
+* fix ~ refer deno module to published 'dist' instead of internal 'build' ESM &ac; [`9e692e9`](https://github.com/rivy/js.os-paths/commit/9e692e9e919acbd1d5ab2716cb54eb01981074ec)
+* fix ~ remove `/// <reference path...` references to deno types &ac; [`2bdd8f0`](https://github.com/rivy/js.os-paths/commit/2bdd8f01b5fff636c9879ccaa102820b56142e8d)
+
+#### Documentation
+
+* docs ~ README polish &ac; [`e2029bc`](https://github.com/rivy/js.os-paths/commit/e2029bc5ec4372610a63893c787ce30b5ea47b60)
+* docs ~ update public/remote project dep for Deno example &ac; [`c728352`](https://github.com/rivy/js.os-paths/commit/c728352e443aff4c81d3e3e350cc3a0ec90335a8)
+* docs ~ update CHANGELOG &ac; [`ce5c824`](https://github.com/rivy/js.os-paths/commit/ce5c82448e3c0c29569e64bc92e5dd542a7c0c05)
+* docs ~ update spell-checker exceptions and dictionary wordlists &ac; [`d59472d`](https://github.com/rivy/js.os-paths/commit/d59472de5cff4782fbb14c9b914a394f595c9030)
+* docs ~ add Deno examples &ac; [`bf4bba6`](https://github.com/rivy/js.os-paths/commit/bf4bba6113b9e87559c145b197107bc705188d5f)
+* docs ~ polish/update README &ac; [`dc5656b`](https://github.com/rivy/js.os-paths/commit/dc5656be149d435b4da784844cd579707063bccf)
+* docs ~ polish TS example &ac; [`9aeffc0`](https://github.com/rivy/js.os-paths/commit/9aeffc0d296b6ed23b7ce7f4b6c4c78be599f0f0)
+* docs ~ import 'OSPaths' from 'dist' instead of 'build' &ac; [`3656bab`](https://github.com/rivy/js.os-paths/commit/3656bab3a9596cb173d2c7f7f3c470d2b17fb51b)
+* docs ~ add spell-checker exceptions to CHANGELOG + update CHANGELOG &ac; [`d8423bf`](https://github.com/rivy/js.os-paths/commit/d8423bf21cc5e552b6bf6ca56d419e1ca569e98f)
+* docs ~ add ESM example &ac; [`b610f1f`](https://github.com/rivy/js.os-paths/commit/b610f1feb995a4c237968280bc65a97292c63a73)
+
+#### Maintenance
+
+* maint/**CICD**: update CICD platforms to use Node-v10+ builders &ac; [`57d7bba`](https://github.com/rivy/js.os-paths/commit/57d7bbaa9eb397969cf2909c60dc9f33d1f08057)
+* maint/**build**: disable faulty `commitlint` rule (with a 'maint' note) &ac; [`3ab80e8`](https://github.com/rivy/js.os-paths/commit/3ab80e872b226935c848c3e1f18b3c19f2dc49d5)
+* maint/**build**: add 'deno' to package exports &ac; [`6d58d39`](https://github.com/rivy/js.os-paths/commit/6d58d39812215c6d0a6b5484494c298f58444ca0)
+* maint/**build**: compile down to ES3 to assure Node-v4+ compatibility &ac; [`ca03342`](https://github.com/rivy/js.os-paths/commit/ca0334204b3d8f5cc98fa62a2f9b76ba294477a7)
+* maint/**build**: cleanup Rollup+TS EOL issues + dist build &ac; [`acb7dd4`](https://github.com/rivy/js.os-paths/commit/acb7dd456d5704af05f459a1abb2e8cb090b3742)
+* maint/**build**: add conditional build logic with 'exec-if-updated' &ac; [`27d6a7c`](https://github.com/rivy/js.os-paths/commit/27d6a7c4bff80a340d3f0179f37218ae59f63d8b)
+* maint/**build**: npm dev script polish &ac; [`6a21ae9`](https://github.com/rivy/js.os-paths/commit/6a21ae956c9df288c75240cc12d1b275c5121426)
+* maint/**build**: add `rollup` for ESM generation &ac; [`1f81a59`](https://github.com/rivy/js.os-paths/commit/1f81a59c4a739da793c6c075e19962c252fda1e0)
+* maint/**build**: ignore deno files for TypeScript compilations &ac; [`92038db`](https://github.com/rivy/js.os-paths/commit/92038db9416f5579c2b5a265683de253c0e847d0)
+* maint/**dev**: (deps) update to 'eslint-plugin-functional' v3.2.1 &ac; [`1931183`](https://github.com/rivy/js.os-paths/commit/1931183cec2053f0e5d4622464174f76cd224af4)
+* maint/**dev**: add VSCode plugin for `deno` support (disabled; for future use) &ac; [`b971d74`](https://github.com/rivy/js.os-paths/commit/b971d74f5cb08688d41f1c69ed133dc0d5fc5e68)
+* maint/**dev**: update VSCode settings (ToDO-Tree) &ac; [`8d52796`](https://github.com/rivy/js.os-paths/commit/8d527967313395230dd8b3aa8da3b50adae28d1d)
+* maint/**dev**: npm dev script fixes and polish &ac; [`f7c9c93`](https://github.com/rivy/js.os-paths/commit/f7c9c93ab4848307efa66fefac98a758369f7302)
+* maint/**dev**: update Prettier ignore file for VSCode cspell config &ac; [`f417a12`](https://github.com/rivy/js.os-paths/commit/f417a12d14ac753f1a09b90df26d1d4a382984dc)
+* maint/**dev**: add commit linting (with dev scripts) &ac; [`77b1b30`](https://github.com/rivy/js.os-paths/commit/77b1b30d64340f4b786c7e29342ece9fae9b1c8a)
+* maint/**dev**: refactor cspell config to use dictionary wordlists &ac; [`3d105f1`](https://github.com/rivy/js.os-paths/commit/3d105f1ec90ab58596e6dafc8a77cec4b41ff89c)
+* maint/**dev**: update VSCode settings (with workspace `cspell` exceptions) &ac; [`2698524`](https://github.com/rivy/js.os-paths/commit/2698524c4e0fa12fd33529868a1e0ca48d93586b)
+* maint/**dev!**: update dev deps (adds new minimum NodeJS-v10+ build requirement) &ac; [`66417b6`](https://github.com/rivy/js.os-paths/commit/66417b69297b842fcac0faaaf9845227a48e6b17)
+* maint/**dist**: update &ac; [`f5c8354`](https://github.com/rivy/js.os-paths/commit/f5c8354437bb947adb5dfc2360086a130ada5626)
+* maint/**dist**: update &ac; [`582c989`](https://github.com/rivy/js.os-paths/commit/582c98920bad62c8d1e81cc921a40f82166b5966)
+* maint/**test**: add ava configuration to ignore type tests &ac; [`73410d1`](https://github.com/rivy/js.os-paths/commit/73410d126b5f71a2884e22dc510f294c9641dfc4)
+
+#### Refactoring
+
+* refactor ~ improve OSPaths factory naming/semantics &ac; [`a43f4b6`](https://github.com/rivy/js.os-paths/commit/a43f4b66ef422f16530389f17acbafd03ed6beee)
+* refactor ~ use late/lazy evaluation to avoid ENV{} and `path.join()` calls &ac; [`a2900a3`](https://github.com/rivy/js.os-paths/commit/a2900a3823439f38d878f0d89c100f0d580d090e)
+
+---
+
 ## [v5.1.0](https://github.com/rivy/js.os-paths/compare/v5.0.1...v5.1.0) <small>(2021-01-01)</small>
 
 #### Fixes
