@@ -53,7 +53,7 @@ namespace Adapt {
 		const isWinOS = Adapt.isWinOS(adapter_);
 		const normalizePath = Adapt.normalizePath(adapter_);
 
-		function joinPathToBase(base: string | undefined, segments: ReadonlyArray<string>) {
+		function joinPathToBase(base: string | undefined, segments: readonly string[]) {
 			return base ? path.join(base, ...segments) : void 0;
 		}
 
