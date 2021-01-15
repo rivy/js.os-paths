@@ -7,6 +7,7 @@ const fs = require('fs');
 const path = require('path');
 
 const test = require('ava');
+const commandExists = require('command-exists');
 const spawn = require('cross-spawn');
 
 const module_ = require('../build/cjs+tests');
@@ -36,10 +37,41 @@ test('api', (t) => {
 	});
 });
 
-// ToDO: add Deno example script checks
-
 // test examples with version changes or distribution
 if (process.env.npm_config_test_for_dist) {
+	if (!commandExists.sync('deno')) {
+		test.skip('`deno` not found; Deno examples not tested', (t) => {
+			t.pass();
+		});
+	} else {
+		test('examples are executable without error (Deno)', (t) => {
+			const egDirPath = 'eg';
+			const extension_regexps = [/.*[.]deno[.]ts$/i];
+
+			// eslint-disable-next-line security/detect-non-literal-fs-filename
+			const files = fs.readdirSync(egDirPath);
+
+			files
+				.filter((file) => {
+					return extension_regexps.find((re) => path.basename(file).match(re));
+				})
+				.forEach((file) => {
+					const command = 'deno';
+					const script = path.join(egDirPath, file);
+					const args = ['run', '--allow-all', script];
+					const options = { shell: true, encoding: 'utf-8' };
+
+					t.log({ script });
+
+					const { error, status, stdout } = spawn.sync(command, args, options);
+
+					t.log({ error, status, stdout });
+
+					t.deepEqual({ error, status }, { error: null, status: 0 });
+				});
+		});
+	}
+
 	test('examples are executable without error (JavaScript)', (t) => {
 		const egDirPath = 'eg';
 		const extensions = ['.js', '.cjs', '.mjs'];
