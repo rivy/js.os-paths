@@ -28,13 +28,17 @@ checks:
     config:
       threshold: 4
   # similar-code:
-  #   config:
-  #     threshold: # language-specific defaults. an override will affect all languages.
+  # config:
+  #   threshold: # has language-specific defaults; an override will affect all languages
   # identical-code:
-  #   config:
-  #     threshold: # language-specific defaults. an override will affect all languages.
+  # config:
+  #   threshold: # has language-specific defaults; an override will affect all languages.
 
 plugins:
+  duplication:
+    enabled: true
+    exclude_patterns:
+      - 'eg/'
   editorconfig:
     enabled: true
   # ref: https://docs.codeclimate.com/docs/eslint
