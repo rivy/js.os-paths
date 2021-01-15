@@ -25,7 +25,7 @@ end_of_line = crlf
 # go ~ TAB-style indentation (SPACE-style alignment); ref: <https://blog.golang.org/gofmt>@@<https://archive.is/wip/9B6FC>
 indent_style = tab
 
-[*.{js,json,ts}]
+[*.{cjs,js,json,mjs,ts}]
 # js/ts ~ Prettier/XO-style == TAB indention + SPACE alignment
 indent_style = tab
 
