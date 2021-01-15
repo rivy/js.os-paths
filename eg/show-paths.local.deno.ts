@@ -1,7 +1,7 @@
 /* eslint-env es6, deno */
 // # spell-checker:ignore Deno
 
-/* eslint-disable no-console , security/detect-object-injection, security-node/detect-crlf , @typescript-eslint/ban-ts-comment , @typescript-eslint/no-explicit-any */
+/* eslint-disable no-console , functional/immutable-data , security/detect-object-injection, security-node/detect-crlf , @typescript-eslint/ban-ts-comment , @typescript-eslint/no-explicit-any */
 
 // eslint-disable-next-line @typescript-eslint/triple-slash-reference
 /// <reference path='../src/types/deno.d.ts'/>
@@ -13,25 +13,25 @@ import osPaths from '../src/mod.deno.ts';
 // @ts-ignore
 const deno = Deno;
 
-console.log({ osPaths });
+function objectEntries(obj: any) {
+	const map: any = {};
+	Object.keys(obj).forEach((key) => {
+		const value = obj[key];
+		const val = typeof value === 'function' ? value() : value;
+		map[key] = val;
+	});
+	return map;
+}
 
-Object.keys(osPaths).forEach((key) => {
-	const value = (osPaths as any)[key]();
-	console.log({ key, value });
-});
+console.log({ osPaths });
+console.log(objectEntries(osPaths));
 
 deno.env.set('TEMP', 'temp');
 deno.env.set('TMPDIR', 'tmpdir');
 deno.env.set('TMP', 'tmp');
-Object.keys(osPaths).forEach((key) => {
-	const value = (osPaths as any)[key]();
-	console.log({ key, value });
-});
+console.log(objectEntries(osPaths));
 
 deno.env.set('TEMP', 'NEW');
-Object.keys(osPaths).forEach((key) => {
-	const value = (osPaths as any)[key]();
-	console.log({ key, value });
-});
+console.log(objectEntries(osPaths));
 
-/* eslint-enable no-console , security/detect-object-injection, security-node/detect-crlf , @typescript-eslint/ban-ts-comment , @typescript-eslint/no-explicit-any */
+/* eslint-enable no-console , functional/immutable-data , security/detect-object-injection, security-node/detect-crlf , @typescript-eslint/ban-ts-comment , @typescript-eslint/no-explicit-any */
