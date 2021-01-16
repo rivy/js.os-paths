@@ -2,11 +2,16 @@
 
 import { Platform } from '../platform-adapters/_base';
 
+/** Generate portable common OS paths (home, temp, ...) */
 export type OSPaths = {
-	new (): OSPaths;
+	/** Create an OSPaths object. */
 	(): OSPaths;
+	/** Create an OSPaths object. */
+	new (): OSPaths;
 	/* eslint-disable functional/no-method-signature */
+	/** Returns the home directory for user. */
 	home(): string | undefined;
+	/** Returns the directory for temporary files. */
 	temp(): string;
 	/* eslint-enable functional/no-method-signature */
 };
