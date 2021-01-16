@@ -3,15 +3,15 @@
 <!-- -## editors ## (emacs/sublime) -*- coding: utf8-nix; tab-width: 4; mode: markdown; indent-tabs-mode: nil; basic-offset: 2; st-word_wrap: 'true' -*- ## (jEdit) :tabSize=4:indentSize=4:mode=markdown: ## (notepad++) vim:tabstop=4:syntax=markdown:expandtab:smarttab:softtabstop=2 ## modeline (see <https://archive.is/djTUD>@@<http://webcitation.org/66W3EhCAP> ) -->
 <!-- spell-checker:ignore expandtab markdownlint modeline smarttab softtabstop -->
 
-<!-- markdownlint-disable heading-increment -->
+<!-- markdownlint-disable heading-increment no-duplicate-heading -->
 <!-- spell-checker:ignore (abbrev/jargon) CICD CJS ESM ESMs -->
 <!-- spell-checker:ignore (names) Codacy Deno -->
 <!-- spell-checker:ignore (targets) realclean -->
-<!-- spell-checker:ignore (people) rivy sindresorhus Sindre Sorhus -->
+<!-- spell-checker:ignore (people) rivy -->
 
 # [os-paths](https://github.com/rivy/js.os-paths)
 
-> Generate portable common OS paths (home, temp, ...)
+> Determine common OS/platform paths (home, temp, ...)
 
 [![Build status (GHA)][gha-image]][gha-url]
 [![Build status (Travis-CI)][travis-image]][travis-url]
@@ -25,7 +25,7 @@
 [![NodeJS version][nodejsv-image]][repository-url]
 [![Downloads][downloads-image]][downloads-url]
 
-## Installation
+## Installation (CJS/ESM/TypeScript)
 
 ```shell
 npm install os-paths
@@ -35,55 +35,76 @@ npm install os-paths
 
 ## Usage
 
+#### CommonJS (CJS)
+
 ```js
 const osPaths = require('os-paths');
+const home = osPaths.home();
+const temp = osPaths.temp();
+```
 
-osPaths.home();
-//(*nix) => '/home/rivy'
-//(win)  => 'C:\Users\rivy'
+#### ECMAScript (ESM)/TypeScript
 
-osPaths.temp();
-//(*nix) => '/tmp'
-//(win)  => 'C:\Windows\temp'
+```js
+import osPaths from 'os-paths';
+const home = osPaths.home();
+const temp = osPaths.temp();
+```
+
+#### Deno
+
+```ts
+import osPaths from 'https://deno.land/x/os_paths@v6.0.0/src/mod.deno.ts';
+//or (via CDN, with semver support)...
+//import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.os-paths@6/src/mod.deno.ts';
+const home = osPaths.home();
+const temp = osPaths.temp();
 ```
 
 ## API
 
-### Initialization
+### Construction/Initialization
 
-#### `require('os-paths'): OSPaths()`
+#### `OSPaths()`
 
 ```js
-const osPaths = require('os-paths');
+const osPaths = require('os-paths'); // CJS
+//or...
+//import osPaths from 'os-paths'; // ESM/TypeScript
+//import osPaths from 'https://deno.land/x/os_paths@v6.0.0/src/mod.deno.ts'; // Deno
 ```
 
-The object returned by the module constructor is a function object, `OSPaths`, augmented with attached methods. When this object is called directly (eg, `const p = osPaths()`), it returns another newly constructed `OSPaths` object. Since the `OSPaths` object contains no instance state, all constructed objects will be functionally identical.
+When importing this module, the object returned is a function object, `OSPaths`, augmented with attached methods. Additional `OSPaths` objects may be constructed by direct call of the imported `OSPaths` object (eg, `const p = osPaths()`) or by using `new` (eg, `const p = new osPaths()`). Notably, since the `OSPaths` object contains no instance state, all `OSPaths` objects will be functionally identical.
 
 ### Methods
 
-All module methods return simple, platform-compatible, path strings which are normalized and have no trailing path separators.
+All methods return simple, platform-specific, and platform-compatible path strings which are normalized and have no trailing path separators.
 
-The path strings are _not_ guaranteed to already exist on the file system. So, the user is responsible for directory construction, if/when needed. However, since all of these are _standard_ OS directories, they should all exist without the need for user intervention.
+The returned path strings are _not_ guaranteed to already exist on the file system. So, the user is responsible for directory construction, if/when needed. However, since all of these are _standard_ OS directories, they should all exist without the need for user intervention.
 
 If/when necessary, [`make-dir`](https://www.npmjs.com/package/make-dir) or [`mkdirp`](https://www.npmjs.com/package/mkdirp) can be used to create the directories.
 
 #### `osPaths.home(): string | undefined`
 
-- Returns the home directory for user (or `undefined`)
+- Returns the path string of the user's home directory (or `undefined` if the user's home directory is not resolvable).
 
-`undefined` is returned if the home directory is not resolvable.
+```js
+console.log(osPaths.home());
+//(*nix) => '/home/rivy
+//(windows) =>  'C:\Users\rivy'
+```
 
 #### `osPaths.temp(): string`
 
-- Returns the directory for temporary files
+- Returns the path string of the system's default directory for temporary files.
 
-_Always_ returns a non-empty path (as sanely as possible).
+`temp()` will _always_ return a non-empty path string (as sanely as possible).
 
-## Discussion
-
-### XDG
-
-All XDG-related methods have been relocated to the [`xdg-portable`](https://www.npmjs.com/package/xdg-portable) and [`xdg-app-paths`](https://www.npmjs.com/package/xdg-app-paths) modules.
+```js
+console.log(osPaths.temp());
+//(*nix) => '/tmp'
+//(windows) =>  'C:\Users\rivy\AppData\Local\Temp'
+```
 
 ## Supported Platforms
 
@@ -99,7 +120,7 @@ All XDG-related methods have been relocated to the [`xdg-portable`](https://www.
 
 #### CommonJS modules (CJS; `*.js` and `*.cjs`)
 
-CJS is the basic supported output (back to versions as early as NodeJS-v4).
+CJS is the basic supported output (with support for NodeJS versions as early as NodeJS-v4).
 
 ```js
 const osPaths = require('os-paths');
@@ -110,6 +131,8 @@ console.log(osPaths.temp());
 
 #### ECMAScript modules (ESM; `*.mjs`)
 
+- <small><span title="ESM support added in v6.0">Requires `v6.0`+.</span></small>
+
 `OSPaths` fully supports ESM imports.
 
 ```js
@@ -119,17 +142,23 @@ console.log(osPaths.home());
 console.log(osPaths.temp());
 ```
 
-#### TypeScript (`*.ts`)
+### TypeScript (`*.ts`)
 
-With `v5.0`+, `OSPaths` has been converted to a TypeScript-based module.
+- <small><span title="TypeScript support added in v5.0">Requires `v5.0`+.</span></small>
+
+As of `v5.0`+, `OSPaths` has been converted to a TypeScript-based module.
 As a consequence, TypeScript type definitions are automatically generated, bundled, and exported by the module.
 
 ### Deno
+
+- <small><span title="Deno support added in v6.0">Requires `v6.0`+.</span></small>
 
 `OSPaths` also fully supports use by Deno.
 
 ```js deno
 import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.os-paths@latest/src/mod.deno.ts';
+//or (via CDN, with semver support)...
+//import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.os-paths@6/src/mod.deno.ts';
 
 console.log(osPaths.home());
 console.log(osPaths.temp());
@@ -146,7 +175,6 @@ console.log(osPaths.temp());
 [![Quality status (Codacy)][codacy-image]][codacy-url]
 [![Quality status (CodeClimate)][codeclimate-image]][codeclimate-url]
 [![Quality status (CodeFactor)][codefactor-image]][codefactor-url]
-[![Quality status (Scrutinizer)][scrutinizer-image]][scrutinizer-url]
 
 ### Build requirements
 
@@ -247,8 +275,6 @@ By contributing to the project, you are agreeing to provide your contributions u
 [codacy-url]: https://app.codacy.com/gh/rivy/js.os-paths/dashboard
 [codefactor-image]: https://img.shields.io/codefactor/grade/github/rivy/js.os-paths?label=codefactor
 [codefactor-url]: https://www.codefactor.io/repository/github/rivy/js.os-paths
-[scrutinizer-image]: https://img.shields.io/scrutinizer/quality/g/rivy/js.os-paths?label=scritunizer
-[scrutinizer-url]: https://scrutinizer-ci.com/g/rivy/js.os-paths
 
 <!-- Distributors/Registries -->
 
@@ -268,6 +294,8 @@ By contributing to the project, you are agreeing to provide your contributions u
 <!-- [npm-url]: https://npmjs.org/package/os-paths -->
 <!-- [repository-image]:https://img.shields.io/badge/%E2%9D%A4-darkcyan?style=flat&logo=github -->
 <!-- [repository-image]:https://img.shields.io/github/v/tag/rivy/js.os-paths?label=%e2%80%8b&logo=github&logoColor=white&colorA=gray&logoWidth=15 -->
+<!-- [scrutinizer-image]: https://img.shields.io/scrutinizer/quality/g/rivy/js.os-paths?label=scritunizer -->
+<!-- [scrutinizer-url]: https://scrutinizer-ci.com/g/rivy/js.os-paths -->
 <!-- [style-image]: https://img.shields.io/badge/code_style-XO-darkcyan.svg -->
 <!-- [style-image]: https://img.shields.io/badge/code_style-standard-darkcyan.svg -->
 <!-- [style-url]: https://github.com/xojs/xo -->
