@@ -1,5 +1,5 @@
 {
-	"extends": "../tsconfig",
+	"extends": "../tsconfig.json",
 	"compilerOptions": {
 		// generate (only) type declaration files to 'build/types'
 		"outDir": "../build/types",
@@ -8,9 +8,12 @@
 		"noEmit": false
 	},
 	"exclude": [
+		"../eg/**",
+		"../src/esm-wrapper/**",
 		"../src/**/*.deno.ts",
 		"../src/**/*.spec.*",
 		"../src/**/*.test.*",
+		"../test/**",
 		"../node_modules/**"
 	]
 }

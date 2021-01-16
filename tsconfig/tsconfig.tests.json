@@ -1,11 +1,17 @@
 {
-	"extends": "../tsconfig",
+	"extends": "../tsconfig.json",
 	"compilerOptions": {
 		"outDir": "../build/cjs+tests",
-		// "declaration": true, // generate side-by-side type declarations
+		"declaration": true, // generate side-by-side type declarations
 		"module": "CommonJS",
 		"noEmit": false,
 		"removeComments": false
 	},
-	"exclude": ["../src/**/*.deno.ts", "../node_modules/**"]
+	"exclude": [
+		"../eg/**",
+		"../src/esm-wrapper/**",
+		"../src/**/*.deno.ts",
+		"../test/**",
+		"../node_modules/**"
+	]
 }
