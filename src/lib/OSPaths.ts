@@ -5,8 +5,10 @@ import { Platform } from '../platform-adapters/_base';
 export type OSPaths = {
 	new (): OSPaths;
 	(): OSPaths;
-	readonly home: () => string | undefined;
-	readonly temp: () => string;
+	/* eslint-disable functional/no-method-signature */
+	home(): string | undefined;
+	temp(): string;
+	/* eslint-enable functional/no-method-signature */
 };
 
 function isEmpty(s: string | null | undefined): boolean {
@@ -90,19 +92,14 @@ namespace Adapt {
 }
 
 export function OSPathsAdaptionBuilder_(adapter_: Platform.Adapter): OSPaths {
-	// eslint-disable-next-line functional/no-class
-	class OSPaths_ {
-		constructor() {
-			const OSPaths = function () {
-				return new OSPaths_() as OSPaths;
-			};
-
-			OSPaths.home = Adapt.home(adapter_);
-			OSPaths.temp = Adapt.temp(adapter_);
-
-			return OSPaths;
-		}
+	function OSPaths(): OSPaths {
+		return obj as OSPaths;
 	}
-
-	return new OSPaths_() as OSPaths;
+	const home = Adapt.home(adapter_);
+	const temp = Adapt.temp(adapter_);
+	const obj = Object.assign(OSPaths, {
+		home,
+		temp,
+	}) as OSPaths;
+	return obj as OSPaths;
 }
