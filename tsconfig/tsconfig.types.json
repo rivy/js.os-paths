@@ -5,7 +5,8 @@
 		"outDir": "../build/types",
 		"declaration": true, // generate type declarations
 		"emitDeclarationOnly": true,
-		"noEmit": false
+		"noEmit": false,
+		"removeComments": false
 	},
 	"exclude": [
 		"../eg/**",
