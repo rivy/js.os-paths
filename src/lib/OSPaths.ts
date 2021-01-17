@@ -102,6 +102,11 @@ export function OSPathsAdaptionBuilder_(adapter_: Platform.Adapter): OSPaths {
 	}
 	const home = Adapt.home(adapter_);
 	const temp = Adapt.temp(adapter_);
+
+	// retouch method names
+	Object.defineProperty(home, 'name', { value: 'home' });
+	Object.defineProperty(temp, 'name', { value: 'temp' });
+
 	const obj = Object.assign(OSPaths, {
 		home,
 		temp,
