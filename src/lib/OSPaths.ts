@@ -2,16 +2,16 @@
 
 import { Platform } from '../platform-adapters/_base';
 
-/** Generate portable common OS paths (home, temp, ...) */
+/** Determine common OS/platform paths (home, temp, ...) */
 export type OSPaths = {
-	/** Create an OSPaths object. */
+	/** @constructor Create an `OSPaths` object. */
 	(): OSPaths;
-	/** Create an OSPaths object. */
+	/** @constructor Create an `OSPaths` object. */
 	new (): OSPaths;
 	/* eslint-disable functional/no-method-signature */
-	/** Returns the home directory for user. */
+	/** Returns the path string of the user's home directory (or `undefined`if the user's home directory is not resolvable). */
 	home(): string | undefined;
-	/** Returns the directory for temporary files. */
+	/** Returns the path string of the system's default directory for temporary files. */
 	temp(): string;
 	/* eslint-enable functional/no-method-signature */
 };
