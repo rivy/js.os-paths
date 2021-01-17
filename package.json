@@ -1,6 +1,6 @@
 {
 	"name": "os-paths",
-	"version": "6.0.0",
+	"version": "6.1.0",
 	"description": "Determine common OS/platform paths (home, temp, ...)",
 	"license": "MIT",
 	"repository": "rivy/js.os-paths",

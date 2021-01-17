@@ -5,6 +5,36 @@
 
 ---
 
+## [v6.1.0](https://github.com/rivy/js.os-paths/compare/v6.0.0...v6.1.0) <small>(2021-01-17)</small>
+
+#### Documentation
+
+* docs ~ update package description &ac; [`fbb10bd`](https://github.com/rivy/js.os-paths/commit/fbb10bdd5317bc4ce2568ba2356e51fc043dcb3a)
+* docs ~ JSDocs polish &ac; [`2bcd311`](https://github.com/rivy/js.os-paths/commit/2bcd31197d00b5a1847c875d01808643b2859fbd)
+* docs ~ add JSDoc comments &ac; [`23765e7`](https://github.com/rivy/js.os-paths/commit/23765e7b6f56fad77919cb6bee1297d3bbd7444d)
+* docs ~ refactor Deno example to reduce code duplication &ac; [`8901b74`](https://github.com/rivy/js.os-paths/commit/8901b7433d4c6f9d6e9d300e61dc7ad3f73dbdbf)
+
+#### Maintenance
+
+* maint/**build**: preserve JSDoc comments for types &ac; [`96278e1`](https://github.com/rivy/js.os-paths/commit/96278e1eddf422d36bb9d8029c87fd08b7b1ad9d)
+* maint/**build**: restructure TS config files for better intellisense &ac; [`3713d56`](https://github.com/rivy/js.os-paths/commit/3713d56e213d32e669230c58e9a039d6c9dbac30)
+* maint/**build**: refactor `commitlint` commit tag specification (lowercase from upper) &ac; [`2c7ac3a`](https://github.com/rivy/js.os-paths/commit/2c7ac3aea12286a87451a2020bed06fd1fdc33da)
+* maint/**dev**: (QA/CodeClimate) ignore code duplication in examples ('eg/') &ac; [`fa794e7`](https://github.com/rivy/js.os-paths/commit/fa794e7dd42f451e6d8a893ff424e45fae3f9474)
+* maint/**dev**: update EditorConfig (specify CJS/MJS to support JS ESM) &ac; [`ed5af63`](https://github.com/rivy/js.os-paths/commit/ed5af6386c47438e377a607e7d4cc90d440bf6a4)
+* maint/**dev**: (QA/Scrutinizer) ignore 'src/types' (generated/third-party content) &ac; [`dbe4474`](https://github.com/rivy/js.os-paths/commit/dbe447425f74dbb7d9fdb480d42478b72d28d918)
+* maint/**dist**: update &ac; [`b5edf8f`](https://github.com/rivy/js.os-paths/commit/b5edf8f5ec7d6082ae7b56659b4b474390003103)
+
+#### Refactoring
+
+* refactor ~ (package.json) normalize export paths &ac; [`3496f66`](https://github.com/rivy/js.os-paths/commit/3496f669f0edb5af1064fc9ac444692b81ae5e82)
+* refactor ~ retouch method names (for debugging/dev) &ac; [`f0e803f`](https://github.com/rivy/js.os-paths/commit/f0e803ff67ae3a590a946401cf19e2b0a611ad54)
+* refactor ~ alter OSPaths type for better VSCode intellisense (describe as methods, not properties) &ac; [`ab673fa`](https://github.com/rivy/js.os-paths/commit/ab673fa19e7cfac83b657eb9a5f3795e82453782)
+* refactor ~ improve readability &ac; [`ff7ad32`](https://github.com/rivy/js.os-paths/commit/ff7ad32b3806fb8e53021b1f26835299e6c920e3)
+* refactor ~ consolidate/group adapting functions using a namespace &ac; [`3d9e02d`](https://github.com/rivy/js.os-paths/commit/3d9e02da86ab312dc7805c0770f841f2dbd0a0c2)
+* refactor ~ reduce per function complexity &ac; [`a966d13`](https://github.com/rivy/js.os-paths/commit/a966d1397d9f11a7af819f3ffb439e26b1042a9f)
+
+---
+
 ## [v6.0.0](https://github.com/rivy/js.os-paths/compare/v5.1.0...v6.0.0) <small>(2021-01-14)</small>
 
 #### Changes

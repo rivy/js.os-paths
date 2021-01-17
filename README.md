@@ -54,7 +54,7 @@ const temp = osPaths.temp();
 #### Deno
 
 ```ts
-import osPaths from 'https://deno.land/x/os_paths@v6.0.0/src/mod.deno.ts';
+import osPaths from 'https://deno.land/x/os_paths@v6.1.0/src/mod.deno.ts';
 //or (via CDN, with semver support)...
 //import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.os-paths@6/src/mod.deno.ts';
 const home = osPaths.home();
@@ -71,7 +71,7 @@ const temp = osPaths.temp();
 const osPaths = require('os-paths'); // CJS
 //or...
 //import osPaths from 'os-paths'; // ESM/TypeScript
-//import osPaths from 'https://deno.land/x/os_paths@v6.0.0/src/mod.deno.ts'; // Deno
+//import osPaths from 'https://deno.land/x/os_paths@v6.1.0/src/mod.deno.ts'; // Deno
 ```
 
 When importing this module, the object returned is a function object, `OSPaths`, augmented with attached methods. Additional `OSPaths` objects may be constructed by direct call of the imported `OSPaths` object (eg, `const p = osPaths()`) or by using `new` (eg, `const p = new osPaths()`). Notably, since the `OSPaths` object contains no instance state, all `OSPaths` objects will be functionally identical.
