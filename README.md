@@ -98,13 +98,13 @@ console.log(osPaths.home());
 
 - Returns the path string of the system's default directory for temporary files.
 
-`temp()` will _always_ return a non-empty path string (as sanely as possible).
-
 ```js
 console.log(osPaths.temp());
 //(*nix) => '/tmp'
 //(windows) =>  'C:\Users\rivy\AppData\Local\Temp'
 ```
+
+`temp()` will _always_ return a non-empty path string (as sanely as possible).
 
 ## Supported Platforms
 
