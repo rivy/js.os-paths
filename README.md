@@ -5,7 +5,7 @@
 
 <!-- markdownlint-disable heading-increment no-duplicate-heading -->
 <!-- spell-checker:ignore (abbrev/jargon) CICD CJS ESM ESMs -->
-<!-- spell-checker:ignore (names) Codacy Deno -->
+<!-- spell-checker:ignore (names) Codacy Deno JSDelivr npmJS -->
 <!-- spell-checker:ignore (targets) realclean -->
 <!-- spell-checker:ignore (people) rivy -->
 
@@ -21,9 +21,11 @@
 [![Style Guide][style-image]][style-url]
 &nbsp; <br/>
 [![Repository][repository-image]][repository-url]
+[![Deno version][deno-image]][deno-url]
 [![NPM version][npm-image]][npm-url]
 [![NodeJS version][nodejsv-image]][repository-url]
-[![Downloads][downloads-image]][downloads-url]
+[![npmJS Downloads][downloads-image]][downloads-url]
+[![JSDelivr Downloads][jsdelivr-image]][jsdelivr-url]
 
 ## Installation (CJS/ESM/TypeScript)
 
@@ -250,9 +252,9 @@ By contributing to the project, you are agreeing to provide your contributions u
 
 [repository-image]: https://img.shields.io/github/package-json/v/rivy/js.os-paths/master?label=%E2%81%A3&logo=github&logoColor=white
 [repository-url]: https://github.com/rivy/js.os-paths
-[license-image]: https://img.shields.io/npm/l/os-paths.svg?color=royalblue&style=flat
+[license-image]: https://img.shields.io/npm/l/os-paths.svg?color=tomato&style=flat
 [license-url]: license
-[nodejsv-image]: https://img.shields.io/node/v/os-paths?color=blue
+[nodejsv-image]: https://img.shields.io/node/v/os-paths?color=slateblue
 [style-image]: https://img.shields.io/badge/code_style-prettier-mediumvioletred.svg
 [style-url]: https://prettier.io
 
@@ -278,10 +280,14 @@ By contributing to the project, you are agreeing to provide your contributions u
 
 <!-- Distributors/Registries -->
 
-[npm-image]: https://img.shields.io/npm/v/os-paths.svg?style=flat
-[npm-url]: https://npmjs.org/package/os-paths
+[deno-image]: https://img.shields.io/github/package-json/v/rivy/js.os-paths/master?label=deno
+[deno-url]: https://deno.land/x/os_paths
 [downloads-image]: http://img.shields.io/npm/dm/os-paths.svg?style=flat
 [downloads-url]: https://npmjs.org/package/os-paths
+[jsdelivr-image]: https://img.shields.io/jsdelivr/gh/hm/rivy/js.os-paths?style=flat
+[jsdelivr-url]: https://www.jsdelivr.com/package/gh/rivy/js.os-paths
+[npm-image]: https://img.shields.io/npm/v/os-paths.svg?style=flat
+[npm-url]: https://npmjs.org/package/os-paths
 
 <!-- Alternate/Old image/URL links -->
 
