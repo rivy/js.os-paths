@@ -57,8 +57,11 @@ const temp = osPaths.temp();
 
 ```ts
 import osPaths from 'https://deno.land/x/os_paths@v6.1.0/src/mod.deno.ts';
-//or (via CDN, with semver support)...
-//import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.os-paths@6/src/mod.deno.ts';
+//or (via CDN, with optional version/version-range/latest/commit support)...
+//import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.os-paths@6.1.0/src/mod.deno.ts'; // v6.1.0
+//import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.os-paths@6/src/mod.deno.ts'; // v6.x.y
+//import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.os-paths/src/mod.deno.ts'; // latest
+//import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.os-paths@latest/src/mod.deno.ts'; // latest
 const home = osPaths.home();
 const temp = osPaths.temp();
 ```
