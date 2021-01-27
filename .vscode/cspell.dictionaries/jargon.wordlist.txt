@@ -38,6 +38,8 @@ seedable
 semver
 shortcode
 shortcodes
+stringify
+stringification
 symlink
 symlinks
 syscall
