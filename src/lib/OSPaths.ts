@@ -33,7 +33,6 @@ namespace Adapt {
 	export const home = (adapter_: Platform.Adapter) => {
 		const { env, os, path } = adapter_;
 
-		const isWinOS = Adapt.isWinOS(adapter_);
 		const normalizePath = Adapt.normalizePath(adapter_);
 
 		const posix = () =>
@@ -51,13 +50,12 @@ namespace Adapt {
 			return normalizePath(priorityList.find((v) => !isEmpty(v)));
 		};
 
-		return isWinOS ? windows : posix;
+		return Adapt.isWinOS(adapter_) ? windows : posix;
 	};
 
 	export const temp = (adapter_: Platform.Adapter) => {
 		const { env, os, path } = adapter_;
 
-		const isWinOS = Adapt.isWinOS(adapter_);
 		const normalizePath = Adapt.normalizePath(adapter_);
 
 		function joinPathToBase(base: string | undefined, segments: readonly string[]) {
@@ -92,7 +90,7 @@ namespace Adapt {
 			return (v && normalizePath(v())) || fallback;
 		};
 
-		return isWinOS ? windows : posix;
+		return Adapt.isWinOS(adapter_) ? windows : posix;
 	};
 }
 
