@@ -22,15 +22,17 @@ function isEmpty(s: string | null | undefined): boolean {
 
 // eslint-disable-next-line @typescript-eslint/no-namespace
 namespace Adapt {
-	export const isWinOS = (adapter_: Platform.Adapter) => /^win/i.test(adapter_.process.platform);
+	export function isWinOS(adapter_: Platform.Adapter) {
+		return /^win/i.test(adapter_.process.platform);
+	}
 
-	export const normalizePath = (adapter_: Platform.Adapter) => {
+	export function normalizePath(adapter_: Platform.Adapter) {
 		return (path_: string | undefined): string | undefined => {
 			return path_ ? adapter_.path.normalize(adapter_.path.join(path_, '.')) : void 0;
 		};
-	};
+	}
 
-	export const home = (adapter_: Platform.Adapter) => {
+	export function home(adapter_: Platform.Adapter) {
 		const { env, os, path } = adapter_;
 
 		const normalizePath = Adapt.normalizePath(adapter_);
@@ -51,9 +53,9 @@ namespace Adapt {
 		};
 
 		return Adapt.isWinOS(adapter_) ? windows : posix;
-	};
+	}
 
-	export const temp = (adapter_: Platform.Adapter) => {
+	export function temp(adapter_: Platform.Adapter) {
 		const { env, os, path } = adapter_;
 
 		const normalizePath = Adapt.normalizePath(adapter_);
@@ -91,7 +93,7 @@ namespace Adapt {
 		};
 
 		return Adapt.isWinOS(adapter_) ? windows : posix;
-	};
+	}
 }
 
 export function OSPathsAdaptionBuilder_(adapter_: Platform.Adapter): OSPaths {
@@ -100,10 +102,6 @@ export function OSPathsAdaptionBuilder_(adapter_: Platform.Adapter): OSPaths {
 	}
 	const home = Adapt.home(adapter_);
 	const temp = Adapt.temp(adapter_);
-
-	// retouch method names
-	Object.defineProperty(home, 'name', { value: 'home' });
-	Object.defineProperty(temp, 'name', { value: 'temp' });
 
 	const obj = Object.assign(OSPaths, {
 		home,
