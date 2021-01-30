@@ -30,14 +30,23 @@ const env = {
 	},
 };
 
-function setupProcessEnv(values) {
+const original = {
+	env: { ...process.env },
+	os: {
+		homedir: os.homedir,
+		tmpdir: os.tmpdir,
+	},
+};
+
+function setObjectKeys(object, values) {
 	// eslint-disable-next-line functional/immutable-data , security/detect-object-injection
-	Object.keys(values).forEach((key) => (process.env[key] = env.defaults[key]));
+	Object.keys(values).forEach((key) => (object[key] = values[key]));
 }
 
 // * reset environment prior to each test
 test.beforeEach(() => {
-	setupProcessEnv(env.defaults);
+	setObjectKeys(process.env, original.env);
+	setObjectKeys(os, original.os);
 });
 
 /* eslint-disable no-undefined , functional/immutable-data */
