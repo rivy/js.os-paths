@@ -12,22 +12,26 @@ const osPaths = require('../build/cjs+tests');
 
 const isWinOS = /^win/i.test(process.platform);
 
-const env = {
-	defaults: process.env,
-	signalValues: {
-		ALLUSERSPROFILE: 'allusersprofile',
-		HOME: 'home',
-		HOMEDRIVE: 'homedrive',
-		HOMEPATH: 'homepath',
-		LOCALAPPDATA: 'localappdata',
-		SystemRoot: 'systemroot',
-		SystemDrive: 'systemdrive',
-		TEMP: 'temp',
-		TMPDIR: 'tmpdir',
-		TMP: 'tmp',
-		USERPROFILE: 'userprofile',
-		windir: 'windir',
-	},
+const envSignalValues = {
+	ALLUSERSPROFILE: 'allusersprofile',
+	HOME: 'home',
+	HOMEDRIVE: 'homedrive',
+	HOMEPATH: 'homepath',
+	LOCALAPPDATA: 'localappdata',
+	SystemRoot: 'systemroot',
+	SystemDrive: 'systemdrive',
+	TEMP: 'temp',
+	TMPDIR: 'tmpdir',
+	TMP: 'tmp',
+	USERPROFILE: 'userprofile',
+	windir: 'windir',
+	XDG_CACHE_HOME: 'cache',
+	XDG_CONFIG_HOME: 'config_home',
+	XDG_DATA_HOME: 'data_home',
+	XDG_RUNTIME_DIR: 'runtime',
+	XDG_STATE_HOME: 'state',
+	XDG_CONFIG_DIRS: ['dirs', 'config_dirs'].join(path.delimiter),
+	XDG_DATA_DIRS: ['dirs', 'data_dirs'].join(path.delimiter),
 };
 
 const original = {
@@ -54,21 +58,21 @@ test.beforeEach(() => {
 test('default', (t) => {
 	const paths = osPaths;
 
-	process.env.HOME = process.env.USERPROFILE = 'home';
-	process.env.TEMP = process.env.TMP = process.env.TMPDIR = 'temp';
+	process.env.HOME = process.env.USERPROFILE = envSignalValues.HOME;
+	process.env.TEMP = process.env.TMP = process.env.TMPDIR = envSignalValues.TEMP;
 
-	t.is(paths.home(), 'home');
-	t.is(paths.temp(), 'temp');
+	t.is(paths.home(), envSignalValues.HOME);
+	t.is(paths.temp(), envSignalValues.TEMP);
 });
 
 test('alternate construction (via function)', (t) => {
 	const paths = osPaths();
 
-	process.env.HOME = process.env.USERPROFILE = 'home';
-	process.env.TEMP = process.env.TMP = process.env.TMPDIR = 'temp';
+	process.env.HOME = process.env.USERPROFILE = envSignalValues.HOME;
+	process.env.TEMP = process.env.TMP = process.env.TMPDIR = envSignalValues.TEMP;
 
-	t.is(paths.home(), 'home');
-	t.is(paths.temp(), 'temp');
+	t.is(paths.home(), envSignalValues.HOME);
+	t.is(paths.temp(), envSignalValues.TEMP);
 });
 
 test('no os.homedir/os.tmpdir', (t) => {
@@ -76,11 +80,23 @@ test('no os.homedir/os.tmpdir', (t) => {
 
 	const paths = osPaths;
 
-	process.env.HOME = process.env.USERPROFILE = 'home';
-	process.env.TEMP = process.env.TMP = process.env.TMPDIR = 'temp';
+	process.env.HOME = process.env.USERPROFILE = envSignalValues.HOME;
+	process.env.TEMP = process.env.TMP = process.env.TMPDIR = envSignalValues.TEMP;
 
-	t.is(paths.home(), 'home');
-	t.is(paths.temp(), 'temp');
+	t.is(paths.home(), envSignalValues.HOME);
+	t.is(paths.temp(), envSignalValues.TEMP);
+});
+
+test('no os.homedir/os.tmpdir and trailing path separator in environment source', (t) => {
+	os.homedir = os.tmpdir = null;
+
+	const paths = osPaths;
+
+	process.env.HOME = process.env.USERPROFILE = envSignalValues.HOME + path.sep;
+	process.env.TEMP = process.env.TMP = process.env.TMPDIR = envSignalValues.TEMP + path.sep;
+
+	t.is(paths.home(), envSignalValues.HOME);
+	t.is(paths.temp(), envSignalValues.TEMP);
 });
 
 test('no os.homedir/os.tmpdir and trailing slash in environment source', (t) => {
@@ -88,11 +104,11 @@ test('no os.homedir/os.tmpdir and trailing slash in environment source', (t) => 
 
 	const paths = osPaths;
 
-	process.env.HOME = process.env.USERPROFILE = 'home/';
-	process.env.TEMP = process.env.TMP = process.env.TMPDIR = 'temp/';
+	process.env.HOME = process.env.USERPROFILE = envSignalValues.HOME + '/';
+	process.env.TEMP = process.env.TMP = process.env.TMPDIR = envSignalValues.TEMP + '/';
 
-	t.is(paths.home(), 'home');
-	t.is(paths.temp(), 'temp');
+	t.is(paths.home(), envSignalValues.HOME);
+	t.is(paths.temp(), envSignalValues.TEMP);
 });
 
 test('no os.homedir or environment', (t) => {
@@ -115,11 +131,11 @@ test('os.homedir/os.tmpdir return `null`', (t) => {
 
 	const paths = osPaths;
 
-	process.env.HOME = process.env.USERPROFILE = 'home';
-	process.env.TEMP = process.env.TMP = process.env.TMPDIR = 'temp';
+	process.env.HOME = process.env.USERPROFILE = envSignalValues.HOME;
+	process.env.TEMP = process.env.TMP = process.env.TMPDIR = envSignalValues.TEMP;
 
-	t.is(paths.home(), 'home');
-	t.is(paths.temp(), 'temp');
+	t.is(paths.home(), envSignalValues.HOME);
+	t.is(paths.temp(), envSignalValues.TEMP);
 });
 
 test('no os.homedir and runtime variations', (t) => {
@@ -136,11 +152,11 @@ test('no os.homedir and runtime variations', (t) => {
 	process.env.HOMEDRIVE = 'homedrive';
 	t.is(paths.home(), isWinOS ? path.join('homedrive', 'homepath') : undefined);
 
-	process.env.HOME = 'home';
-	t.is(paths.home(), 'home');
+	process.env.HOME = envSignalValues.HOME;
+	t.is(paths.home(), envSignalValues.HOME);
 
 	process.env.USERPROFILE = 'userprofile';
-	t.is(paths.home(), isWinOS ? 'userprofile' : 'home');
+	t.is(paths.home(), isWinOS ? 'userprofile' : envSignalValues.HOME);
 });
 
 test('no os.tmpdir and runtime variations', (t) => {
@@ -168,12 +184,12 @@ test('no os.tmpdir and runtime variations', (t) => {
 	process.env.SystemDrive = '';
 	t.is(paths.temp(), isWinOS ? windowsFallback : posixFallback);
 
-	process.env.TMP = 'tmp';
-	t.is(paths.temp(), 'tmp');
-	process.env.TEMP = 'temp';
-	t.is(paths.temp(), 'temp');
-	process.env.TMPDIR = 'tmpdir';
-	t.is(paths.temp(), isWinOS ? 'temp' : 'tmpdir'); // TMPDIR is not used for Windows platforms
+	process.env.TMP = envSignalValues.TMP;
+	t.is(paths.temp(), envSignalValues.TMP);
+	process.env.TEMP = envSignalValues.TEMP;
+	t.is(paths.temp(), envSignalValues.TEMP);
+	process.env.TMPDIR = envSignalValues.TMPDIR;
+	t.is(paths.temp(), isWinOS ? envSignalValues.TEMP : envSignalValues.TMPDIR); // TMPDIR is not used for Windows platforms
 });
 
 /* eslint-enable no-undefined , functional/immutable-data */
