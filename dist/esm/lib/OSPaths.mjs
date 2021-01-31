@@ -3,18 +3,13 @@ import { __spreadArrays } from '../_virtual/_tslib.js';
 function isEmpty(s) {
     return !s;
 }
-var Adapt;
-(function (Adapt) {
-    Adapt.isWinOS = function (adapter_) { return /^win/i.test(adapter_.process.platform); };
-    Adapt.normalizePath = function (adapter_) {
-        return function (path_) {
-            return path_ ? adapter_.path.normalize(adapter_.path.join(path_, '.')) : void 0;
-        };
-    };
-    Adapt.home = function (adapter_) {
-        var env = adapter_.env, os = adapter_.os, path = adapter_.path;
-        var isWinOS = Adapt.isWinOS(adapter_);
-        var normalizePath = Adapt.normalizePath(adapter_);
+function Adapt(adapter_) {
+    var env = adapter_.env, os = adapter_.os, path = adapter_.path;
+    var isWinOS = /^win/i.test(adapter_.process.platform);
+    function normalizePath(path_) {
+        return path_ ? adapter_.path.normalize(adapter_.path.join(path_, '.')) : void 0;
+    }
+    function home() {
         var posix = function () {
             return normalizePath((typeof os.homedir === 'function' ? os.homedir() : void 0) || env.get('HOME'));
         };
@@ -29,16 +24,13 @@ var Adapt;
             ];
             return normalizePath(priorityList.find(function (v) { return !isEmpty(v); }));
         };
-        return isWinOS ? windows : posix;
-    };
-    Adapt.temp = function (adapter_) {
-        var env = adapter_.env, os = adapter_.os, path = adapter_.path;
-        var isWinOS = Adapt.isWinOS(adapter_);
-        var normalizePath = Adapt.normalizePath(adapter_);
+        return isWinOS ? windows() : posix();
+    }
+    function temp() {
         function joinPathToBase(base, segments) {
             return base ? path.join.apply(path, __spreadArrays([base], segments)) : void 0;
         }
-        var posix = function () {
+        function posix() {
             var fallback = '/tmp';
             var priorityList = [
                 typeof os.tmpdir === 'function' ? os.tmpdir() : void 0,
@@ -47,15 +39,15 @@ var Adapt;
                 env.get('TMP'),
             ];
             return normalizePath(priorityList.find(function (v) { return !isEmpty(v); })) || fallback;
-        };
-        var windows = function () {
+        }
+        function windows() {
             var fallback = 'C:\\Temp';
             var priorityListLazy = [
                 os.tmpdir,
                 function () { return env.get('TEMP'); },
                 function () { return env.get('TMP'); },
                 function () { return joinPathToBase(env.get('LOCALAPPDATA'), ['Temp']); },
-                function () { return joinPathToBase(Adapt.home(adapter_)(), ['AppData', 'Local', 'Temp']); },
+                function () { return joinPathToBase(home(), ['AppData', 'Local', 'Temp']); },
                 function () { return joinPathToBase(env.get('ALLUSERSPROFILE'), ['Temp']); },
                 function () { return joinPathToBase(env.get('SystemRoot'), ['Temp']); },
                 function () { return joinPathToBase(env.get('windir'), ['Temp']); },
@@ -63,23 +55,21 @@ var Adapt;
             ];
             var v = priorityListLazy.find(function (v) { return v && !isEmpty(v()); });
             return (v && normalizePath(v())) || fallback;
-        };
-        return isWinOS ? windows : posix;
-    };
-})(Adapt || (Adapt = {}));
-function OSPathsAdaptionBuilder_(adapter_) {
-    function OSPaths() {
-        return obj;
+        }
+        return isWinOS ? windows() : posix();
     }
-    var home = Adapt.home(adapter_);
-    var temp = Adapt.temp(adapter_);
-    Object.defineProperty(home, 'name', { value: 'home' });
-    Object.defineProperty(temp, 'name', { value: 'temp' });
-    var obj = Object.assign(OSPaths, {
-        home: home,
-        temp: temp,
-    });
-    return obj;
+    var OSPaths_ = (function () {
+        function OSPaths_() {
+            function OSPaths() {
+                return new OSPaths_();
+            }
+            OSPaths.home = home;
+            OSPaths.temp = temp;
+            return OSPaths;
+        }
+        return OSPaths_;
+    }());
+    return { OSPaths: new OSPaths_() };
 }
 
-export { OSPathsAdaptionBuilder_ };
+export { Adapt };
