@@ -1,9 +1,9 @@
 // spell-checker:ignore maint rivy
-import { OSPathsAdaptionBuilder_ } from './lib/OSPaths';
+import { Adapt, OSPaths } from './lib/OSPaths';
 import { adapter } from './platform-adapters/node';
 
-const default_ = OSPathsAdaptionBuilder_(adapter);
-export default default_;
+const default_ = Adapt(adapter).OSPaths as OSPaths;
+export { OSPaths, default_ as default };
 
 const haveModuleExports_ = typeof module === 'object' && module.exports;
 // ## maint ~ [2020-12-23; rivy] `else` clause *is* tested, but coverage is not visible via `nyc` (currently unable to instrument ESM/.mjs correctly)
