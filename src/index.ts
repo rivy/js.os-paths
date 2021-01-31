@@ -2,8 +2,10 @@
 import { Adapt, OSPaths } from './lib/OSPaths';
 import { adapter } from './platform-adapters/node';
 
-const default_ = Adapt(adapter).OSPaths as OSPaths;
-export { OSPaths, default_ as default };
+const default_: OSPaths = Adapt(adapter).OSPaths;
+
+export type { OSPaths };
+export default default_;
 
 const haveModuleExports_ = typeof module === 'object' && module.exports;
 // ## maint ~ [2020-12-23; rivy] `else` clause *is* tested, but coverage is not visible via `nyc` (currently unable to instrument ESM/.mjs correctly)

@@ -3,7 +3,7 @@
 import { Platform } from '../platform-adapters/_base';
 
 /** Determine common OS/platform paths (home, temp, ...) */
-export type OSPaths = {
+type OSPaths = {
 	/** @constructor Create an `OSPaths` object. */
 	(): OSPaths;
 	/** @constructor Create an `OSPaths` object. */
@@ -20,7 +20,7 @@ function isEmpty(s: string | null | undefined): boolean {
 	return !s; // reminder: JS "falsey" == [undefined, null, NaN, 0, '', false]
 }
 
-export function Adapt(adapter_: Platform.Adapter) {
+function Adapt(adapter_: Platform.Adapter): { readonly OSPaths: OSPaths } {
 	const { env, os, path } = adapter_;
 
 	const isWinOS = /^win/i.test(adapter_.process.platform);
@@ -100,3 +100,6 @@ export function Adapt(adapter_: Platform.Adapter) {
 
 	return { OSPaths: new OSPaths_() as OSPaths };
 }
+
+export type { OSPaths };
+export { Adapt };
