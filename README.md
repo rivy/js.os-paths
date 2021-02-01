@@ -31,8 +31,9 @@
 
 ```shell
 npm install os-paths
-# or... `npm install github:rivy/js.os-paths`
-# or... `npm install "https://cdn.jsdelivr.net/gh/rivy/js.os-paths@latest/dist/os-paths.tgz"`
+# or... `npm install "git:github.com/rivy/js.os-paths"`
+# or... `npm install "git:github.com/rivy/js.os-paths#v6.3.0"`
+# or... `npm install "https://cdn.jsdelivr.net/gh/rivy/js.os-paths/dist/os-paths.tgz"`
 ```
 
 ## Usage
@@ -40,7 +41,7 @@ npm install os-paths
 #### CommonJS (CJS)
 
 ```js
-const osPaths = require('os-paths');
+const osPaths = require('os-paths/cjs');
 const home = osPaths.home();
 const temp = osPaths.temp();
 ```
@@ -56,12 +57,15 @@ const temp = osPaths.temp();
 #### Deno
 
 ```ts
-import osPaths from 'https://deno.land/x/os_paths@v6.1.0/src/mod.deno.ts';
+import osPaths from 'https://deno.land/x/os_paths/src/mod.deno.ts';
+//or...
+//import osPaths from 'https://deno.land/x/os_paths@v6.3.0/src/mod.deno.ts';
 //or (via CDN, with optional version/version-range/latest/commit support)...
-//import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.os-paths@6.1.0/src/mod.deno.ts'; // v6.1.0
+//import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.os-paths@6.3.0/src/mod.deno.ts'; // v6.3.0
 //import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.os-paths@6/src/mod.deno.ts'; // v6.x.y
 //import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.os-paths/src/mod.deno.ts'; // latest
 //import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.os-paths@latest/src/mod.deno.ts'; // latest
+//import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.os-paths@COMMIT/src/mod.deno.ts'; // commit
 const home = osPaths.home();
 const temp = osPaths.temp();
 ```
@@ -73,10 +77,10 @@ const temp = osPaths.temp();
 #### `OSPaths()`
 
 ```js
-const osPaths = require('os-paths'); // CJS
+const osPaths = require('os-paths/cjs'); // CJS
 //or...
 //import osPaths from 'os-paths'; // ESM/TypeScript
-//import osPaths from 'https://deno.land/x/os_paths@v6.1.0/src/mod.deno.ts'; // Deno
+//import osPaths from 'https://deno.land/x/os_paths/src/mod.deno.ts'; // Deno
 ```
 
 When importing this module, the object returned is a function object, `OSPaths`, augmented with attached methods. Additional `OSPaths` objects may be constructed by direct call of the imported `OSPaths` object (eg, `const p = osPaths()`) or by using `new` (eg, `const p = new osPaths()`). Notably, since the `OSPaths` object contains no instance state, all `OSPaths` objects will be functionally identical.
@@ -128,11 +132,14 @@ console.log(osPaths.temp());
 CJS is the basic supported output (with support for NodeJS versions as early as NodeJS-v4).
 
 ```js
-const osPaths = require('os-paths');
-
+const osPaths = require('os-paths/cjs');
 console.log(osPaths.home());
 console.log(osPaths.temp());
 ```
+
+> Note: for CJS, `require('os-paths')` is supported for backward-compatibility and will execute correctly at run-time. However, this require construction links to the default package type declarations which, though _correct_ for Deno/ESM/TypeScript, are _incorrect_ for CJS. This, then, leads to incorrect analysis of CJS files by static analysis tools such as TypeScript and Intellisense.
+>
+> Using `require('os-paths/cjs')` is preferred as it associates the proper CJS type declarations and provides correct information to static analysis tools.
 
 #### ECMAScript modules (ESM; `*.mjs`)
 
@@ -142,7 +149,6 @@ console.log(osPaths.temp());
 
 ```js
 import osPaths from 'os-paths';
-
 console.log(osPaths.home());
 console.log(osPaths.temp());
 ```
@@ -161,10 +167,7 @@ As a consequence, TypeScript type definitions are automatically generated, bundl
 `OSPaths` also fully supports use by Deno.
 
 ```js deno
-import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.os-paths@latest/src/mod.deno.ts';
-//or (via CDN, with semver support)...
-//import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.os-paths@6/src/mod.deno.ts';
-
+import osPaths from 'https://deno.land/x/os_paths/src/mod.deno.ts';
 console.log(osPaths.home());
 console.log(osPaths.temp());
 ```
