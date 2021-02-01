@@ -5,6 +5,34 @@
 
 ---
 
+## [v6.3.0](https://github.com/rivy/js.os-paths/compare/v6.2.0...v6.3.0) <small>(2021-01-30)</small>
+
+#### Documentation
+
+* docs ~ add more detail to default `deno` stringification of function objects &ac; [`33233d4`](https://github.com/rivy/js.os-paths/commit/33233d4d4051d0a58dfc4cc5f1da89824735f314)
+* docs ~ update `cspell` dictionary &ac; [`a524ef0`](https://github.com/rivy/js.os-paths/commit/a524ef0e28d8347650fb9d7d50d92a3121411817)
+* docs ~ update Deno possible import target URLs &ac; [`4462656`](https://github.com/rivy/js.os-paths/commit/4462656e86c17ac3e78d1fdfa6df273c9b61ab21)
+* docs ~ README polish (add Deno and JSDelivr shields + color refinements) &ac; [`92ee429`](https://github.com/rivy/js.os-paths/commit/92ee429593960d8d80e166efcb385c285f33c06b)
+
+#### Maintenance
+
+* maint/**build**: refactor - use forked `exec-if-updated` (awaiting project fixes) &ac; [`1f6ef2a`](https://github.com/rivy/js.os-paths/commit/1f6ef2a67fe203fc9bc2309469d616e0b905ee38)
+* maint/**build**: refactor type export/import &ac; [`71f9cd5`](https://github.com/rivy/js.os-paths/commit/71f9cd59d47676ac5a754da26dba0dac7c7cd0d1)
+* maint/**build**: add rollup configuration to bundle typings &ac; [`7a8a5bf`](https://github.com/rivy/js.os-paths/commit/7a8a5bf5664d4fd750c0f4440fa7410c4159d529)
+* maint/**build**: npm dev script fixes + polish (includes `exec-if-updated` fork changes) &ac; [`08070d9`](https://github.com/rivy/js.os-paths/commit/08070d9f5a5bbd87e53289041ad0e11a72a2114e)
+* maint/**dev**: (package.json) npm dev script fixes and polish &ac; [`2e72a3b`](https://github.com/rivy/js.os-paths/commit/2e72a3b91e0f179e340232206b66c8b7b3585e9e)
+* maint/**dev**: update Remark markdown-linting configuration and plugins &ac; [`23c8f8d`](https://github.com/rivy/js.os-paths/commit/23c8f8d79d4df80b3e441c87f5a87e08eac32083)
+* maint/**dist**: update &ac; [`45522ba`](https://github.com/rivy/js.os-paths/commit/45522ba9aa6e6beca3e805fcb37847ac67fa3de1)
+
+#### Refactoring
+
+* refactor Adapt as a function (with OSPaths property) &ac; [`04509bb`](https://github.com/rivy/js.os-paths/commit/04509bb3da62d0f86b0f3f0167292e2b62e4e47e)
+* refactor ~ remove unused/placeholder 'browser' adapter &ac; [`faab2ac`](https://github.com/rivy/js.os-paths/commit/faab2acf2834bba54b4f0f738d75f3dc0c9e74c4)
+* refactor ~ convert anonymous to named functions/methods &ac; [`d0d78c8`](https://github.com/rivy/js.os-paths/commit/d0d78c8996149f1996128d1dda455d0c569f10d7)
+* refactor ~ reduce `const isWinOS` to a function call (improves DRY, reduces duplication) &ac; [`4106f0b`](https://github.com/rivy/js.os-paths/commit/4106f0b9ea8d37cf7eb2d401ee641fe3f167152a)
+
+---
+
 ## [v6.2.0](https://github.com/rivy/js.os-paths/compare/v6.1.0...v6.2.0) <small>(2021-01-17)</small>
 
 #### Documentation
