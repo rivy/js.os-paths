@@ -1,6 +1,6 @@
 import { expectType } from 'tsd';
 
-import osPaths from '../src';
+import osPaths from '../src/mod.esm';
 
 expectType<typeof osPaths>(osPaths());
 
