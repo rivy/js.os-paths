@@ -43,6 +43,7 @@
 
 		"allowJs": true,
 		"noEmit": true,
+		"isolatedModules": true /* Enables warnings for code which may be interpreted incorrectly by single-file transpilation tools */,
 
 		"removeComments": true
 	},
