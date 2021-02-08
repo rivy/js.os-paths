@@ -211,6 +211,7 @@
 		"files": [
 			"!**/*.test-d.ts"
 		],
+		"timeout": "60s",
 		"typescript": {
 			"rewritePaths": {
 				"src/": "build/cjs+tests/"
