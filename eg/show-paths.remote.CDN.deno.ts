@@ -26,6 +26,8 @@ function objectEntries(obj: any) {
 
 console.log({ osPaths });
 console.log(objectEntries(osPaths));
+console.log('home() =', osPaths.home());
+console.log('temp() =', osPaths.temp());
 
 deno.env.set('TEMP', 'temp');
 deno.env.set('TMPDIR', 'tmpdir');

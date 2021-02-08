@@ -45,6 +45,8 @@ function stringifyConverter(_key: any, val: any) {
 console.log({ osPaths });
 console.log({ osPaths: JSON.parse(JSON.stringify(osPaths, stringifyConverter)) }); // custom output; // maint:[2020-01-30; rivy] await resolution of <https://github.com/denoland/deno/issues/9333> by <https://github.com/denoland/deno/pull/9363>
 console.log(objectEntries(osPaths));
+console.log('home() =', osPaths.home());
+console.log('temp() =', osPaths.temp());
 
 deno.env.set('TEMP', 'temp');
 deno.env.set('TMPDIR', 'tmpdir');

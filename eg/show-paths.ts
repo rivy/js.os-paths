@@ -14,6 +14,8 @@ function objectEntries(obj: any) {
 
 console.log({ osPaths });
 console.log(objectEntries(osPaths));
+console.log('home() =', osPaths.home());
+console.log('temp() =', osPaths.temp());
 
 process.env.TMPDIR = process.env.TEMP = process.env.TMP = 'temp';
 console.log(objectEntries(osPaths));
