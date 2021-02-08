@@ -1,7 +1,7 @@
 import * as os from 'os';
 import * as path from 'path';
 
-import { Platform } from './_base';
+import { Platform } from './_base.js';
 
 export const adapter: Platform.Adapter = {
 	env: {

@@ -1,6 +1,6 @@
 // # spell-checker:ignore AllUsersProfile HomeDrive HomePath LocalAppData UserProfile WinDir falsey
 
-import { Platform } from '../platform-adapters/_base';
+import { Platform } from '../platform-adapters/_base.js';
 
 /** Determine common OS/platform paths (home, temp, ...) */
 type OSPaths = {

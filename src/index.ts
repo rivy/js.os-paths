@@ -1,6 +1,6 @@
 // spell-checker:ignore maint rivy
-import { Adapt, OSPaths } from './lib/OSPaths';
-import { adapter } from './platform-adapters/node';
+import { Adapt, OSPaths } from './lib/OSPaths.js';
+import { adapter } from './platform-adapters/node.js';
 
 const default_: OSPaths = Adapt(adapter).OSPaths;
 
