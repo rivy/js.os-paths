@@ -45,6 +45,8 @@ if (process.env.npm_config_test_for_dist) {
 		});
 	} else {
 		test('examples are executable without error (Deno)', (t) => {
+			t.timeout(30000); // 30s timeout
+
 			const egDirPath = 'eg';
 			const extension_regexps = [/.*[.]deno[.]ts$/i];
 
@@ -73,6 +75,8 @@ if (process.env.npm_config_test_for_dist) {
 	}
 
 	test('examples are executable without error (JavaScript)', (t) => {
+		t.timeout(30000); // 30s timeout
+
 		const egDirPath = 'eg';
 		const extensions = ['.js', '.cjs', '.mjs'];
 
@@ -102,6 +106,8 @@ if (process.env.npm_config_test_for_dist) {
 	});
 
 	test('examples are executable without error (TypeScript)', (t) => {
+		t.timeout(30000); // 30s timeout
+
 		const egDirPath = 'eg';
 		const extensions = ['.js', '.cjs', '.mjs', '.ts'];
 
