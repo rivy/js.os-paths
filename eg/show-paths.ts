@@ -1,4 +1,4 @@
-import osPaths from '../dist/cjs/index.js'; // ## maint: [2021-02-07; rivy] await resolution of <https://github.com/TypeStrong/ts-node/issues/783> to return to direct TS import
+import osPaths from '../dist/cjs/mod.cjs.js'; // ## maint: [2021-02-07; rivy] await resolution of <https://github.com/TypeStrong/ts-node/issues/783> to return to direct TS import
 
 /* eslint-disable no-console , functional/immutable-data , security/detect-object-injection, security-node/detect-crlf , @typescript-eslint/no-explicit-any */
 

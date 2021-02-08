@@ -1,7 +1,7 @@
 /* eslint-env es6, node */
 'use strict';
 
-const osPaths = require('../dist/cjs/index.js');
+const osPaths = require('../dist/cjs/mod.cjs.js');
 
 /* eslint-disable no-console , functional/immutable-data , security/detect-object-injection, security-node/detect-crlf */
 
