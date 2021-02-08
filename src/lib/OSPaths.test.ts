@@ -1,6 +1,6 @@
 import test from 'ava';
 
-import module_ from '..';
+import module_ from '../mod.esm.js';
 
 type moduleInternals_ = typeof module_ & {
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any

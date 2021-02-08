@@ -2,10 +2,10 @@
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import { Adapt } from '../dist/esm/lib/OSPaths.mjs';
+import { Adapt } from '../dist/esm/lib/OSPaths.js';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import type OSPaths from '../dist/types/index.d.ts';
+import type OSPaths from '../dist/types/mod.d.ts';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
