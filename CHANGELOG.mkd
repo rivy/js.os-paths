@@ -5,6 +5,39 @@
 
 ---
 
+## [v6.4.0](https://github.com/rivy/js.os-paths/compare/v6.3.0...v6.4.0) <small>(2021-02-09)</small>
+
+#### Documentation
+
+* docs ~ polish README (import/require notes and suggestions) &ac; [`312af3d`](https://github.com/rivy/js.os-paths/commit/312af3d60f7419ab09b65c5b15d60a9266da92c8)
+* docs ~ JSDocs polish &ac; [`a0205e0`](https://github.com/rivy/js.os-paths/commit/a0205e0ad0ca7ea858834f0f0e51c2e9f67a4b00)
+* docs ~ add additional output (showing/testing API functions) to examples &ac; [`85ecab0`](https://github.com/rivy/js.os-paths/commit/85ecab0dbdabd8759bfed4ee85dabcb935a48aa4)
+* docs ~ add ESM dynamic import example &ac; [`87709f0`](https://github.com/rivy/js.os-paths/commit/87709f0e202133c2110ef68d780d4a6307bf8130)
+* docs ~ add CJS example with dynamic require (using package 'main') &ac; [`e4c692d`](https://github.com/rivy/js.os-paths/commit/e4c692de8132b63375c91146ce9a7b32ea559705)
+* docs ~ add maint note detail &ac; [`0af6ebc`](https://github.com/rivy/js.os-paths/commit/0af6ebcaec1e601b525589602574aaba0c8ee4f3)
+* docs ~ refactor examples for new source organization &ac; [`f75bbdd`](https://github.com/rivy/js.os-paths/commit/f75bbdd824a47de44659b09149312cd8c2e42669)
+* docs ~ fix TS example to work with fully-specified imports and `ts-node` &ac; [`1e5c548`](https://github.com/rivy/js.os-paths/commit/1e5c54880c1161065f872705985678a11d9aec86)
+* docs ~ update CHANGELOG &ac; [`ff5161b`](https://github.com/rivy/js.os-paths/commit/ff5161bb4f8d4aa63490961d7698292f5b9261ed)
+
+#### Maintenance
+
+* maint/**build**: add './cjs' subpath export with correct types for CJS &ac; [`5b184df`](https://github.com/rivy/js.os-paths/commit/5b184df9c76fcaeaace9813a59269e8293b3af0e)
+* maint/**build**: refactor/reorganize package exports config &ac; [`17b903f`](https://github.com/rivy/js.os-paths/commit/17b903f9becc1d7a92fc0d95a8645ee214babe52)
+* maint/**build**: relocate Prettier config from 'package.json' to external file &ac; [`8c91851`](https://github.com/rivy/js.os-paths/commit/8c91851706918e7f06ce1f554fbe023b035cdb7e)
+* maint/**build**: (git) ignore build/update target 'success' signal files &ac; [`536a3db`](https://github.com/rivy/js.os-paths/commit/536a3db921799bc9807be2062925f3de22d19bd8)
+* maint/**build**: (package.json) use build target signal files (improves build dependency logic) &ac; [`8762cb6`](https://github.com/rivy/js.os-paths/commit/8762cb6648a5ae7ae881af7d0c81608415a7c613)
+* maint/**build**: add 'cjs' directory to distribution for tools w/o 'exports' support &ac; [`d34d3cf`](https://github.com/rivy/js.os-paths/commit/d34d3cfc87ba30ca23205c1bd2b1c40b5109936b)
+* maint/**build**: enable TSconfig 'isolatedModules' (helps avoid type import/export errors) &ac; [`c0b04cc`](https://github.com/rivy/js.os-paths/commit/c0b04cca40aa79647db594c91a1aebc7ce2a33a4)
+* maint/**dev**: (package.json) fix npm dev script "publish" for (`--dry-run` use) &ac; [`75155d3`](https://github.com/rivy/js.os-paths/commit/75155d3ce95b259693c7b6269abb819e0f73d75e)
+* maint/**dist**: update &ac; [`cdbee22`](https://github.com/rivy/js.os-paths/commit/cdbee22088ba5cd0b511eddef1c8c7621372b6c7)
+
+#### Refactoring
+
+* refactor ~ separate CJS/ESM module code (and rename source files) &ac; [`604e0a6`](https://github.com/rivy/js.os-paths/commit/604e0a6a3084e6d10ce93d2b918e65e6fbb34974)
+* refactor all internal module imports to use fully-specified paths (with extensions) &ac; [`ae017d4`](https://github.com/rivy/js.os-paths/commit/ae017d4c93415dd3f2877244c69391dde9958cb8)
+
+---
+
 ## [v6.3.0](https://github.com/rivy/js.os-paths/compare/v6.2.0...v6.3.0) <small>(2021-01-31)</small>
 
 #### Documentation
