@@ -256,7 +256,7 @@ By contributing to the project, you are agreeing to provide your contributions u
 <!-- Repository -->
 <!-- Note: for '[repository-image] ...', `%E2%81%A3` == utf-8 sequence of "Unicode Character 'INVISIBLE SEPARATOR' (U+2063)"; ref: <https://codepoints.net/U+2063> -->
 
-[repository-image]: https://img.shields.io/github/package-json/v/rivy/js.os-paths/master?label=%E2%81%A3&logo=github&logoColor=white
+[repository-image]: https://img.shields.io/github/v/tag/rivy/js.os-paths?sort=semver&label=%E2%81%A3&logo=github&logoColor=white
 [repository-url]: https://github.com/rivy/js.os-paths
 [license-image]: https://img.shields.io/npm/l/os-paths.svg?color=tomato&style=flat
 [license-url]: license
