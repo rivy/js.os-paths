@@ -70,6 +70,10 @@ const home = osPaths.home();
 const temp = osPaths.temp();
 ```
 
+##### Required Deno permissions
+
+- `--allow-env` ~ requires access to the environment
+
 ## API
 
 ### Construction/Initialization
