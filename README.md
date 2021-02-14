@@ -4,8 +4,7 @@
 <!-- spell-checker:ignore expandtab markdownlint modeline smarttab softtabstop -->
 
 <!-- markdownlint-disable heading-increment no-duplicate-heading -->
-<!-- spell-checker:ignore (abbrev/jargon) CICD CJS ESM ESMs -->
-<!-- spell-checker:ignore (names) Codacy Deno JSDelivr npmJS -->
+<!-- spell-checker:ignore (abbrev/names) CICD CJS Codacy Deno ESM ESMs JSDelivr npmJS -->
 <!-- spell-checker:ignore (targets) realclean -->
 <!-- spell-checker:ignore (people) rivy -->
 
