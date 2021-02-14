@@ -5,6 +5,35 @@
 
 ---
 
+## [v6.5.0](https://github.com/rivy/js.os-paths/compare/v6.4.0...v6.5.0) <small>(2021-02-14)</small>
+
+#### Documentation
+
+* docs ~ add words to cSpell workspace dictionaries &ac; [`0ae36e7`](https://github.com/rivy/js.os-paths/commit/0ae36e76390d92cd1508d411a8636d85a453e4c8)
+* docs ~ README revisions &ac; [`6d1c676`](https://github.com/rivy/js.os-paths/commit/6d1c676193cf3d7e87b65d47e9f4368821f4470f)
+* docs ~ (README) revise spell-checker exceptions &ac; [`8b5db5a`](https://github.com/rivy/js.os-paths/commit/8b5db5adb52683876e3c4f1baf06268de765ff32)
+* docs ~ README update for `git-changelog` v1.1+ requirement &ac; [`7789246`](https://github.com/rivy/js.os-paths/commit/7789246ababe4c263deedf90daf5b5070405c6c6)
+* docs ~ remove now-extraneous stringify code from Deno example &ac; [`46ee549`](https://github.com/rivy/js.os-paths/commit/46ee54931d506cd42057ba97ecc5eb4b2e3df074)
+* docs ~ README polish (Deno permissions) &ac; [`e269a48`](https://github.com/rivy/js.os-paths/commit/e269a4805a8fc9e86ace75fc072769922053fe71)
+* docs ~ README polish (git version shield) &ac; [`0d8128e`](https://github.com/rivy/js.os-paths/commit/0d8128eae9548c16e5ad207b53cb37c80368c6db)
+
+#### Maintenance
+
+* maint/**build**: normalize 'build' directory structure &ac; [`b14340d`](https://github.com/rivy/js.os-paths/commit/b14340d53528857ce9e081090dbb00b97db941da)
+* maint/**dev**: fix EditorConfig lint complaints &ac; [`a48ace0`](https://github.com/rivy/js.os-paths/commit/a48ace009a356cfdf2ff7ba9cc8693249e4d1b20)
+* maint/**dev**: reorganize third-party code/types into 'vendor' &ac; [`a1508d7`](https://github.com/rivy/js.os-paths/commit/a1508d79f3e82c40414699b39e728f94b50be55f)
+* maint/**dev**: (scripts) fix CHANGELOG updates for version changes (requires `git-changelog` v1.1+) &ac; [`de3438c`](https://github.com/rivy/js.os-paths/commit/de3438cb0f5181e37154d301833b0276ae952cc0)
+* maint/**dev**: (scripts) polish comments &ac; [`f52ac7f`](https://github.com/rivy/js.os-paths/commit/f52ac7f65e36d9d06f1361c48a87b47d9e7e8691)
+* maint/**dev**: (scripts) add EditorConfig linter &ac; [`539a2fb`](https://github.com/rivy/js.os-paths/commit/539a2fbd5cac3de4188f9f9db088be8a14f7360a)
+* maint/**dev**: (scripts) build in series (await parallel `shx mkdir` fix) &ac; [`54e5177`](https://github.com/rivy/js.os-paths/commit/54e517718d27c84c701155934777080c5d820563)
+* maint/**dev**: remove now-unneeded `rollup` configs for CJS and ESM &ac; [`0ab8eca`](https://github.com/rivy/js.os-paths/commit/0ab8eca10230c8b5f1fbb5cb0e5c94cbd25ff1a7)
+* maint/**dev**: (scripts) add 'dist' alias for 'update' &ac; [`386b49f`](https://github.com/rivy/js.os-paths/commit/386b49fc9406f692888806709788a723305c36bb)
+* maint/**dev**: (package.json) add package tags showing Node-v4 support &ac; [`933253d`](https://github.com/rivy/js.os-paths/commit/933253d8a0e0734a6539368566b41267b4c950f3)
+* maint/**dev**: (npm) suppress annoying update messages &ac; [`3cc76d0`](https://github.com/rivy/js.os-paths/commit/3cc76d0c5e3ecc4ea54ba9d5dcf36cf96d5beb4e)
+* maint/**dist**: restructure package 'exports' &ac; [`3157e9f`](https://github.com/rivy/js.os-paths/commit/3157e9fcf6c738f6003312c57dfb3a9d66d361c0)
+
+---
+
 ## [v6.4.0](https://github.com/rivy/js.os-paths/compare/v6.3.0...v6.4.0) <small>(2021-02-09)</small>
 
 #### Documentation
