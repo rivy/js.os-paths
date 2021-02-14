@@ -10,7 +10,7 @@ const test = require('ava');
 const commandExists = require('command-exists');
 const spawn = require('cross-spawn');
 
-const module_ = require('../build/cjs+tests/mod.cjs.js');
+const module_ = require('../build/tests_/src/mod.cjs.js');
 
 const vNodeJS = process.versions.node.split('.');
 const vNodeJSMajor = +vNodeJS[0];
