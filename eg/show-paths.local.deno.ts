@@ -4,7 +4,7 @@
 /* eslint-disable no-console , functional/immutable-data , security/detect-object-injection, security-node/detect-crlf , @typescript-eslint/ban-ts-comment , @typescript-eslint/no-explicit-any */
 
 // eslint-disable-next-line @typescript-eslint/triple-slash-reference
-/// <reference path='../src/types/deno.d.ts'/>
+/// <reference path='../vendor/types/deno.d.ts'/>
 
 // @ts-ignore
 import osPaths from '../src/mod.deno.ts';
