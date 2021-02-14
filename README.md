@@ -195,7 +195,7 @@ console.log(osPaths.temp());
 
 > #### optional
 >
-> - [`git-changelog`](https://github.com/rivy-go/git-changelog) ... enables changelog automation
+> - [`git-changelog`](https://github.com/rivy-go/git-changelog) (v1.1+) ... enables changelog automation
 
 ### Build/test
 
