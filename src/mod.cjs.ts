@@ -1,6 +1,4 @@
-import { Adapt } from './lib/OSPaths.js';
+import { Adapt, OSPaths } from './lib/OSPaths.js';
 import { adapter } from './platform-adapters/node.js';
 
-const _ = Adapt(adapter).OSPaths;
-
-export = _;
+export = Adapt(adapter).OSPaths as OSPaths;
