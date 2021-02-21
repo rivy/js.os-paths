@@ -71,9 +71,9 @@ const temp = osPaths.temp();
 
 ##### Required Deno permissions
 
-##### Required Deno permissions
+###### `--allow-env` &middot; _allow access to the process environment variables_
 
-- `--allow-env` (allow access to the process environment variables) <br/> This module/package requires access to various environment variable to determine platform configuration (eg, location of temp and user directories).
+This module/package requires access to various environment variable to determine platform configuration (eg, location of temp and user directories).
 
 ## API
 
