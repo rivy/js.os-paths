@@ -10,7 +10,7 @@ interface OSPaths {
     temp(): string;
 }
 
-declare const _default: OSPaths;
+declare const _: OSPaths;
 
-export default _default;
+export default _;
 export { OSPaths };

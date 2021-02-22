@@ -13,9 +13,30 @@
 
 ---
 
+## [v6.7.0](https://github.com/rivy/js.os-paths/compare/v6.6.0...v6.7.0) <small>(2021-02-22)</small>
+
+<details open><summary><small><em>[v6.7.0; details]</em></small></summary>
+
+#### Documentation
+
+* docs ~ add `cspell` dictionary word(s) &ac; [`2ac8802`](https://github.com/rivy/js.os-paths/commit/2ac880241d89048da2b7bdfe5e30d21ce3417aa7)
+
+#### Maintenance
+
+* maint *(build)*: silence '[@rollup](https://github.com/rollup)/plugin-replace' complaint about 'preventAssignment' default &ac; [`93ad138`](https://github.com/rivy/js.os-paths/commit/93ad13892579b4e7149f0d673c8c849002d0fd01)
+* maint *(deps)*: add `typedoc` (dev; for future use) &ac; [`6c87af5`](https://github.com/rivy/js.os-paths/commit/6c87af5270084c2832a3ea3da156282ef9ce1b05)
+
+#### Refactoring
+
+* refactor ~ replace intermediate default export object to improve `deno doc` results &ac; [`b103503`](https://github.com/rivy/js.os-paths/commit/b1035033fe6513a44af0855c959ac1f53ff72d64)
+
+</details>
+
+---
+
 ## [v6.6.0](https://github.com/rivy/js.os-paths/compare/v6.5.0...v6.6.0) <small>(2021-02-21)</small>
 
-<details open><summary><small><em>[v6.6.0; details]</em></small></summary>
+<details><summary><small><em>[v6.6.0; details]</em></small></summary>
 
 #### Documentation
 
