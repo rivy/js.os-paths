@@ -13,9 +13,34 @@
 
 ---
 
+## [v6.6.0](https://github.com/rivy/js.os-paths/compare/v6.5.0...v6.6.0) <small>(2021-02-21)</small>
+
+<details open><summary><small><em>[v6.6.0; details]</em></small></summary>
+
+#### Documentation
+
+* docs ~ redefine `OSPaths` as interface for better automatic doc generation &ac; [`2fd774c`](https://github.com/rivy/js.os-paths/commit/2fd774c32650dd71e19aef862e9947f7612c0c97)
+* docs ~ revise JSDocs descriptions &ac; [`79a49ba`](https://github.com/rivy/js.os-paths/commit/79a49baacc8d76076d99566539149c8225b73403)
+* docs ~ disable `remark` lint complaint (maximum-heading-length) &ac; [`f0d6a04`](https://github.com/rivy/js.os-paths/commit/f0d6a04f06c806870a88b746ef615825e93227d9)
+* docs ~ README corrections &ac; [`b62e901`](https://github.com/rivy/js.os-paths/commit/b62e9017921c23ff18b153b5bb9ec4c98cda850e)
+* docs ~ CHANGELOG update (new template) &ac; [`6d6dae1`](https://github.com/rivy/js.os-paths/commit/6d6dae1a89205e16d56ba92957af910024bffebd)
+
+#### Maintenance
+
+* maint *(build)*: name revision (tests_ => testbed) &ac; [`2c14d1d`](https://github.com/rivy/js.os-paths/commit/2c14d1df3a9ee4d89d628be86d7dbd4bb9dd7794)
+* maint *(build)*: revise CJS type rewrite to handle unnamed default export &ac; [`2aa4c52`](https://github.com/rivy/js.os-paths/commit/2aa4c5278ed4ff607447330bf6f75e88b229e958)
+
+#### Refactoring
+
+* refactor ~ remove unneeded intermediate 'default' export object &ac; [`c321862`](https://github.com/rivy/js.os-paths/commit/c321862f78043773fa4ae7b5c879605b9780b000)
+
+</details>
+
+---
+
 ## [v6.5.0](https://github.com/rivy/js.os-paths/compare/v6.4.0...v6.5.0) <small>(2021-02-14)</small>
 
-<details open><summary><small><em>[v6.5.0; details]</em></small></summary>
+<details><summary><small><em>[v6.5.0; details]</em></small></summary>
 
 #### Documentation
 
