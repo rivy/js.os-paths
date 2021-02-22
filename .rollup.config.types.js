@@ -18,7 +18,7 @@ export default [
 		output: [{ file: './dist/types/mod.cjs.d.ts', format: 'cjs' }],
 		plugins: [
 			dts(),
-			replace({ 'export default ': 'export = ' }), // hack correct export for CJS default export
+			replace({ preventAssignment: true, values: { 'export default ': 'export = ' } }), // hack correct export for CJS default export
 		],
 	},
 ];
