@@ -3,8 +3,10 @@
 import { Platform } from '../platform-adapters/_base.js';
 
 /** `OSPaths` (API) Determine common OS/platform paths (home, temp, ...) */
-type OSPaths = {
+// eslint-disable-next-line functional/prefer-type-literal
+interface OSPaths {
 	/** Create an `OSPaths` object (`new` is optional). */
+	// eslint-disable-next-line @typescript-eslint/no-misused-new
 	new (): OSPaths;
 	/** Create an `OSPaths` object (`new` is optional). */
 	(): OSPaths;
@@ -14,7 +16,7 @@ type OSPaths = {
 	/** Returns the path string of the system's default directory for temporary files. */
 	temp(): string;
 	/* eslint-enable functional/no-method-signature */
-};
+}
 
 function isEmpty(s: string | null | undefined): boolean {
 	return !s; // reminder: JS "falsey" == [undefined, null, NaN, 0, '', false]
