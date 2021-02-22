@@ -11,5 +11,7 @@ import type { OSPaths } from '../dist/types/mod.d.ts';
 // @ts-ignore
 import { adapter } from './platform-adapters/deno.deno.ts';
 
+const _: OSPaths = Adapt(adapter).OSPaths as OSPaths;
+
 export type { OSPaths };
-export default Adapt(adapter).OSPaths as OSPaths;
+export default _;
