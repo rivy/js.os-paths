@@ -2,12 +2,12 @@
 
 import { Platform } from '../platform-adapters/_base.js';
 
-/** Determine common OS/platform paths (home, temp, ...) */
+/** `OSPaths` (API) Determine common OS/platform paths (home, temp, ...) */
 type OSPaths = {
-	/** @constructor Create an `OSPaths` object. */
-	(): OSPaths;
-	/** @constructor Create an `OSPaths` object. */
+	/** Create an `OSPaths` object (`new` is optional). */
 	new (): OSPaths;
+	/** Create an `OSPaths` object (`new` is optional). */
+	(): OSPaths;
 	/* eslint-disable functional/no-method-signature */
 	/** Returns the path string of the user's home directory (or `undefined` if the user's home directory is not resolvable). */
 	home(): string | undefined;
