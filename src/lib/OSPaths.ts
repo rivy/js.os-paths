@@ -5,8 +5,9 @@ import { Platform } from '../platform-adapters/_base.js';
 /** `OSPaths` (API) Determine common OS/platform paths (home, temp, ...) */
 // eslint-disable-next-line functional/prefer-type-literal
 interface OSPaths {
-	/** Create an `OSPaths` object (preceding `new` is optional). */
+	/** Create an `OSPaths` object (a preceding `new` is optional). */
 	(): OSPaths;
+	/** Create an `OSPaths` object (`new` is optional). */
 	// eslint-disable-next-line @typescript-eslint/no-misused-new
 	new (): OSPaths;
 
