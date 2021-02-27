@@ -13,9 +13,21 @@
 
 ---
 
+## [v6.8.0](https://github.com/rivy/js.os-paths/compare/v6.7.0...v6.8.0) <small>(2021-02-27)</small>
+
+<details open><summary><small><em>[v6.8.0; details]</em></small></summary>
+
+#### Documentation
+
+* docs ~ JSDocs polish &ac; [`8e05fd9`](https://github.com/rivy/js.os-paths/commit/8e05fd9167294c6ee1a1804daf8d0b47f5adb38f)
+
+</details>
+
+---
+
 ## [v6.7.0](https://github.com/rivy/js.os-paths/compare/v6.6.0...v6.7.0) <small>(2021-02-22)</small>
 
-<details open><summary><small><em>[v6.7.0; details]</em></small></summary>
+<details><summary><small><em>[v6.7.0; details]</em></small></summary>
 
 #### Documentation
 
