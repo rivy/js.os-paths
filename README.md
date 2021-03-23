@@ -1,4 +1,4 @@
-<!DOCTYPE markdown><!-- markdownlint-disable no-inline-html -->
+<!DOCTYPE markdown><!-- markdownlint-disable first-line-heading no-inline-html -->
 <meta charset="utf-8" content="text/markdown" lang="en">
 <!-- -## editors ## (emacs/sublime) -*- coding: utf8-nix; tab-width: 4; mode: markdown; indent-tabs-mode: nil; basic-offset: 2; st-word_wrap: 'true' -*- ## (jEdit) :tabSize=4:indentSize=4:mode=markdown: ## (notepad++) vim:tabstop=4:syntax=markdown:expandtab:smarttab:softtabstop=2 ## modeline (see <https://archive.is/djTUD>@@<http://webcitation.org/66W3EhCAP> ) -->
 <!-- spell-checker:ignore expandtab markdownlint modeline smarttab softtabstop -->
@@ -55,6 +55,8 @@ const temp = osPaths.temp();
 
 #### Deno
 
+<span match="(os[-_]paths@v?)\d+([.]\d+([.]\d+)?)?" template="$1{{VERSION_M}}{{$2 ? .VERSION_m}}{{$3 ? .VERSION_r}}">
+
 ```ts
 import osPaths from 'https://deno.land/x/os_paths/src/mod.deno.ts';
 //or...
@@ -68,6 +70,8 @@ import osPaths from 'https://deno.land/x/os_paths/src/mod.deno.ts';
 const home = osPaths.home();
 const temp = osPaths.temp();
 ```
+
+</span>
 
 ##### Required Deno permissions
 
