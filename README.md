@@ -1,10 +1,10 @@
-<!DOCTYPE markdown><!-- markdownlint-disable first-line-heading no-inline-html -->
+<!DOCTYPE markdown><!-- markdownlint-disable first-line-heading no-inline-html --><!-- @prettier --><!-- deno-fmt-ignore-file --><!-- dprint-fmt-ignore-file -->
 <meta charset="utf-8" content="text/markdown" lang="en">
 <!-- -## editors ## (emacs/sublime) -*- coding: utf8-nix; tab-width: 4; mode: markdown; indent-tabs-mode: nil; basic-offset: 2; st-word_wrap: 'true' -*- ## (jEdit) :tabSize=4:indentSize=4:mode=markdown: ## (notepad++) vim:tabstop=4:syntax=markdown:expandtab:smarttab:softtabstop=2 ## modeline (see <https://archive.is/djTUD>@@<http://webcitation.org/66W3EhCAP> ) -->
 <!-- spell-checker:ignore expandtab markdownlint modeline smarttab softtabstop -->
 
 <!-- markdownlint-disable heading-increment no-duplicate-heading -->
-<!-- spell-checker:ignore (abbrev/names) CICD CJS Codacy Deno ESM ESMs JSDelivr npmJS -->
+<!-- spell-checker:ignore (abbrev/names) CICD CJS Codacy Deno Dprint ESM ESMs JSDelivr npmJS -->
 <!-- spell-checker:ignore (targets) realclean -->
 <!-- spell-checker:ignore (people) rivy -->
 
