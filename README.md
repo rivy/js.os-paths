@@ -6,7 +6,7 @@
 <!-- markdownlint-disable heading-increment no-duplicate-heading -->
 <!-- spell-checker:ignore (abbrev/names) CICD CJS Codacy Deno Dprint ESM ESMs JSDelivr npmJS -->
 <!-- spell-checker:ignore (targets) realclean -->
-<!-- spell-checker:ignore (people) rivy -->
+<!-- spell-checker:ignore (people) Roy Ivy III * rivy -->
 
 # [os-paths](https://github.com/rivy/js.os-paths)
 
