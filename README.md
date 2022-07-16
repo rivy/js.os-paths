@@ -4,13 +4,15 @@
 <!-- spell-checker:ignore expandtab markdownlint modeline smarttab softtabstop -->
 
 <!-- markdownlint-disable heading-increment no-duplicate-heading -->
-<!-- spell-checker:ignore (abbrev/names) CICD CJS Codacy Deno ESM ESMs JSDelivr npmJS -->
+<!-- spell-checker:ignore (abbrev/names) CICD CJS Codacy Deno Dprint ESM ESMs JSDelivr npmJS -->
 <!-- spell-checker:ignore (targets) realclean -->
 <!-- spell-checker:ignore (people) rivy -->
 
 # [os-paths](https://github.com/rivy/js.os-paths)
 
 > Determine common OS/platform paths (home, temp, ...)
+
+<!-- dprint-ignore-start -->
 
 [![Build status (GHA)][gha-image]][gha-url]
 [![Build status (Travis-CI)][travis-image]][travis-url]
@@ -25,6 +27,8 @@
 [![NodeJS version][nodejsv-image]][repository-url]
 [![npmJS Downloads][downloads-image]][downloads-url]
 [![JSDelivr Downloads][jsdelivr-image]][jsdelivr-url]
+
+<!-- dprint-ignore-stop -->
 
 ## Installation (CJS/ESM/TypeScript)
 
@@ -179,6 +183,8 @@ console.log(osPaths.temp());
 
 ## Building and Contributing
 
+<!-- dprint-ignore-start -->
+
 [![Repository][repository-image]][repository-url]
 [![Build status (GHA)][gha-image]][gha-url]
 [![Build status (Travis-CI)][travis-image]][travis-url]
@@ -188,6 +194,8 @@ console.log(osPaths.temp());
 [![Quality status (Codacy)][codacy-image]][codacy-url]
 [![Quality status (CodeClimate)][codeclimate-image]][codeclimate-url]
 [![Quality status (CodeFactor)][codefactor-image]][codefactor-url]
+
+<!-- dprint-ignore-stop -->
 
 ### Build requirements
 
