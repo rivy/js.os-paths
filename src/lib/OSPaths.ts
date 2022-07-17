@@ -65,6 +65,7 @@ function Adapt(adapter_: Platform.Adapter): { readonly OSPaths: OSPaths } {
 				env.get('TMPDIR'),
 				env.get('TEMP'),
 				env.get('TMP'),
+				// '/var/tmp'
 			];
 			return normalizePath(priorityList.find((v) => !isEmpty(v))) || fallback;
 		}
