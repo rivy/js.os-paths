@@ -1,6 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-namespace
 export namespace Platform {
 	export type Adapter = {
+		readonly atImportPermissions: { readonly env: boolean };
 		readonly env: { readonly get: (_: string) => string | undefined };
 		readonly os: { readonly homedir?: () => string; readonly tmpdir?: () => string };
 		readonly path: {
