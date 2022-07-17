@@ -28,6 +28,12 @@ console.log(objectEntries(osPaths));
 console.log('home() =', osPaths.home());
 console.log('temp() =', osPaths.temp());
 
+const queryEnv = await deno?.permissions?.query({ name: 'env' });
+if (queryEnv?.state !== 'granted') {
+	console.warn('ERROR: environment permissions are required (try re-run with `--allow-env`)');
+	Deno.exit(1);
+}
+
 deno.env.set('TEMP', 'temp');
 deno.env.set('TMPDIR', 'tmpdir');
 deno.env.set('TMP', 'tmp');
