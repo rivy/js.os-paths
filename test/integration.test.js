@@ -10,7 +10,9 @@ const test = require('ava');
 const commandExists = require('command-exists');
 const spawn = require('cross-spawn');
 
-const module_ = require('../build/testbed/src/mod.cjs.js');
+const modulePath = '../build/testbed/src/mod.cjs.js';
+// eslint-disable-next-line security/detect-non-literal-require , security-node/detect-non-literal-require-calls
+const module_ = require(modulePath);
 
 const vNodeJS = process.versions.node.split('.');
 const vNodeJSMajor = +vNodeJS[0];
@@ -37,9 +39,9 @@ test('api', (t) => {
 	});
 });
 
-// test examples with version changes or distribution
+// test examples when using `--test-dist` (ie, with version changes or prior to distribution)
 if (!process.env.npm_config_test_dist) {
-	test('skipped example testing (enable with `--test-dist`)', (t) => t.pass());
+	test('examples are executable...skipped (enable with `npm test --test-dist`)', (t) => t.pass());
 } else {
 	if (!commandExists.sync('deno')) {
 		test.skip('`deno` not found; Deno examples not tested', (t) => {
