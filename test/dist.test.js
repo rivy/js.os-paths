@@ -39,7 +39,7 @@ function flattenToValues(obj) {
 }
 
 if (!process.env.npm_config_test_dist) {
-	test('skipped (enable with `--test-dist`)', (t) => t.pass());
+	test('skipped (enable with `npm test --test-dist`)', (t) => t.pass());
 } else {
 	const testID$CJStoESM = 'CJS/ESM equivalence';
 	if (vNodeJSMajor < 12) {
