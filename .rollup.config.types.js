@@ -1,8 +1,9 @@
+// `rollup` configuration
 // ref: <https://devhints.io/rollup>
+// v2002-07-13 [rivy]
 // setup: `npm i rollup @rollup/plugin-typescript` or `npm i rollup rollup-plugin-typescript2` (for visible TS error output)
 
 import dts from 'rollup-plugin-dts';
-import replace from '@rollup/plugin-replace';
 
 export default [
 	// bundle TypeScript typings (TypeScript is unable/unwilling to do so...)
@@ -16,9 +17,6 @@ export default [
 	{
 		input: './build/types/src/mod.cjs.d.ts',
 		output: [{ file: './dist/types/mod.cjs.d.ts', format: 'cjs' }],
-		plugins: [
-			dts(),
-			replace({ preventAssignment: true, values: { 'export default ': 'export = ' } }), // hack correct export for CJS default export
-		],
+		plugins: [dts()],
 	},
 ];
