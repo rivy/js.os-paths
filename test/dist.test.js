@@ -38,7 +38,7 @@ function flattenToValues(obj) {
 	return values;
 }
 
-if (!process.env.NPM_CONFIG_TEST_DIST) {
+if (!process.env.npm_config_test_dist) {
 	test('skipped (enable with `--test-dist`)', (t) => t.pass());
 } else {
 	const testID$CJStoESM = 'CJS/ESM equivalence';
