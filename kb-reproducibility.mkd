@@ -1,0 +1,60 @@
+# CI/dev reproducibility
+
+```gitattributes
+# treat JavaScript NPM/Yarn lock files as black-boxes (ie, binaries)
+# * avoids temptation to manually fix conflicts and avoids large, useless, change logs
+# * note: use `git checkout -- yarn.lock && yarn install` to update the lock file upon conflicts
+# ref: <https://github.com/yarnpkg/yarn/issues/1776>, <https://github.com/yarnpkg/yarn/issues/1776#issuecomment-269539948> , <https://github.com/yarnpkg/yarn/issues/1776#issuecomment-297118300>
+
+#...
+
+# assert '.deps-lock' lock files as 'binary' (avoids useless diffs)
+.deps-lock/npm-shrinkwrap.json  binary
+.deps-lock/package-lock.json    binary
+.deps-lock/yarn.lock            binary
+```
+
+```gitignore
+## lock files and reproducibility
+# ref: <https://stackoverflow.com/questions/44206782/do-i-commit-the-package-lock-json-file-created-by-npm-5>
+# ref: [When not to use package-lock.json](https://dev.to/gajus/stop-using-package-lock-json-or-yarn-lock-3ddi) @@ <https://archive.is/aXwfg>
+# ref: <https://stackoverflow.com/questions/58482655/what-is-the-closest-to-npm-ci-in-yarn>
+# ref: <https://classic.yarnpkg.com/blog/2018/06/04/yarn-import-package-lock>
+# ref: <https://github.com/yarnpkg/yarn/issues/1776>, <https://github.com/yarnpkg/yarn/issues/1776#issuecomment-269539948> , <https://github.com/yarnpkg/yarn/issues/1776#issuecomment-297118300>
+
+# ...
+
+# * ignore lock files (packaged elsewhere for "clean installs")
+npm-shrinkwrap.json
+package-lock.json
+yarn.lock
+# * allow packaging of lock files into '.deps-lock'
+!.deps-lock/npm-shrinkwrap.json
+!.deps-lock/package-lock.json
+!.deps-lock/yarn.lock
+```
+
+Initial solution was to treat lock files as binaries.
+
+- doesn't work well because the files will not be ignored once committed
+
+A better solution might be to zip any lock files into a specific file (`.lock.zip`) periodically, retrieving them when needed.
+
+`git archive` can be used with an empty commit...
+
+`git archive -9 --add-file=package-lock.json --add-file=yarn.lock 4b825dc642cb6eb9a060e54bf8d69288fbee4904 -o .pkg-locks.zip`
+
+The empty commit comes from `git hash-object -t tree --stdin < /dev/null` or `git hash-object -t tree --stdin < NUL`.
+
+`unzip` is included in git-windows and almost all POSIX system. A git alias could use it to unzip the lock files.
+
+- ref: [`git` semi-secret empty tree object](https://stackoverflow.com/questions/9765453/is-gits-semi-secret-empty-tree-object-reliable-and-why-is-there-not-a-symbolic)
+- ref: [GIT's Empty Tree](http://colinschimmelfing.com/blog/gits-empty-tree) @@ <https://archive.is/cYCeK>
+
+- best, so far...
+
+Periodically, copy lock files to '.deps-lock' directory and commit as a CI/dev dependency touchstone.
+
+`git` handles compression. Text diffs can be had with `git diff --text ...`.
+
+For clean installs, copy the respective lock file into the main directory and execute a clean install.
