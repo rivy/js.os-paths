@@ -8,7 +8,7 @@ const path = require('path');
 
 const test = require('ava');
 
-const osPaths = require('../build/testbed/src/mod.cjs.js');
+const osPaths = require('../build/lab/src/mod.cjs.js');
 
 const isWinOS = /^win/i.test(process.platform);
 

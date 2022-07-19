@@ -11,7 +11,8 @@ const test = require('ava');
 const commandExists = require('command-exists');
 const spawn = require('cross-spawn');
 
-const modulePath = '../build/testbed/src/mod.cjs.js';
+// ? change to package.main?
+const modulePath = '../build/lab/src/mod.cjs.js';
 // eslint-disable-next-line security/detect-non-literal-require , security-node/detect-non-literal-require-calls
 const module_ = require(modulePath);
 
