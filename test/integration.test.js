@@ -16,7 +16,7 @@ const spawn = require('cross-spawn');
 // ? change to package.main?
 const modulePath = '../build/lab/src/mod.cjs.js';
 // eslint-disable-next-line security/detect-non-literal-require , security-node/detect-non-literal-require-calls
-const module_ = require(modulePath);
+const mod = require(modulePath);
 
 const vNodeJS = process.versions.node.split('.');
 const vNodeJSMajor = +vNodeJS[0];
@@ -35,11 +35,11 @@ const settledSupportForESMs =
 test('api', (t) => {
 	const api = ['home', 'temp'];
 
-	t.is(typeof module_, 'function');
-	t.deepEqual(Object.keys(module_).sort(), api.sort());
+	t.is(typeof mod, 'function');
+	t.deepEqual(Object.keys(mod).sort(), api.sort());
 	api.forEach((key) => {
 		// eslint-disable-next-line security/detect-object-injection
-		t.is(typeof module_[key], 'function');
+		t.is(typeof mod[key], 'function');
 	});
 });
 
