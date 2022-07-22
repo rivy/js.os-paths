@@ -98,7 +98,7 @@ When importing this module, the object returned is a function object, `OSPaths`,
 
 All methods return simple, platform-specific, and platform-compatible path strings which are normalized and have no trailing path separators.
 
-The returned path strings are _not_ guaranteed to already exist on the file system. So, the user is responsible for directory construction, if/when needed. However, since all of these are _standard_ OS directories, they should all exist without the need for user intervention.
+The returned path strings are _not_ guaranteed to already exist on the file system. So, the user application is responsible for directory construction, if/when needed. However, since all of these are _standard_ OS directories, they should all exist without the need for user intervention.
 
 If/when necessary, [`make-dir`](https://www.npmjs.com/package/make-dir) or [`mkdirp`](https://www.npmjs.com/package/mkdirp) can be used to create the directories.
 
@@ -152,7 +152,7 @@ console.log(osPaths.temp());
 
 #### ECMAScript modules (ESM; `*.mjs`)
 
-- <small><span title="ESM support added in v6.0">Requires `v6.0`+.</span></small>
+- <small><span title="ESM support added in v6.0">Requires `OSPaths` `v6.0`+.</span></small>
 
 `OSPaths` fully supports ESM imports.
 
@@ -164,14 +164,14 @@ console.log(osPaths.temp());
 
 ### TypeScript (`*.ts`)
 
-- <small><span title="TypeScript support added in v5.0">Requires `v5.0`+.</span></small>
+- <small><span title="TypeScript support added in v5.0">Requires `OSPaths` `v5.0`+.</span></small>
 
 As of `v5.0`+, `OSPaths` has been converted to a TypeScript-based module.
 As a consequence, TypeScript type definitions are automatically generated, bundled, and exported by the module.
 
 ### Deno
 
-- <small><span title="Deno support added in v6.0">Requires `v6.0`+.</span></small>
+- <small><span title="Deno support added in v6.0">Requires `OSPaths` `v6.0`+.</span></small>
 
 `OSPaths` also fully supports use by Deno.
 
