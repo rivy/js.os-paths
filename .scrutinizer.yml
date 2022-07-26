@@ -27,6 +27,7 @@ filter:
     - 'dist/'
     - 'src/types/'
     - 'test/'
+    - 'vendor/'
     - '*.spec.js'
     - '*.spec.ts'
     - '*.test.js'
