@@ -1,4 +1,5 @@
 # v2022.07.30 [rivy]
+# spell-checker:ignore (people) Roy Ivy III * rivy (words) deps EOLs MSVC
 
 # default; use LF EOLs for text files
 * text=auto eol=lf
