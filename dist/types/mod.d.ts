@@ -12,5 +12,4 @@ interface OSPaths {
 
 declare const _: OSPaths;
 
-export default _;
-export { OSPaths };
+export { OSPaths, _ as default };
