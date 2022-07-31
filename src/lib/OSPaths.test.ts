@@ -3,8 +3,7 @@ import test from 'ava';
 import module_ from '../mod.esm.js';
 
 type moduleInternals_ = typeof module_ & {
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	readonly [index: string]: any;
+	readonly [index: string]: unknown;
 };
 
 test('api', (t) => {
