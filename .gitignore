@@ -18,8 +18,10 @@ coverage
 # ignore JS import/package-related files
 node_modules
 # * ignore lock files (packaged elsewhere for "clean installs")
+npm-shrinkwrap.json
 package-lock.json
 yarn.lock
 # * allow packaging of lock files into '.deps-lock'
+!.deps-lock/npm-shrinkwrap.json
 !.deps-lock/package-lock.json
 !.deps-lock/yarn.lock
