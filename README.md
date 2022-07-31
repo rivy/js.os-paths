@@ -249,7 +249,7 @@ lint:lint           check for code 'lint' (using `eslint`)
 lint:markdown       check for markdown errors (using `remark`)
 lint:spell          check for spelling errors (using `cspell`)
 lint:style          check for format imperfections (using `prettier`)
-prerelease          clean, rebuild, and fully test prior to publish/release
+prerelease          clean, rebuild, and fully test (useful prior to publish/release)
 realclean           remove all generated files
 rebuild             clean and (re-)build project
 rebuild:all         clean and fully reconstruct project distribution
@@ -262,6 +262,7 @@ test:types          test for type declaration errors (using `tsd`)
 update              update/prepare for distribution [alias: 'dist']
 update:changelog    update CHANGELOG (using `git changelog ...`)
 update:dist         update distribution content
+verify              fully (and verbosely) test package
 ```
 
 #### Packaging & Publishing
