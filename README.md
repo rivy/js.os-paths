@@ -73,12 +73,6 @@ const home = osPaths.home();
 const temp = osPaths.temp();
 ```
 
-##### Required Deno permissions
-
-###### `--allow-env` &middot; _allow access to the process environment variables_
-
-This module/package requires access to various environment variable to determine platform configuration (eg, location of temp and user directories).
-
 ## API
 
 ### Construction/Initialization
@@ -170,6 +164,21 @@ As of `v5.0`+, `OSPaths` has been converted to a TypeScript-based module.
 As a consequence, TypeScript type definitions are automatically generated, bundled, and exported by the module.
 
 ### Deno
+
+> #### Requirements
+>
+> Deno >= v1.8.0[^deno-version-req]
+
+<!--{blockquote: .--info style="font-size:75%;"}-->
+
+[^deno-version-req]: The `Deno.permissions` API (stabilized in Deno v1.8.0) is required to avoid needless panics or prompts by Deno during static imports of this module/package. Note: Deno v1.3.0+ may be used if the run flag `--unstable` is also used.
+
+> #### Required Permissions
+>
+> - `--allow-env` &middot; _allow access to the process environment variables_<br>
+>   This module/package requires access to various environment variables to determine platform configuration (eg, location of temp and user directories).
+
+<!--{blockquote: .--info style="font-size:75%;"}-->
 
 - <small><span title="Deno support added in v6.0">Requires `OSPaths` `v6.0`+.</span></small>
 
