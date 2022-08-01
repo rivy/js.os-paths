@@ -59,21 +59,20 @@ function Adapt(adapter_: Platform.Adapter): { readonly OSPaths: OSPaths } {
 		}
 
 		function posix() {
-			const fallback = '/tmp';
+			const fallback = '/tmp'; // or '/var/tmp'
 			const priorityList = [
 				typeof os.tmpdir === 'function' ? os.tmpdir() : void 0,
 				env.get('TMPDIR'),
 				env.get('TEMP'),
 				env.get('TMP'),
-				// '/var/tmp'
 			];
 			return normalizePath(priorityList.find((v) => !isEmpty(v))) || fallback;
 		}
 
 		function windows() {
-			const fallback = 'C:\\Temp';
+			const fallback = 'C:\\Temp'; // or 'C:\\Windows\\Temp'
 			const priorityListLazy = [
-				os.tmpdir,
+				typeof os.tmpdir === 'function' ? os.tmpdir : () => void 0,
 				() => env.get('TEMP'),
 				() => env.get('TMP'),
 				() => joinPathToBase(env.get('LOCALAPPDATA'), ['Temp']),
