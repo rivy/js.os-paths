@@ -35,7 +35,7 @@
 ```shell
 npm install os-paths
 # or... `npm install "git:github.com/rivy/js.os-paths"`
-# or... `npm install "git:github.com/rivy/js.os-paths#v6.3.0"`
+# or... `npm install "git:github.com/rivy/js.os-paths#v7.0.0"`
 # or... `npm install "https://cdn.jsdelivr.net/gh/rivy/js.os-paths/dist/os-paths.tgz"`
 ```
 
@@ -62,10 +62,10 @@ const temp = osPaths.temp();
 ```ts
 import osPaths from 'https://deno.land/x/os_paths/src/mod.deno.ts';
 //or...
-//import osPaths from 'https://deno.land/x/os_paths@v6.3.0/src/mod.deno.ts';
+//import osPaths from 'https://deno.land/x/os_paths@v7.0.0/src/mod.deno.ts';
 //or (via CDN, with optional version/version-range/latest/commit support)...
-//import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.os-paths@6.3.0/src/mod.deno.ts'; // v6.3.0
-//import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.os-paths@6/src/mod.deno.ts'; // v6.x.y
+//import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.os-paths@7.0.0/src/mod.deno.ts'; // v7.0.0
+//import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.os-paths@7/src/mod.deno.ts'; // v7.x.y
 //import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.os-paths/src/mod.deno.ts'; // latest
 //import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.os-paths@latest/src/mod.deno.ts'; // latest
 //import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.os-paths@COMMIT/src/mod.deno.ts'; // commit
