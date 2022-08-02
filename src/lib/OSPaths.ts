@@ -53,24 +53,32 @@ function Adapt(adapter_: Platform.Adapter): { readonly OSPaths: OSPaths } {
 		return isWinOS ? windows() : posix();
 	}
 
-	function temp() {
+	function temp(options?: { readonly enableFallback?: boolean; readonly fallback?: string }) {
+		const options_: NonNullable<typeof options> & { readonly enableFallback: boolean } = {
+			enableFallback: true,
+			...options,
+		};
+
 		function joinPathToBase(base: string | undefined, segments: readonly string[]) {
 			return base ? path.join(base, ...segments) : void 0;
 		}
 
 		function posix() {
-			const fallback = '/tmp'; // or '/var/tmp'
+			const fallback = options_.fallback ?? '/tmp'; // or '/var/tmp'
 			const priorityList = [
 				typeof os.tmpdir === 'function' ? os.tmpdir() : void 0,
 				env.get('TMPDIR'),
 				env.get('TEMP'),
 				env.get('TMP'),
 			];
-			return normalizePath(priorityList.find((v) => !isEmpty(v))) || fallback;
+			return (
+				normalizePath(priorityList.find((v) => !isEmpty(v))) ||
+				(options_.enableFallback ? fallback : void 0)
+			);
 		}
 
 		function windows() {
-			const fallback = 'C:\\Temp'; // or 'C:\\Windows\\Temp'
+			const fallback = options_.fallback ?? 'C:\\Temp'; // or 'C:\\Windows\\Temp'
 			const priorityListLazy = [
 				typeof os.tmpdir === 'function' ? os.tmpdir : () => void 0,
 				() => env.get('TEMP'),
@@ -83,7 +91,7 @@ function Adapt(adapter_: Platform.Adapter): { readonly OSPaths: OSPaths } {
 				() => joinPathToBase(env.get('SystemDrive'), ['\\', 'Temp']),
 			];
 			const v = priorityListLazy.find((v) => v && !isEmpty(v()));
-			return (v && normalizePath(v())) || fallback;
+			return (v && normalizePath(v())) || (options_.enableFallback ? fallback : void 0);
 		}
 
 		return isWinOS ? windows() : posix();
