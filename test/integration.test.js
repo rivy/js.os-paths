@@ -81,10 +81,10 @@ if (!process.env.npm_config_test_dist) {
 			const args = ['run', '--no-prompt', denoModulePath];
 			const options = { shell: true, encoding: 'utf-8' };
 
-			const { error, status, stdout } = spawn.sync(command, args, options);
+			const { error, status, stdout, stderr } = spawn.sync(command, args, options);
 
 			if (!(error === null && status === 0)) {
-				t.log({ denoModulePath, error, status, stdout });
+				t.log({ denoModulePath, error, status, stdout, stderr });
 			}
 
 			t.deepEqual({ error, status }, { error: null, status: 0 });
@@ -122,7 +122,7 @@ if (!process.env.npm_config_test_dist) {
 					const args = ['run', '--allow-all', script];
 					const options = { shell: true, encoding: 'utf-8' };
 
-					const { error, status, stdout } = spawn.sync(command, args, options);
+					const { error, status, stdout, stderr } = spawn.sync(command, args, options);
 
 					if (error === null && status === 0) {
 						t.log(
@@ -130,7 +130,7 @@ if (!process.env.npm_config_test_dist) {
 							`(exit_status=${status})`
 						);
 					} else {
-						t.log({ script, error, status, stdout });
+						t.log({ script, error, status, stdout, stderr });
 					}
 
 					t.deepEqual({ error, status }, { error: null, status: 0 });
@@ -158,7 +158,7 @@ if (!process.env.npm_config_test_dist) {
 					const args = [script];
 					const options = { shell: true, encoding: 'utf-8' };
 
-					const { error, status, stdout } = spawn.sync(command, args, options);
+					const { error, status, stdout, stderr } = spawn.sync(command, args, options);
 
 					if (error === null && status === 0) {
 						t.log(
@@ -166,7 +166,7 @@ if (!process.env.npm_config_test_dist) {
 							`(exit_status=${status})`
 						);
 					} else {
-						t.log({ script, error, status, stdout });
+						t.log({ script, error, status, stdout, stderr });
 					}
 
 					t.deepEqual({ error, status }, { error: null, status: 0 });
@@ -198,7 +198,7 @@ if (!process.env.npm_config_test_dist) {
 					const args = ['node_modules/ts-node/dist/bin.js', script];
 					const options = { shell: true, encoding: 'utf8' };
 
-					const { error, status, stdout } = spawn.sync(command, args, options);
+					const { error, status, stdout, stderr } = spawn.sync(command, args, options);
 
 					const basename = path.basename(file);
 					const extension = path.extname(file);
@@ -211,7 +211,8 @@ if (!process.env.npm_config_test_dist) {
 							`(exit_status=${status})`
 						);
 					} else {
-						t.log({ script, basename, name, extension, nameExtension, error, status, stdout });
+						t.log({ script, basename, name, extension, nameExtension });
+						t.log({ script, error, status, stdout, stderr });
 					}
 
 					t.deepEqual({ error, status }, { error: null, status: 0 });
