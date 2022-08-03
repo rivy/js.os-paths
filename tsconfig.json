@@ -1,11 +1,11 @@
 {
 	"compilerOptions": {
 		"incremental": false,
-		"target": "es3",
-		"outDir": "build/cjs",
+		"target": "es2022",
+		"outDir": "build/es2022",
 		// "rootDir": "src", // interferes with `tsd`; see <https://github.com/SamVerschueren/tsd/issues/80> ; disabling builds exactly the same files/structure except placing *.tsbuildinfo files into the respective subdirectories
 		"moduleResolution": "node",
-		"module": "CommonJS",
+		"module": "es2022",
 		"newLine": "lf",
 		"declaration": true /* Enables automatic generation of type declarations */,
 		"inlineSourceMap": true,
