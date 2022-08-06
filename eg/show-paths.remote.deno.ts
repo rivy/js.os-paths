@@ -4,7 +4,7 @@
 /* eslint-disable no-console , functional/immutable-data , security/detect-object-injection, security-node/detect-crlf , @typescript-eslint/ban-ts-comment , @typescript-eslint/no-explicit-any */
 
 // @ts-ignore
-import osPaths from 'https://deno.land/x/os_paths@v7.0.0/src/mod.deno.ts';
+import osPaths from 'https://deno.land/x/os_paths@v7.1.0/src/mod.deno.ts';
 
 // create a local reference to refer to `Deno` (for better linting without need for multiple `// @ts-ignore` directives)
 // @ts-ignore
