@@ -15,9 +15,26 @@
 
 ---
 
+## [v7.1.1](https://github.com/rivy/js.os-paths/compare/v7.1.0...v7.1.1) <small>(2022-08-06)</small>
+
+<details open><summary><small><em>[v7.1.1; details]</em></small></summary>
+
+#### Documentation
+
+* docs ~ (README) improve Packaging/Publishing instructions &ac; [`d69a42d`](https://github.com/rivy/js.os-paths/commit/d69a42d10c35975c4ebdaf7d2ad1c5251bf50f08)
+* docs ~ (eg) update os-paths import versions &ac; [`3b2ce8a`](https://github.com/rivy/js.os-paths/commit/3b2ce8a185f8caabb99ea584fdf9ce9750883198)
+
+#### Maintenance
+
+* maint *(dev)*: (package) refactor 'prerelease' and 'prepublishOnly' for clarity &ac; [`a703135`](https://github.com/rivy/js.os-paths/commit/a7031351ee22febeed3a403cf9c414c1a6f3959c)
+
+</details>
+
+---
+
 ## [v7.1.0](https://github.com/rivy/js.os-paths/compare/v7.0.0...v7.1.0) <small>(2022-08-06)</small>
 
-<details open><summary><small><em>[v7.1.0; details]</em></small></summary>
+<details><summary><small><em>[v7.1.0; details]</em></small></summary>
 
 #### Dependency Updates
 
