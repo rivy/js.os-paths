@@ -15,9 +15,34 @@
 
 ---
 
+## [v7.1.0](https://github.com/rivy/js.os-paths/compare/v7.0.0...v7.1.0) <small>(2022-08-06)</small>
+
+<details open><summary><small><em>[v7.1.0; details]</em></small></summary>
+
+#### Dependency Updates
+
+* update Deno deps (up-to std[@0](https://github.com/0).150.0) &ac; [`23a8bc6`](https://github.com/rivy/js.os-paths/commit/23a8bc60af13d159ebea983427f543aa5d921aac)
+
+#### Documentation
+
+* docs ~ (eg) update os-paths import versions &ac; [`d916d0e`](https://github.com/rivy/js.os-paths/commit/d916d0e465aa11783c7a4a54dcc4431c49225027)
+
+#### Maintenance
+
+* maint *(dev)*: (package) fix 'rebuild:lab' to include a copy of esm-wrapper &ac; [`53e7941`](https://github.com/rivy/js.os-paths/commit/53e79412bf7cf91f1e0b6a59ab71951b9ff730bf)
+
+#### Test Improvements
+
+* tests ~ add any STDERR output to test logs &ac; [`1979af4`](https://github.com/rivy/js.os-paths/commit/1979af480011f91d3cf8de255c6dd002f9c0f9b6)
+* tests ~ version gate Deno tests &ac; [`a90b501`](https://github.com/rivy/js.os-paths/commit/a90b501f1873e13dd5ef3184e2a0dad1a43ffac1)
+
+</details>
+
+---
+
 ## [v7.0.0](https://github.com/rivy/js.os-paths/compare/v6.9.0...v7.0.0) <small>(2022-07-31)</small>
 
-<details open><summary><small><em>[v7.0.0; details]</em></small></summary>
+<details><summary><small><em>[v7.0.0; details]</em></small></summary>
 
 #### Changes
 
