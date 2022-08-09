@@ -15,9 +15,39 @@
 
 ---
 
+## [v7.2.0](https://github.com/rivy/js.os-paths/compare/v7.1.1...v7.2.0) <small>(2022-08-09)</small>
+
+<details open><summary><small><em>[v7.2.0; details]</em></small></summary>
+
+#### Dependency Updates
+
+* update Deno deps (*down-to* std[@0](https://github.com/0).134.0; *pin*); avoid permission prompt(s) &ac; [`dc1091c`](https://github.com/rivy/js.os-paths/commit/dc1091cd8c801d515eefa334437abb51776732e6)
+
+#### Documentation
+
+* docs ~ (README) revise package locks update instructions &ac; [`fc55f1f`](https://github.com/rivy/js.os-paths/commit/fc55f1f42fcef8c74fd6385374e08f14691fdc3a)
+
+#### Maintenance
+
+* maint *(CICD)*: (TravisCI) expand NodeJS test versions &ac; [`b28cae5`](https://github.com/rivy/js.os-paths/commit/b28cae50f897a64e5e8464f49de79f04f2afae55)
+* maint *(build)*: add `refresh` (aka `rebuild:all`) and `refresh:dist` run targets &ac; [`9e3a1d2`](https://github.com/rivy/js.os-paths/commit/9e3a1d22ced46904b06a5fbe9dd9637ceeb9f8b3)
+* maint *(dev)*: expand/revise coverage exclusion regex &ac; [`a6f9783`](https://github.com/rivy/js.os-paths/commit/a6f97834ae835c50e07ae0c2349cc6af7f4be540)
+* maint *(dev)*: update CI/dev deps-lock &ac; [`01b9b11`](https://github.com/rivy/js.os-paths/commit/01b9b110cb1b6d603496c00864fbe1128c74c4c4)
+* maint *(dev)*: (gitattributes) remove top-level .deps-lock specifics (favor local config) &ac; [`d7a12d5`](https://github.com/rivy/js.os-paths/commit/d7a12d51128151ca7a366c120ef676512667f6a1)
+
+#### Test Improvements
+
+* tests ~ refactor var naming for clarity/consistency &ac; [`7b8478d`](https://github.com/rivy/js.os-paths/commit/7b8478d3ec8bdd26407e033f93d66af4bda4f1b3)
+* tests ~ revise skip text for clarity &ac; [`3122ede`](https://github.com/rivy/js.os-paths/commit/3122edecd209bbe6d470a6b0cfd86914b1ac9ab7)
+* tests ~ restyle spell-checker exceptions for clarity &ac; [`0f9bf69`](https://github.com/rivy/js.os-paths/commit/0f9bf69c4b53c32aff449dac76dd8d1340be5ddc)
+
+</details>
+
+---
+
 ## [v7.1.1](https://github.com/rivy/js.os-paths/compare/v7.1.0...v7.1.1) <small>(2022-08-06)</small>
 
-<details open><summary><small><em>[v7.1.1; details]</em></small></summary>
+<details><summary><small><em>[v7.1.1; details]</em></small></summary>
 
 #### Documentation
 
