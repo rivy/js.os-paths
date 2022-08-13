@@ -15,9 +15,39 @@
 
 ---
 
+## [v7.3.0](https://github.com/rivy/js.os-paths/compare/v7.2.0...v7.3.0) <small>(2022-08-13)</small>
+
+<details open><summary><small><em>[v7.3.0; details]</em></small></summary>
+
+#### Documentation
+
+* docs ~ update `cspell` dictionary words &ac; [`0254c06`](https://github.com/rivy/js.os-paths/commit/0254c0613dbe1d45af0654af27d450ba18e4060c)
+* docs ~ (README) revise Package/Publish notes (removing tag/version check) &ac; [`65133ce`](https://github.com/rivy/js.os-paths/commit/65133ce40e88ea2a650ebd75cfd778ea9e271c39)
+
+#### Maintenance
+
+* maint *(CICD)*: (GHA) expand NodeJS test versions &ac; [`6f5f382`](https://github.com/rivy/js.os-paths/commit/6f5f3822af35b6f4d057e90eff0a6275ed21315b)
+* maint *(CICD)*: (GHA) add platform label to coverage uploads (via `--flags=...`) &ac; [`434037d`](https://github.com/rivy/js.os-paths/commit/434037d97b6062d7f87be5b83648ba679491c9ad)
+* maint *(build)*: (package) revise 'cov:send' to support user-defined options &ac; [`b813de9`](https://github.com/rivy/js.os-paths/commit/b813de9a77798c1c1ecf83461c9f630f571b49d8)
+* maint *(build)*: (package) add '_:debug:env' run target &ac; [`f6ed4c6`](https://github.com/rivy/js.os-paths/commit/f6ed4c6476f89628396f1d27af8c694122ae4c77)
+* maint *(build)*: (package) revise help generation to match HELP_TEXT more narrowly; add commentary &ac; [`dfbccbc`](https://github.com/rivy/js.os-paths/commit/dfbccbc19d905a897eaa4f899acff6ee08e6414f)
+* maint *(build)*: (package) revise and surface availability of test harness options to user &ac; [`171d193`](https://github.com/rivy/js.os-paths/commit/171d193af3adb53c93bfa1762f579eaa778481cc)
+* maint *(build)*: (package) commit linters now check more deeply/robustly into past commits &ac; [`d7f01c7`](https://github.com/rivy/js.os-paths/commit/d7f01c7d3f36058e0da4142ab1d7e56b5de5306a)
+* maint *(dev)*: add CodeCov config (reports will be solely informational/no-fail) &ac; [`143e7b1`](https://github.com/rivy/js.os-paths/commit/143e7b1cda07b1ad49a5d319a00d8834b31082ca)
+* maint *(dev)*: revise `cspell` to allow local exceptions &ac; [`7436a9b`](https://github.com/rivy/js.os-paths/commit/7436a9b8eadb80fd3c1371548b8136bb9de13164)
+* maint *(dev)*: update CommitLint configuration &ac; [`b523f92`](https://github.com/rivy/js.os-paths/commit/b523f929bda7fab6c1719e41ec8b900d2b92052a)
+
+#### Test Improvements
+
+* test *(refactor)*: move version consistency checks from package lint to distribution test &ac; [`6db56d6`](https://github.com/rivy/js.os-paths/commit/6db56d6603e6bf9701c176bb0265b6ea8624df42)
+
+</details>
+
+---
+
 ## [v7.2.0](https://github.com/rivy/js.os-paths/compare/v7.1.1...v7.2.0) <small>(2022-08-09)</small>
 
-<details open><summary><small><em>[v7.2.0; details]</em></small></summary>
+<details><summary><small><em>[v7.2.0; details]</em></small></summary>
 
 #### Dependency Updates
 
