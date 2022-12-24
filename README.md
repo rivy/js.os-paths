@@ -375,7 +375,7 @@ By contributing to the project, you are agreeing to provide your contributions u
 
 [appveyor-image]: https://img.shields.io/appveyor/ci/rivy/js-os-paths/master.svg?style=flat&logo=AppVeyor&logoColor=deepskyblue
 [appveyor-url]: https://ci.appveyor.com/project/rivy/js-os-paths
-[gha-image]: https://img.shields.io/github/workflow/status/rivy/js.os-paths/CI?label=CI&logo=github
+[gha-image]: https://img.shields.io/github/actions/workflow/status/rivy/js.os-paths/CI.yml?label=CI&logo=github
 [gha-url]: https://github.com/rivy/js.os-paths/actions?query=workflow%3ACI
 
 <!-- Code quality -->
