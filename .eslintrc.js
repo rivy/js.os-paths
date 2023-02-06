@@ -38,6 +38,7 @@ module.exports = {
 		'plugin:security-node/recommended',
 		...(usePrettier ? ['prettier', 'prettier/@typescript-eslint'] : []),
 	],
+	reportUnusedDisableDirectives: true,
 	rules: {
 		// ref: https://eslint.org/docs/rules
 		'@typescript-eslint/explicit-module-boundary-types': 'off',
