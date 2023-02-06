@@ -71,6 +71,7 @@ grcov
 grep
 markdownlint
 mkdir
+rimraf
 rollup
 sed
 stty
