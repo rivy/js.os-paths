@@ -1,3 +1,4 @@
+<!-- deno-fmt-ignore-file -->
 <!-- lint disable -->
 <!-- markdownlint-disable -->
 <!-- spellchecker:disable -->
@@ -15,9 +16,55 @@
 
 ---
 
+## [v7.4.0](https://github.com/rivy/js.os-paths/compare/v7.3.0...v7.4.0) <small>(2023-02-06)</small>
+
+<details open><summary><small><em>[v7.4.0; details]</em></small></summary>
+
+#### Fixes
+
+* bugfix ~ (package) work-around for `npm publish` bug (see GH:npm/cli[#6137](https://github.com/rivy/js.os-paths/issues/6137)) &ac; [`d6bedcc`](https://github.com/rivy/js.os-paths/commit/d6bedcc6c485b916a63ce092d4c49b5032e2a7a7)
+
+#### Documentation
+
+* docs ~ fix updated ESLint complaints (eslint-comments/no-unused-disable) &ac; [`a725016`](https://github.com/rivy/js.os-paths/commit/a72501647c3ae178cbd18b1d84b8eec2aefdbe1d)
+* docs ~ (README) revise setup/build/test instructions &ac; [`8e44fb8`](https://github.com/rivy/js.os-paths/commit/8e44fb82f574f68308090d4f3f0e746023b5ea86)
+* docs ~ (README) refine install instructions and URLs &ac; [`174d857`](https://github.com/rivy/js.os-paths/commit/174d857ae50484b0074dac169c9b07f452fbfaaf)
+* docs ~ polish/update `cspell` dictionary words &ac; [`8c3e117`](https://github.com/rivy/js.os-paths/commit/8c3e117d0ce9771d37d211ecfbb7f82d5e2aa017)
+* docs ~ (README) fix GitHub CI badge (shields.io change; see GH:badges/shields/issues/8671) &ac; [`ae9954d`](https://github.com/rivy/js.os-paths/commit/ae9954df042ccf47951ce779f7c8bd653d022178)
+* docs ~ (README) remove TravisCI badges &ac; [`ee8b9d5`](https://github.com/rivy/js.os-paths/commit/ee8b9d5485e9fb3833c80fc37ee221c295329017)
+* docs ~ update `cspell` dictionary words &ac; [`b4a41f6`](https://github.com/rivy/js.os-paths/commit/b4a41f6f87591cc18125cd5fb0bba41d99e2da49)
+
+#### Maintenance
+
+* maint *(CICD)*: (TravisCI) *remove* TravisCI (TravisCI no longer supports FOSS) &ac; [`6bfd098`](https://github.com/rivy/js.os-paths/commit/6bfd09812a892b90a9f9af581cbb51994f749a28)
+* maint *(CICD)*: (TravisCI) suppress NodeJS-v18 testing (*TravisCI* install is defective) &ac; [`e8556d9`](https://github.com/rivy/js.os-paths/commit/e8556d993b3f015dbcf5ed3e85edc72f60e9d8fa)
+* maint *(build)*: (package) add color to 'help' output &ac; [`672a31e`](https://github.com/rivy/js.os-paths/commit/672a31e924690b12a9cb036f38cb98d994fbbe00)
+* maint *(build)*: (package) enable handling of scoped package names &ac; [`f32d346`](https://github.com/rivy/js.os-paths/commit/f32d3462743000dc2e03bbbc90cd78c897d8a674)
+* maint *(build)*: prepare support for 'modern' v2+ `yarn` &ac; [`53e94be`](https://github.com/rivy/js.os-paths/commit/53e94beed704686f137ce1b28c5eefad36cb32c1)
+* maint *(build)*: (package) fix coverage logic and move storage to less visible location &ac; [`57d3113`](https://github.com/rivy/js.os-paths/commit/57d3113b7db7959d38907876e492499506c42b2f)
+* maint *(build)*: (package) fix coverage HTML output target &ac; [`489ebfb`](https://github.com/rivy/js.os-paths/commit/489ebfb910cccad161ca3749728b56cd058d6531)
+* maint *(build)*: (package) add final NL for non-WinOS output equivalence &ac; [`0574294`](https://github.com/rivy/js.os-paths/commit/0574294fb854757546d777d8d6a12a1217b1baf6)
+* maint *(build)*: (package) add `npm audit` linter &ac; [`a89d8ae`](https://github.com/rivy/js.os-paths/commit/a89d8aef052e39daf5ec3e28a5a40dcc85de599c)
+* maint *(build)*: (package) remove 'rimraf' (use `shx rm -fr ...`) &ac; [`0e0b6df`](https://github.com/rivy/js.os-paths/commit/0e0b6df2b30f2dfe6890a1dcf0796b39bce63a0e)
+* maint *(build)*: add `bmp` configuration &ac; [`8ea780f`](https://github.com/rivy/js.os-paths/commit/8ea780fe4f082dd88e8f79da19bf43018556f53c)
+* maint *(build)*: revise various configs for 'modern' v2+ `yarn` use &ac; [`483b4a5`](https://github.com/rivy/js.os-paths/commit/483b4a58f5d8d1624b3652b82e76f8f00373ac35)
+* maint *(deps)*: update deps locks (NodeJS v10.23.1, npm v7.24.2, yarn v1.22.19) &ac; [`b8cc4d3`](https://github.com/rivy/js.os-paths/commit/b8cc4d3cb081502b2e62f7ad06144990f5c185bf)
+* maint *(dev)*: (markdown-lint/Remark) update config; adds dual use (Deno or NodeJS projects) &ac; [`9f8eac3`](https://github.com/rivy/js.os-paths/commit/9f8eac3482bdc92dd16888fd2d8f399044a81a99)
+* maint *(dev)*: (Prettier) update config; adds dual use (Deno or NodeJS projects) &ac; [`21fc281`](https://github.com/rivy/js.os-paths/commit/21fc28130c53b11049b3693ea8260932f43c4155)
+* maint *(dev)*: (ESLint) update config; merge Deno and JS configs &ac; [`d5d73f5`](https://github.com/rivy/js.os-paths/commit/d5d73f5b48c3f10959bfe1d19ab192d90d73cfd1)
+* maint *(dev)*: (CommitLint) update config; add relaxed linting for development + rule tweaks &ac; [`7d28a76`](https://github.com/rivy/js.os-paths/commit/7d28a7683faa64d37a248b9f72193a190a6798d7)
+* maint *(dev)*: (git-changelog) configuration and template updates &ac; [`095d2ea`](https://github.com/rivy/js.os-paths/commit/095d2ea38d2b48d390bd5662e427449d8386f2c3)
+* maint *(dev)*: (ESLint) enable built-in 'reportUnusedDisableDirectives' &ac; [`24403a4`](https://github.com/rivy/js.os-paths/commit/24403a44eea8259140383b36999e5d7954087899)
+* maint *(dev)*: (deps) revise/loosen `eslint` related deps &ac; [`ba718a2`](https://github.com/rivy/js.os-paths/commit/ba718a21f62ae6c44fa07b11ee2a0231187737b3)
+* maint *(dev)*: (gitignore) update notes &ac; [`96264b7`](https://github.com/rivy/js.os-paths/commit/96264b7742d81cc25761661e3d58a680f4c58d21)
+
+</details>
+
+---
+
 ## [v7.3.0](https://github.com/rivy/js.os-paths/compare/v7.2.0...v7.3.0) <small>(2022-08-13)</small>
 
-<details open><summary><small><em>[v7.3.0; details]</em></small></summary>
+<details><summary><small><em>[v7.3.0; details]</em></small></summary>
 
 #### Documentation
 
