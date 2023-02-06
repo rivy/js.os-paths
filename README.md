@@ -31,11 +31,14 @@
 
 ## Installation (CJS/ESM/TypeScript)
 
+<!-- ref: [JSDelivr ~ GitHub](https://www.jsdelivr.com/documentation#id-github) @@ <https://archive.is/c8s9Y> -->
+
 ```shell
 npm install os-paths
 # or... `npm install "git:github.com/rivy/js.os-paths"`
-# or... `npm install "git:github.com/rivy/js.os-paths#v7.0.0"`
-# or... `npm install "https://cdn.jsdelivr.net/gh/rivy/js.os-paths/dist/os-paths.tgz"`
+# or... `npm install "git:github.com/rivy/js.os-paths#v7.3.0"`
+# or... `npm install "https://cdn.jsdelivr.net/gh/rivy/js.os-paths@v7.3.0/dist/os-paths.tgz"`
+# or... `npm install "https://cdn.jsdelivr.net/gh/rivy/js.os-paths@COMMIT_SHA/dist/os-paths.tgz"`
 ```
 
 ## Usage
@@ -58,16 +61,13 @@ const temp = osPaths.temp();
 
 #### Deno
 
+<!-- ref: [JSDelivr ~ GitHub](https://www.jsdelivr.com/documentation#id-github) @@ <https://archive.is/c8s9Y> -->
+
 ```ts
-import osPaths from 'https://deno.land/x/os_paths/src/mod.deno.ts';
-//or...
-//import osPaths from 'https://deno.land/x/os_paths@v7.0.0/src/mod.deno.ts';
-//or (via CDN, with optional version/version-range/latest/commit support)...
-//import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.os-paths@7.0.0/src/mod.deno.ts'; // v7.0.0
-//import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.os-paths@7/src/mod.deno.ts'; // v7.x.y
-//import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.os-paths/src/mod.deno.ts'; // latest
-//import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.os-paths@latest/src/mod.deno.ts'; // latest
-//import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.os-paths@COMMIT/src/mod.deno.ts'; // commit
+import osPaths from 'https://deno.land/x/os_paths@v7.3.0/src/mod.deno.ts';
+//or (via CDN, [ie, JSDelivr with GitHub version/version-range, commit, 'latest' support])...
+//import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.os-paths@v7.3.0/src/mod.deno.ts';
+//import osPaths from 'https://cdn.jsdelivr.net/gh/rivy/js.os-paths@COMMIT_SHA/src/mod.deno.ts';
 const home = osPaths.home();
 const temp = osPaths.temp();
 ```
