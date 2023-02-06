@@ -1,6 +1,6 @@
 // ESLint configuration
 // ref: <https://eslint.org/docs/latest/user-guide/configuring/configuration-files>
-// v2022-08-20 [rivy]
+// v2023-02-05 [rivy]
 
 // spell-checker:ignore (names) rivy ; (options) iife
 
@@ -17,6 +17,7 @@ module.exports = {
 		'[._@#$]coverage',
 		'.eslintrc.js',
 		'.nyc_output',
+		'.yarn',
 		'build',
 		'coverage',
 		'dist',
