@@ -1,0 +1,9 @@
+version: 7.3.0
+commit: '%.%.%'
+files:
+  package.json: '"version": "%.%.%"'
+  README.md:
+    - 'git:github.com/rivy/js.os-paths#v%.%.%'
+    - 'https://cdn.jsdelivr.net/gh/rivy/js.os-paths@v%.%.%'
+    - 'https://deno.land/x/os_paths@v%.%.%'
+  VERSION: '%.%.%'
