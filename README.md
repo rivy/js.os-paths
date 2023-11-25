@@ -82,7 +82,7 @@ const temp = osPaths.temp();
 const osPaths = require('os-paths/cjs'); // CJS
 //or...
 //import osPaths from 'os-paths'; // ESM/TypeScript
-//import osPaths from 'https://deno.land/x/os_paths/src/mod.deno.ts'; // Deno
+//import osPaths from 'https://deno.land/x/os_paths@v7.4.0/src/mod.deno.ts'; // Deno
 ```
 
 When importing this module, the object returned is a function object, `OSPaths`, augmented with attached methods. Additional `OSPaths` objects may be constructed by direct call of the imported `OSPaths` object (eg, `const p = osPaths()`) or by using `new` (eg, `const p = new osPaths()`). Notably, since the `OSPaths` object contains no instance state, all `OSPaths` objects will be functionally identical.
@@ -184,7 +184,7 @@ As a consequence, TypeScript type definitions are automatically generated, bundl
 `OSPaths` also fully supports use by Deno.
 
 ```js deno
-import osPaths from 'https://deno.land/x/os_paths/src/mod.deno.ts';
+import osPaths from 'https://deno.land/x/os_paths@v7.4.0/src/mod.deno.ts';
 console.log(osPaths.home());
 console.log(osPaths.temp());
 ```
